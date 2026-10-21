@@ -22,7 +22,7 @@ import java.util.Set;
 
 public final class PlanSpec {
     public static final int MAX_STEPS = 80;
-    public static final List<String> OPS = List.of("go", "look", "follow", "flee", "jump", "spin", "crouch", "swing", "wait", "say", "break", "place", "use", "give", "drop", "pickup", "attack", "kill", "fetch", "sleep", "eat", "emote", "sound", "interact", "ride", "dismount", "teleport", "command", "equip", "power", "learn", "train", "godir", "back", "observe", "drive");
+    public static final List<String> OPS = List.of("go", "look", "follow", "flee", "jump", "spin", "crouch", "swing", "wait", "say", "break", "place", "use", "give", "drop", "pickup", "attack", "kill", "fetch", "sleep", "eat", "emote", "sound", "interact", "ride", "dismount", "teleport", "command", "equip", "power", "learn", "train", "godir", "back", "observe", "drive", "cook", "fish", "plant");
     private static final Map<String, String> ALIAS = new HashMap<String, String>();
     private static final Set<String> HOSTILE_WORDS;
     private static final Set<String> ANIMAL_WORDS;
@@ -83,6 +83,14 @@ public final class PlanSpec {
         String target = PlanSpec.str(o, "target", "to", "at", "on", "from", "objetivo", "a", "hacia", "de", "donde", "who", "quien", "dir", "direction", "direccion", "sentido");
         String item = PlanSpec.str(o, "item", "objeto", "block", "bloque", "with", "con");
         String text = PlanSpec.str(o, "text", "texto", "say", "type", "tipo", "id", "what", "que", "emotion", "sound", "mensaje", "message", "command", "cmd", "comando", "slot", "ranura", "name", "nombre", "power", "poder");
+        if (target.isEmpty() && o.has("x") && o.has("z") && o.get("x").isJsonPrimitive() && o.get("z").isJsonPrimitive()) {
+            try {
+                target = Math.round(o.get("x").getAsDouble()) + " " + Math.round(o.has("y") && o.get("y").isJsonPrimitive() ? o.get("y").getAsDouble() : -9999) + " " + Math.round(o.get("z").getAsDouble());
+            }
+            catch (RuntimeException e) {
+                // coordenadas ilegibles
+            }
+        }
         String vehicle = PlanSpec.str(o, "vehicle", "vehiculo", "nave", "montura", "mount", "ride", "in", "en", "into");
         int times = PlanSpec.num(o, -1, "times", "n", "count", "turns", "veces", "vueltas", "cantidad", "amount", "blocks", "bloques", "distance", "distancia");
         int secs = PlanSpec.num(o, -1, "secs", "seconds", "segundos", "s", "duration", "duracion");
@@ -187,6 +195,31 @@ public final class PlanSpec {
             if (out.size() >= 80) {
                 return;
             }
+            if (el.isJsonPrimitive() && el.getAsJsonPrimitive().isString()) {
+                // paso escrito como frase ("ve a la puerta"): se entiende con la gramatica del juego
+                String sentence = el.getAsString().trim();
+                boolean spliced = false;
+                for (String lead : new String[]{"", "puedes "}) {
+                    OrderParser.Order first = OrderParser.parse(lead + sentence).first();
+                    if (!sentence.isEmpty() && first != null && first.type().equals("plan")) {
+                        for (Step st : PlanSpec.parse(first.steps())) {
+                            if (out.size() < 80) {
+                                out.add(st);
+                            }
+                        }
+                        spliced = true;
+                        break;
+                    }
+                }
+                if (!spliced && !sentence.isEmpty()) {
+                    JsonObject asOp = new JsonObject();
+                    asOp.addProperty("op", sentence);
+                    JsonArray one = new JsonArray();
+                    one.add((JsonElement)asOp);
+                    PlanSpec.expand(one, out, depth + 1);
+                }
+                continue;
+            }
             if (!el.isJsonObject()) continue;
             JsonObject o = el.getAsJsonObject();
             String rawOp = PlanSpec.str(o, "op", "do", "accion", "action", "paso", "step", "type_op");
@@ -284,11 +317,22 @@ public final class PlanSpec {
             return out;
         }
         try {
-            JsonElement root = JsonParser.parseString((String)json.trim());
+            String trimmed = json.trim();
+            JsonElement root;
+            try {
+                root = JsonParser.parseString(trimmed);
+            }
+            catch (RuntimeException notJson) {
+                root = new com.google.gson.JsonPrimitive(trimmed);
+            }
             if (root.isJsonObject() && root.getAsJsonObject().has("steps") && root.getAsJsonObject().get("steps").isJsonArray()) {
                 root = root.getAsJsonObject().get("steps");
             }
-            if (root.isJsonArray()) {
+            if (root.isJsonPrimitive() && root.getAsJsonPrimitive().isString()) {
+                JsonArray one = new JsonArray();
+                one.add(root);
+                PlanSpec.expand(one, out, 0);
+            } else if (root.isJsonArray()) {
                 PlanSpec.expand(root.getAsJsonArray(), out, 0);
             } else if (root.isJsonObject()) {
                 JsonArray one = new JsonArray();
@@ -416,6 +460,9 @@ public final class PlanSpec {
                 case "train": 
                 case "godir": 
                 case "back":
+                case "cook":
+                case "fish":
+                case "plant":
                 case "drive": {
                     return true;
                 }
@@ -454,6 +501,9 @@ public final class PlanSpec {
             case "interact" -> "interact\u00faa con" + t;
             case "ride" -> "se monta en" + t;
             case "dismount" -> "se baja";
+            case "cook" -> "cocina" + (i.isEmpty() ? " lo que lleva" : i);
+            case "fish" -> "pesca" + (s.n() > 1 ? " (" + s.n() + ")" : "");
+            case "plant" -> "planta" + (i.isEmpty() ? " lo que lleva" : i) + (t.isEmpty() ? "" : " en" + t);
             case "drive" -> "pilota" + (i.isEmpty() ? " el vehículo" : i) + (t.isEmpty() ? "" : " hacia" + t) + " (" + s.secs() + " s)";
             case "teleport" -> "se teletransporta a" + t;
             case "command" -> "ejecuta " + (String)(s.text().length() > 40 ? s.text().substring(0, 40) + "\u2026" : s.text());
@@ -494,6 +544,9 @@ public final class PlanSpec {
         PlanSpec.a("sound", "sonido", "play_sound", "sfx", "ruido", "audio");
         PlanSpec.a("interact", "interactuar_con", "hablar_con", "trade", "comerciar", "entity_interact", "interact_entity", "right_click_entity", "clic_derecho", "interactua_con");
         PlanSpec.a("ride", "montar", "montarse", "cabalgar", "mount", "monta", "subirse", "subete", "montate", "montar_en", "montarse_en", "subir_a", "subirse_a", "sube_a", "embarcar", "embarca", "abordar", "aborda", "board", "hop_on", "get_on", "ride_vehicle", "montarse_a", "sentarse_en");
+        PlanSpec.a("cook", "cocinar", "cocina", "cocinalo", "hornear", "hornea", "asar", "asa", "freir", "fríe", "frie", "fundir", "funde", "fundelo", "calentar", "smelt", "bake", "roast", "grill", "preparar_comida", "guisar", "guisa");
+        PlanSpec.a("fish", "pescar", "pesca", "pescando", "fishing", "angling", "cana", "lanzar_cana");
+        PlanSpec.a("plant", "sembrar", "siembra", "plantar", "planta", "sow", "cultivar", "cultiva", "reforestar", "reforesta", "plantar_arbol", "sembrar_semillas");
         PlanSpec.a("dismount", "desmontar", "desmonta", "bajarse", "bajate", "unmount", "get_off", "desmontate", "bajar_de", "baja_de", "bajarse_de", "descender", "apearse", "apeate", "hop_off", "get_down", "salir_del_vehiculo", "bajar");
         PlanSpec.a("drive", "pilotar", "pilota", "pilotear", "pilotea", "volar", "vuela", "vuelalo", "volando", "vuelo", "fly", "flying", "pilot", "conducir", "conduce", "conducelo", "manejar", "maneja", "manejalo", "navegar", "navega", "despegar", "despega", "aterrizar", "aterriza", "land", "takeoff", "take_off", "test_drive", "probar_vehiculo", "conduccion", "maniobrar", "maniobra", "circular");
         PlanSpec.a("teleport", "teletransportar", "teletransportarse", "teletransporta", "tp", "warp", "aparecer", "blink");

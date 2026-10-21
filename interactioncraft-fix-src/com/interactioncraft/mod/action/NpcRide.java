@@ -161,4 +161,62 @@ final class NpcRide {
         }
         return best;
     }
+
+    // ------------------------------------------------------------ pasajero oculto dentro de naves
+    private static final float HIDE = 0.0001f;
+    private static java.lang.reflect.Method getEntityM;
+    private static java.lang.reflect.Method getPoseM;
+    private static boolean renderFailed;
+
+    /** Un NPC dentro de una nave/cabina (entidad no viva que vuela) no debe asomar por el casco: se dibuja minusculo. */
+    static boolean hiddenInside(Object entity) {
+        if (!(entity instanceof Mob m)) {
+            return false;
+        }
+        Entity v = m.getVehicle();
+        if (v == null || v instanceof LivingEntity || v instanceof Boat || v instanceof AbstractMinecart) {
+            return false;
+        }
+        return NpcOps.decideAir(v, "");
+    }
+
+    private static PoseStackHolder poseOf(Object ev) throws ReflectiveOperationException {
+        if (getEntityM == null) {
+            getEntityM = ev.getClass().getMethod("getEntity");
+            getPoseM = ev.getClass().getMethod("getPoseStack");
+        }
+        Object ent = getEntityM.invoke(ev);
+        return hiddenInside(ent) ? new PoseStackHolder((com.mojang.blaze3d.vertex.PoseStack) getPoseM.invoke(ev)) : null;
+    }
+
+    private record PoseStackHolder(com.mojang.blaze3d.vertex.PoseStack stack) {
+    }
+
+    static void renderPre(Object ev) {
+        if (renderFailed) {
+            return;
+        }
+        try {
+            PoseStackHolder h = poseOf(ev);
+            if (h != null) {
+                h.stack().scale(HIDE, HIDE, HIDE);
+            }
+        } catch (ReflectiveOperationException | RuntimeException | LinkageError e) {
+            renderFailed = true;
+        }
+    }
+
+    static void renderPost(Object ev) {
+        if (renderFailed) {
+            return;
+        }
+        try {
+            PoseStackHolder h = poseOf(ev);
+            if (h != null) {
+                h.stack().scale(1.0f / HIDE, 1.0f / HIDE, 1.0f / HIDE);
+            }
+        } catch (ReflectiveOperationException | RuntimeException | LinkageError e) {
+            renderFailed = true;
+        }
+    }
 }

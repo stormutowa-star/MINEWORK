@@ -669,6 +669,44 @@ public final class OrderParser {
                     }
                     continue block29;
                 }
+                case 33: {
+                    String what = obj.replace("todo ", "todo ").trim();
+                    steps.add((JsonElement)OrderParser.step("cook", "item", what));
+                    names.add("cocinar" + (what.isEmpty() ? "" : " " + what));
+                    lastKill = false;
+                    continue block29;
+                }
+                case 34: {
+                    steps.add((JsonElement)(n > 0 ? OrderParser.step("fish", null, null, "times", Math.min(n, 12)) : OrderParser.step("fish", null, null)));
+                    names.add("pescar");
+                    lastKill = false;
+                    continue block29;
+                }
+                case 35: {
+                    String[] split = OrderParser.splitVehicle(obj, "");
+                    String thing = obj;
+                    String where = "";
+                    String padded = " " + obj + " ";
+                    for (String sep : new String[]{" en ", " sobre ", " cerca de ", " junto a "}) {
+                        int at = padded.indexOf(sep);
+                        if (at >= 0) {
+                            thing = padded.substring(0, at).trim();
+                            where = padded.substring(at + sep.length()).trim();
+                            break;
+                        }
+                    }
+                    JsonObject pl = OrderParser.step("plant", "item", thing);
+                    if (!where.isEmpty()) {
+                        pl.addProperty("target", where);
+                    }
+                    if (n > 0) {
+                        pl.addProperty("times", (Number)Math.min(n, 64));
+                    }
+                    steps.add((JsonElement)pl);
+                    names.add("plantar" + (thing.isEmpty() ? "" : " " + thing));
+                    lastKill = false;
+                    continue block29;
+                }
                 case 21: {
                     int secs = OrderParser.secondsIn((List<String>)text);
                     if (secs > 0) {
@@ -1118,6 +1156,17 @@ public final class OrderParser {
         OrderParser.needs("prueba", "el", "la", "tu", "ese", "esa", "eso", "esto", "este", "esta", "lo", "un", "una", "con", "su", "a", "ya");
         OrderParser.needs("sube", "a", "al", "en", "te", "se", "sobre", "encima", "dentro");
         OrderParser.needs("monta", "en", "a", "al", "te", "se", "sobre", "encima", "dentro", "el", "la", "tu", "ese", "esa", "eso", "lo");
+        OrderParser.imp(V.COOK, true, "cocina", "hornea", "asa", "frie", "funde", "guisa", "tuesta");
+        OrderParser.req(V.COOK, "cocinar", "hornear", "asar", "freir", "fundir", "guisar", "cocines", "hornees", "frias");
+        OrderParser.pres(V.COOK, "cocinas", "horneas", "asas");
+        OrderParser.imp(V.FISH, true, "pesca");
+        OrderParser.req(V.FISH, "pescar", "pesques");
+        OrderParser.pres(V.FISH, "pescas");
+        OrderParser.imp(V.PLANT, true, "siembra", "cultiva");
+        OrderParser.req(V.PLANT, "sembrar", "cultivar", "siembres", "cultives");
+        OrderParser.pres(V.PLANT, "siembras", "cultivas");
+        OrderParser.needs("cocina", "la", "el", "los", "las", "un", "una", "unos", "unas", "eso", "esto", "todo", "toda", "carne", "pollo", "pescado", "patatas", "papas", "pan", "lo", "me", "te", "algo", "para");
+        OrderParser.needs("pesca", "algo", "un", "unos", "unas", "peces", "pez", "pescado", "en", "para", "me", "ahi", "aqui", "unas", "tantos", "hasta", "durante", "");
         OrderParser.needs("para", "ya", "de", "eso", "todo", "aqui", "ahi", "ahora", "un", "por", "");
         OrderParser.needs("ve", "a", "al", "hacia", "hasta", "donde", "ahi", "alli", "alla", "aca", "aqui", "ya", "con", "por", "y", "");
         OrderParser.needs("anda", "a", "al", "hacia", "hasta", "ya", "por", "");
@@ -1222,7 +1271,10 @@ public final class OrderParser {
         RIDE,
         DISMOUNT,
         DRIVE,
-        TRY;
+        TRY,
+        COOK,
+        FISH,
+        PLANT;
 
     }
 

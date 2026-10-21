@@ -65,8 +65,15 @@ public final class AiJson {
             if (e.isJsonArray() || e.isJsonObject()) {
                 return e.toString();
             }
-            if (!e.isJsonPrimitive() || !e.getAsString().trim().startsWith("[")) continue;
-            return e.getAsString().trim();
+            if (!e.isJsonPrimitive()) continue;
+            String text = e.getAsString().trim();
+            if (text.isEmpty()) continue;
+            if (text.startsWith("[")) {
+                return text;
+            }
+            JsonArray wrap = new JsonArray();
+            wrap.add((JsonElement)new com.google.gson.JsonPrimitive(text));
+            return wrap.toString();
         }
         return "";
     }

@@ -3,6 +3,8 @@ package com.interactioncraft.mod.action;
 import com.interactioncraft.mod.works.ActionLog;
 import com.interactioncraft.mod.works.PickupFilter;
 import com.interactioncraft.mod.works.PlanSpec;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -19,6 +21,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Boat;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
 /**
@@ -98,13 +102,89 @@ final class NpcOps {
         return tg != null && tg.block() == null && tg.entity() != null && tg.entity() != player && tg.entity() != mob;
     }
 
+    private static final ThreadLocal<Boolean> BYPASS = ThreadLocal.withInitial(() -> Boolean.FALSE);
+    private static java.lang.reflect.Method execM;
+
+    private static boolean useOnBlock(Mob mob, ServerLevel level, ServerPlayer player, PlanRunner.Run run, PlanSpec.Step st) {
+        if (!st.op().equals("use") || st.target().isEmpty() || player == null) {
+            return false;
+        }
+        PlanRunner.Target tg = PlanRunner.target(run, st.target(), mob, player, level);
+        return tg != null && tg.block() != null;
+    }
+
+    /** "usar" un bloque: lo del juego original y, si no pasa nada, se prueba a pulsarlo por cada una de sus caras (campanas, botones, bloques de mods...). */
+    private static PlanRunner.R useBlock(Mob mob, Actions.State s, ServerLevel level, ServerPlayer player, PlanRunner.Run run, PlanSpec.Step st, long now) {
+        PlanRunner.R r;
+        try {
+            if (execM == null) {
+                execM = PlanRunner.class.getDeclaredMethod("exec", Mob.class, Actions.State.class, ServerLevel.class, ServerPlayer.class, PlanRunner.Run.class, PlanSpec.Step.class, long.class);
+                execM.setAccessible(true);
+            }
+            BYPASS.set(Boolean.TRUE);
+            try {
+                r = (PlanRunner.R) execM.invoke(null, mob, s, level, player, run, st, now);
+            } finally {
+                BYPASS.remove();
+            }
+        } catch (java.lang.reflect.InvocationTargetException e) {
+            if (e.getCause() instanceof RuntimeException re) {
+                throw re;
+            }
+            throw new IllegalStateException(e.getCause());
+        } catch (ReflectiveOperationException e) {
+            return PlanRunner.fail(run, "no pudo usarlo");
+        }
+        if (r == PlanRunner.R.FAIL && run.failMsg.startsWith("no pasó nada al usar")) {
+            PlanRunner.Target tg = PlanRunner.target(run, st.target(), mob, player, level);
+            if (tg != null && tg.block() != null && pressAllFaces(mob, level, tg.block(), st)) {
+                run.failMsg = "";
+                return PlanRunner.R.DONE;
+            }
+        }
+        return r;
+    }
+
+    private static boolean pressAllFaces(Mob mob, ServerLevel level, BlockPos pos, PlanSpec.Step st) {
+        Object fp = PlanRunner.fakePlayerFor(level, mob);
+        if (!(fp instanceof Player p)) {
+            return false;
+        }
+        BlockState before = level.getBlockState(pos);
+        String itemId = st.item().isEmpty() ? null : PlanRunner.itemFrom(st.item(), mob);
+        ItemStack stack = itemId == null ? ItemStack.EMPTY : Builder.stackOf(itemId);
+        net.minecraft.core.Direction[] order = {net.minecraft.core.Direction.NORTH, net.minecraft.core.Direction.SOUTH, net.minecraft.core.Direction.EAST,
+            net.minecraft.core.Direction.WEST, net.minecraft.core.Direction.UP, net.minecraft.core.Direction.DOWN};
+        try {
+            for (net.minecraft.core.Direction d : order) {
+                Vec3 loc = Vec3.atCenterOf(pos).add(d.getStepX() * 0.45, d.getStepY() * 0.45, d.getStepZ() * 0.45);
+                net.minecraft.world.phys.BlockHitResult hit = new net.minecraft.world.phys.BlockHitResult(loc, d, pos, false);
+                if (!stack.isEmpty()) {
+                    p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, stack.copy());
+                    if (before.useItemOn(p.getItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND), level, p, net.minecraft.world.InteractionHand.MAIN_HAND, hit).consumesAction()) {
+                        return true;
+                    }
+                }
+                if (before.useWithoutItem(level, p, hit).consumesAction() || !level.getBlockState(pos).equals(before)) {
+                    return true;
+                }
+            }
+        } finally {
+            p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+        }
+        return false;
+    }
+
     /** true = este paso lo ejecuta NpcOps (pasos propios, "usar" una criatura, o cualquier otro mientras el NPC sigue montado). */
     static boolean handles(Mob mob, ServerLevel level, ServerPlayer player, PlanRunner.Run run, PlanSpec.Step st) {
         String op = st.op();
         if (own(op) || mob.isPassenger() && !STAY.contains(op)) {
             return true;
         }
-        return useOnEntity(mob, level, player, run, st);
+        if (BYPASS.get()) {
+            return false;
+        }
+        return NpcSkills.handles(mob, level, player, run, st) || useOnEntity(mob, level, player, run, st) || useOnBlock(mob, level, player, run, st);
     }
 
     /** Punto de entrada desde PlanRunner.exec, solo si handles(...) es true. */
@@ -130,7 +210,13 @@ final class NpcOps {
             case "drive":
                 return drive(mob, level, player, run, st, now);
             default:
-                return useEntity(mob, s, level, player, run, st, now);
+                if (NpcSkills.handles(mob, level, player, run, st)) {
+                    return NpcSkills.exec(mob, s, level, player, run, st, now);
+                }
+                if (useOnEntity(mob, level, player, run, st)) {
+                    return useEntity(mob, s, level, player, run, st, now);
+                }
+                return useBlock(mob, s, level, player, run, st, now);
         }
     }
 
@@ -162,6 +248,7 @@ final class NpcOps {
     /** Llamado al terminar o abortar cualquier paso: suelta la gravedad y posa el vehiculo si seguia en el aire. */
     static void endStep(Mob mob) {
         UUID id = mob.getUUID();
+        NpcSkills.clear(mob);
         BOARD.remove(id);
         Drive d = DRIVE.remove(id);
         if (d == null || !d.gravityTouched || !(mob.level() instanceof ServerLevel level)) {
@@ -186,6 +273,198 @@ final class NpcOps {
         } catch (RuntimeException e) {
             veh.setNoGravity(d.gravityWas);
         }
+    }
+
+
+    // ---------------------------------------------------------------- resolver objetivos (red de seguridad)
+    private static java.lang.reflect.Method resolveM;
+    private static final Set<String> THING_WORDS = Set.of("maquina", "maquinas", "aparato", "mecanismo", "dispositivo", "artefacto", "objeto", "cosa", "cacharro",
+            "trasto", "machine", "device", "thing", "mechanism", "contraption", "invento", "armatoste");
+    private static final Set<String> LOOSE_STOP = Set.of("de", "del", "la", "las", "el", "los", "lo", "un", "una", "unos", "unas", "al", "en", "con", "y", "que", "tu", "mi", "este", "esta", "ese", "esa", "aquel");
+    private static final java.util.regex.Pattern COORDS = java.util.regex.Pattern.compile("^\\s*(-?\\d+)[ ,]+(-?\\d+)[ ,]+(-?\\d+)\\s*$");
+
+    /** Sustituye a PlanRunner.resolve dentro de PlanRunner.target: primero el original; si no halla nada, coordenadas, coincidencia flexible y "lo que mira el jugador". */
+    static PlanRunner.Target resolve(PlanRunner.Run run, String query, Mob mob, ServerPlayer player, ServerLevel level) {
+        PlanRunner.Target t = null;
+        try {
+            if (resolveM == null) {
+                resolveM = PlanRunner.class.getDeclaredMethod("resolve", PlanRunner.Run.class, String.class, Mob.class, ServerPlayer.class, ServerLevel.class);
+                resolveM.setAccessible(true);
+            }
+            t = (PlanRunner.Target) resolveM.invoke(null, run, query, mob, player, level);
+        } catch (java.lang.reflect.InvocationTargetException e) {
+            if (e.getCause() instanceof RuntimeException re) {
+                throw re;
+            }
+        } catch (ReflectiveOperationException e) {
+            // sin reflexion no hay original: se sigue con la red de seguridad
+        }
+        if (t != null) {
+            return t;
+        }
+        try {
+            return fallbackTarget(run, query, mob, player, level);
+        } catch (RuntimeException e) {
+            return null;
+        }
+    }
+
+    private static int stems(String a, String b) {
+        int n = Math.min(a.length(), b.length());
+        int i = 0;
+        while (i < n && a.charAt(i) == b.charAt(i)) {
+            ++i;
+        }
+        return i;
+    }
+
+    private static List<String> words(String text) {
+        List<String> out = new ArrayList<>();
+        for (String w : PickupFilter.norm(text).split(" ")) {
+            if (w.length() >= 3 && !LOOSE_STOP.contains(w)) {
+                out.add(w);
+            }
+        }
+        return out;
+    }
+
+    private static int loose(List<String> q, String text) {
+        if (q.isEmpty()) {
+            return 0;
+        }
+        List<String> have = words(text.replace('_', ' ').replace(':', ' '));
+        int hits = 0;
+        for (String w : q) {
+            for (String t : have) {
+                if (t.equals(w) || w.length() >= 4 && t.length() >= 4 && stems(w, t) >= Math.min(5, Math.min(w.length(), t.length()))) {
+                    ++hits;
+                    break;
+                }
+            }
+        }
+        return hits * 2 >= q.size() ? hits : 0;
+    }
+
+    private static String namesOf(String id, String shown) {
+        return shown + " " + id + " " + PickupFilter.spanish(id);
+    }
+
+    private static PlanRunner.Target fallbackTarget(PlanRunner.Run run, String query, Mob mob, ServerPlayer player, ServerLevel level) {
+        if (query == null || query.isBlank()) {
+            return null;
+        }
+        java.util.regex.Matcher cm = COORDS.matcher(query);
+        if (cm.matches()) {
+            int x = Integer.parseInt(cm.group(1));
+            int y = Integer.parseInt(cm.group(2));
+            int z = Integer.parseInt(cm.group(3));
+            if (y == -9999 || y == -9999L) {
+                y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+            }
+            BlockPos p = new BlockPos(x, y, z);
+            if (level.hasChunkAt(p)) {
+                return new PlanRunner.Target(null, p, Vec3.atBottomCenterOf(p), "las coordenadas " + x + " " + y + " " + z);
+            }
+            return null;
+        }
+        List<String> q = words(query);
+        boolean thing = !q.isEmpty() && THING_WORDS.containsAll(q);
+        // 1) coincidencia flexible con criaturas y bloques cercanos
+        if (!q.isEmpty() && !thing) {
+            Entity bestE = null;
+            int bestScore = 0;
+            double bestD = Double.MAX_VALUE;
+            for (Entity e : level.getEntitiesOfClass(Entity.class, mob.getBoundingBox().inflate(32.0, 12.0, 32.0), x -> x != mob && x.isAlive() && x != player)) {
+                String id = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(e.getType()).toString();
+                int sc = loose(q, namesOf(id, e.getName().getString()));
+                double d = e.distanceToSqr(mob);
+                if (sc > bestScore || sc == bestScore && sc > 0 && d < bestD) {
+                    bestScore = sc;
+                    bestD = d;
+                    bestE = e;
+                }
+            }
+            BlockPos bestB = null;
+            int bestBS = 0;
+            double bestBD = Double.MAX_VALUE;
+            java.util.HashMap<net.minecraft.world.level.block.Block, Integer> cache = new java.util.HashMap<>();
+            for (BlockPos c : new BlockPos[]{mob.blockPosition(), player.blockPosition()}) {
+                for (BlockPos p : BlockPos.betweenClosed(c.offset(-13, -4, -13), c.offset(13, 6, 13))) {
+                    if (!level.hasChunkAt(p)) {
+                        continue;
+                    }
+                    net.minecraft.world.level.block.state.BlockState bs = level.getBlockState(p);
+                    if (bs.isAir()) {
+                        continue;
+                    }
+                    int sc = cache.computeIfAbsent(bs.getBlock(), b -> loose(q, namesOf(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(b).toString(), b.getName().getString())));
+                    double d = p.distSqr(mob.blockPosition());
+                    if (sc > bestBS || sc == bestBS && sc > 0 && d < bestBD) {
+                        bestBS = sc;
+                        bestBD = d;
+                        bestB = p.immutable();
+                    }
+                }
+            }
+            if (bestB != null && bestBS >= bestScore) {
+                return new PlanRunner.Target(null, bestB, Vec3.atBottomCenterOf(bestB), level.getBlockState(bestB).getBlock().getName().getString());
+            }
+            if (bestE != null) {
+                return new PlanRunner.Target(bestE, null, null, bestE.getName().getString());
+            }
+        }
+        // 2) "la maquina", "ese aparato": lo que mira el jugador, o lo mas cercano que no sea terreno
+        if (thing || q.isEmpty() || PlanSpec.demonstrative(query)) {
+            if (run.lookedEntity != null) {
+                Entity le = level.getEntity(run.lookedEntity);
+                if (le != null && le.isAlive() && le != mob && le != player) {
+                    return new PlanRunner.Target(le, null, null, le.getName().getString());
+                }
+            }
+            if (run.anchor != null && !level.getBlockState(run.anchor).isAir()) {
+                return new PlanRunner.Target(null, run.anchor, Vec3.atBottomCenterOf(run.anchor), level.getBlockState(run.anchor).getBlock().getName().getString());
+            }
+        }
+        if (thing) {
+            BlockPos best = null;
+            double bd = Double.MAX_VALUE;
+            for (BlockPos c : new BlockPos[]{mob.blockPosition(), player.blockPosition()}) {
+                for (BlockPos p : BlockPos.betweenClosed(c.offset(-12, -4, -12), c.offset(12, 6, 12))) {
+                    if (!level.hasChunkAt(p)) {
+                        continue;
+                    }
+                    net.minecraft.world.level.block.state.BlockState bs = level.getBlockState(p);
+                    if (bs.isAir()) {
+                        continue;
+                    }
+                    boolean modded = !"minecraft".equals(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(bs.getBlock()).getNamespace());
+                    if (!(modded || level.getBlockEntity(p) != null)) {
+                        continue;
+                    }
+                    double d = p.distSqr(mob.blockPosition());
+                    if (d < bd) {
+                        bd = d;
+                        best = p.immutable();
+                    }
+                }
+            }
+            if (best != null) {
+                return new PlanRunner.Target(null, best, Vec3.atBottomCenterOf(best), level.getBlockState(best).getBlock().getName().getString());
+            }
+            Entity ne = null;
+            double nd = Double.MAX_VALUE;
+            for (Entity e : level.getEntitiesOfClass(Entity.class, mob.getBoundingBox().inflate(14.0, 6.0, 14.0), x -> x != mob && x != player && x.isAlive() && !(x instanceof LivingEntity) && !(x instanceof net.minecraft.world.entity.item.ItemEntity))) {
+                double d = e.distanceToSqr(mob);
+                if (d < nd) {
+                    nd = d;
+                    ne = e;
+                }
+            }
+            if (ne != null) {
+                return new PlanRunner.Target(ne, null, null, ne.getName().getString());
+            }
+        }
+        return null;
     }
 
     // ---------------------------------------------------------------- montar
@@ -314,7 +593,7 @@ final class NpcOps {
 
     // ---------------------------------------------------------------- pilotar
 
-    private static boolean decideAir(Entity veh, String hint) {
+    static boolean decideAir(Entity veh, String hint) {
         if (veh instanceof Boat || veh instanceof AbstractMinecart) {
             return false;
         }
