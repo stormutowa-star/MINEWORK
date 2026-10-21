@@ -24,7 +24,7 @@ import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Boat;
 
 /** Montar y desmontar de verdad: quien monta se queda montado hasta que se le pida bajar o haga otra cosa. */
-final class NpcRide {
+public final class NpcRide {
     /** NPC que se montaron a proposito (paso "ride"/"drive"): Mover.claim no los baja mientras sigan en una accion libre. */
     static final Set<UUID> RIDERS = ConcurrentHashMap.newKeySet();
     private static final Set<String> GENERIC = Set.of("vehiculo", "vehiculos", "vehicle", "nave", "naves", "aeronave", "avion", "helicoptero",
@@ -192,7 +192,7 @@ final class NpcRide {
     private record PoseStackHolder(com.mojang.blaze3d.vertex.PoseStack stack) {
     }
 
-    static void renderPre(Object ev) {
+    public static void renderPre(Object ev) {
         if (renderFailed) {
             return;
         }
@@ -206,7 +206,7 @@ final class NpcRide {
         }
     }
 
-    static void renderPost(Object ev) {
+    public static void renderPost(Object ev) {
         if (renderFailed) {
             return;
         }
