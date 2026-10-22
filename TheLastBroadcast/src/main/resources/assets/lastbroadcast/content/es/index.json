@@ -1,0 +1,135 @@
+{
+ "broadcasts": [
+  "ident_wkvr",
+  "today_tuesday",
+  "futura_ad_62",
+  "report_tuesday",
+  "testcard_wkvr",
+  "testcard_ktrx",
+  "static_gap",
+  "dead_carrier",
+  "surge_frame",
+  "p1_today_thursday",
+  "p2_lucky_dial",
+  "p3_report_thursday",
+  "p4_last_broadcast",
+  "signoff",
+  "memo_penrose"
+ ],
+ "dialogues": [
+  "rosa",
+  "penrose",
+  "dot",
+  "brandt"
+ ],
+ "speakers": {
+  "announcer": {
+   "name": "Locutor",
+   "voice": "voice_hal",
+   "pitch": 0.88
+  },
+  "dot": {
+   "name": "Dot Kimball",
+   "voice": "voice_dot",
+   "pitch": 1.0
+  },
+  "hal": {
+   "name": "Hal Whitcomb",
+   "voice": "voice_hal",
+   "pitch": 1.0
+  },
+  "penrose": {
+   "name": "Arthur Penrose",
+   "voice": "voice_penrose",
+   "pitch": 1.0
+  },
+  "servo": {
+   "name": "SERVO",
+   "voice": "voice_servo",
+   "pitch": 1.0
+  },
+  "voss": {
+   "name": "Sra. Voss",
+   "voice": "voice_dot",
+   "pitch": 1.28
+  },
+  "rosa": {
+   "name": "Rosa Delgado",
+   "voice": "voice_rosa",
+   "pitch": 1.0
+  },
+  "brandt": {
+   "name": "Walter Brandt",
+   "voice": "voice_brandt",
+   "pitch": 1.0
+  },
+  "player": {
+   "name": "Tú",
+   "voice": "voice_hal",
+   "pitch": 1.1
+  }
+ },
+ "evidence": {
+  "frame:console": {
+   "title": "Fotograma 446 del boletín de las 9:14",
+   "kind": "frame",
+   "note": "Un solo fotograma intercalado en el boletín: la consola del Skyhook en pleno incendio. La palanca de la válvula 3 está ABIERTA, el caudal de refrigerante marca CERO, la temperatura de placa al máximo. Reloj: 9:14."
+  }
+ },
+ "fragments": {
+  "call_1": [
+   {
+    "t": 0.4,
+    "d": 3.0,
+    "who": null,
+    "text": "[ estática. A lo lejos, una sala llena de gente. ]"
+   },
+   {
+    "t": 3.6,
+    "d": 4.0,
+    "who": "dot",
+    "text": "...por favor, por favor, no llamen a la emisora..."
+   },
+   {
+    "t": 8.0,
+    "d": 3.0,
+    "who": null,
+    "text": "[ la línea se corta ]"
+   }
+  ],
+  "call_2": [
+   {
+    "t": 0.4,
+    "d": 3.8,
+    "who": "penrose",
+    "text": "...la válvula tres está abierta, ¿por qué no refrigera?..."
+   },
+   {
+    "t": 4.6,
+    "d": 3.0,
+    "who": null,
+    "text": "[ una campana de alarma, apagada, como si sonara tras una pared ]"
+   },
+   {
+    "t": 8.0,
+    "d": 3.0,
+    "who": "dot",
+    "text": "¿Arthur? ¡Arthur!"
+   }
+  ],
+  "call_3": [
+   {
+    "t": 0.4,
+    "d": 4.2,
+    "who": "dot",
+    "text": "...son las nueve y catorce. Seguimos en el aire..."
+   },
+   {
+    "t": 5.0,
+    "d": 3.6,
+    "who": null,
+    "text": "[ silencio. Luego, muy débil, un tono de prueba. ]"
+   }
+  ]
+ }
+}

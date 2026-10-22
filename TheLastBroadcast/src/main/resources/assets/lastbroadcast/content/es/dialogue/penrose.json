@@ -1,0 +1,358 @@
+{
+ "name": "Arthur Penrose",
+ "role": "Ingeniero Jefe",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "after",
+   "if": [
+    "PENROSE_CONFESSED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "confront",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "defensive",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_PENROSE"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Ah, el ingeniero de la Comisión. Arthur Penrose. Disculpe el ruido; esta noche el Skyhook se está calentando los pies."
+    },
+    {
+     "who": "penrose",
+     "text": "Mantenimiento rutinario. Los martes son tranquilos. ¿Hay algo que pueda enseñarle?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Qué es exactamente el Skyhook?",
+     "next": "skyhook",
+     "actions": [
+      {
+       "set": "MET_PENROSE"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Todavía no.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_PENROSE"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "skyhook": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Un array resonante. Si se sintoniza bien, la torre y el cielo se comportan como un único instrumento."
+    },
+    {
+     "who": "penrose",
+     "text": "Cincuenta kilovatios, todo perfectamente en regla. La licencia está enmarcada en el despacho de Walter."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Gracias.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "¿Todavía curioseando? Los bancos de válvulas no muerden. Casi nunca."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Qué es el Skyhook?",
+     "next": "skyhook",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Olvídelo.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "defensive": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "¿Doscientos kilovatios? ¿De un fantasma en un monitor? No se puede poner un fantasma en un informe."
+    },
+    {
+     "who": "penrose",
+     "text": "Mis registros están en orden. Y mi taquilla es asunto mío."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Ya veremos.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "confront": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Ha leído mi registro."
+    },
+    {
+     "who": "player",
+     "text": "Cada noche que apareció el fantasma, usted tenía el Skyhook en sobremarcha. Esta noche también."
+    },
+    {
+     "who": "penrose",
+     "text": "...Sí. Desde septiembre. Vi la primera imagen en la pasada tres y no pude dejar de mirar."
+    },
+    {
+     "who": "penrose",
+     "text": "Somos nosotros, ¿sabe? El jueves. Cada pasada muestra la última. Walter necesita el jueves. Futura necesita el jueves."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Hay un programa nuevo en 7-B. Un boletín de la noche del jueves.",
+     "next": "confess2",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "confess2": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "¿Un boletín? Yo solo veía las mañanas. ¿Qué muestra?"
+    },
+    {
+     "who": "player",
+     "text": "A Dot, en el aire, durante un incendio en su nave del transmisor. A las 9:14."
+    },
+    {
+     "who": "penrose",
+     "text": "Así que por eso siempre es el jueves. Es la última pasada porque después no queda nada que pasar."
+    },
+    {
+     "who": "penrose",
+     "text": "Tome. La llave de la consola. Apáguela esta noche, como es debido, y yo mismo cancelaré el jueves."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Tomar la llave.",
+     "next": "key",
+     "actions": [
+      {
+       "set": "PENROSE_CONFESSED"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "key": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Siga la tarjeta de la pared junto a la consola. Está todo ahí. La escribí yo mismo."
+    }
+   ],
+   "choices": [
+    {
+     "text": "De acuerdo.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "after": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "La consola está activa. Primero el refrigerante, luego el excitador. Nunca apresure el interruptor."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Hizo arco. Seguí su tarjeta al pie de la letra.",
+     "next": "arc",
+     "actions": [],
+     "if": [
+      "ARC_FAULT_SEEN"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "¿Y si sale mal?",
+     "next": "risk",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Listo.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "arc": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Válvula tres... la tarjeta dice válvula tres. Pero en octubre moví la entrada. Para el colector de sobremarcha."
+    },
+    {
+     "who": "penrose",
+     "text": "Válvula cinco. Dios mío, es la válvula cinco. Nunca cambié la tarjeta."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Entonces eso es lo que pasa el jueves.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "risk": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "El relé salta y se rearma. Esta noche, al menos. El jueves, supongo, no lo hizo."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Entendido.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Está fría. Por primera vez desde septiembre."
+    },
+    {
+     "who": "penrose",
+     "text": "Mañana por la mañana escribiré yo mismo a la Comisión. Y volveré a pintar esa tarjeta."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Buenas noches, Sr. Penrose.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

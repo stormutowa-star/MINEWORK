@@ -42,7 +42,7 @@ public class RecorderScreen extends RetroScreen {
     private LoopSound hiss;
 
     public RecorderScreen(BlockPos pos) {
-        super(Component.literal("Tape Deck"), 336, 224);
+        super(Component.translatable("lastbroadcast.ui.recorder.title"), 336, 224);
         this.pos = pos;
         activePos = pos;
     }
@@ -80,30 +80,30 @@ public class RecorderScreen extends RetroScreen {
     @Override
     protected void layout() {
         int y = 192, x = 12;
-        transport(x, y, "|<", "Back one frame", () -> step(-1));
-        transport(x + 26, y, "<<", "Rewind", () -> setRate(-4));
-        transport(x + 52, y, "<", "Play in reverse", () -> setRate(-1));
-        transport(x + 78, y, "||", "Pause", () -> setRate(0));
-        transport(x + 104, y, ">", "Play", () -> setRate(1));
-        transport(x + 130, y, ">>", "Fast forward", () -> setRate(4));
-        transport(x + 156, y, ">|", "Forward one frame", () -> step(1));
+        transport(x, y, "|<", tr("lastbroadcast.ui.recorder.back"), () -> step(-1));
+        transport(x + 26, y, "<<", tr("lastbroadcast.ui.recorder.rewind"), () -> setRate(-4));
+        transport(x + 52, y, "<", tr("lastbroadcast.ui.recorder.reverse"), () -> setRate(-1));
+        transport(x + 78, y, "||", tr("lastbroadcast.ui.recorder.pause"), () -> setRate(0));
+        transport(x + 104, y, ">", tr("lastbroadcast.ui.recorder.play"), () -> setRate(1));
+        transport(x + 130, y, ">>", tr("lastbroadcast.ui.recorder.ff"), () -> setRate(4));
+        transport(x + 156, y, ">|", tr("lastbroadcast.ui.recorder.forward"), () -> step(1));
         Control halfBtn = new Control(x + 186, y, 28, 22);
         halfBtn.painter = (g, c, hover, down) -> drawButton(g, c.x, c.y, c.w, c.h, half ? "1/2*" : "1/2", hover, down, true);
         halfBtn.onClick = () -> {
             half = !half;
             if (Math.abs(rate) == 1f || Math.abs(rate) == 0.5f) setRate(Math.signum(rate));
         };
-        halfBtn.tooltip = "Half speed";
+        halfBtn.tooltip = tr("lastbroadcast.ui.recorder.half");
         controls.add(halfBtn);
-        Control stop = button(x + 218, y, 34, 22, "STOP", () -> {
+        Control stop = button(x + 218, y, 34, 22, tr("lastbroadcast.ui.recorder.stop"), () -> {
             setRate(0);
             t = 0;
         });
-        stop.tooltip = "Stop and rewind to the head";
+        stop.tooltip = tr("lastbroadcast.ui.recorder.stop_tip");
         Control rec = button(x + 256, y, 28, 22, "REC", () -> Net.toServer(new RecorderActionPacket(pos, RecorderActionPacket.RECORD)));
-        rec.tooltip = "Record the programme on the nearest receiver";
+        rec.tooltip = tr("lastbroadcast.ui.recorder.rec_tip");
         rec.clickSound = ModSounds.TAPE_REC.get();
-        Control ej = button(x + 288, y, 32, 22, "EJECT", () -> {
+        Control ej = button(x + 288, y, 32, 22, tr("lastbroadcast.ui.recorder.eject"), () -> {
             Net.toServer(new RecorderActionPacket(pos, RecorderActionPacket.EJECT));
             onClose();
         });
@@ -170,12 +170,12 @@ public class RecorderScreen extends RetroScreen {
         Canvas c = new Canvas(g.pose(), g.bufferSource(), 0xF000F0, 0.05f, BroadcastRenderer.W, BroadcastRenderer.H);
         if (deck != null && deck.isRecording()) {
             BroadcastRenderer.drawStatic(c, now / 1e9, 0.4f);
-            c.text("RECORDING FROM MONITOR BUS", 80, 54, 0xFFFF6050, 1f, true, true);
+            c.text(tr("lastbroadcast.ui.recorder.recording"), 80, 54, 0xFFFF6050, 1f, true, true);
         } else if (b == null) {
             c.fill(0, 0, BroadcastRenderer.W, BroadcastRenderer.H, 0xFF0A0D0B);
             c.layer();
-            c.text("BLANK REEL", 80, 50, 0xFF80A090, 1f, true, false);
-            c.text("press REC to record", 80, 62, 0xFF607068, 1f, true, false);
+            c.text(tr("lastbroadcast.ui.recorder.blank"), 80, 50, 0xFF80A090, 1f, true, false);
+            c.text(tr("lastbroadcast.ui.recorder.press_rec"), 80, 62, 0xFF607068, 1f, true, false);
             c.layer();
             c.image("screen_mask", 0, 0, BroadcastRenderer.W, BroadcastRenderer.H, 0xFFFFFFFF);
         } else {
@@ -195,10 +195,10 @@ public class RecorderScreen extends RetroScreen {
         recess(g, sx, sy + sh + 8, sw, 30, 0xFF14100C);
         if (b != null) {
             String sub = rate == 0 && !inFlash(b) ? null : BroadcastRenderer.subtitle(b, t, rate < 0);
-            if (Math.abs(rate) >= 4) sub = rate > 0 ? "[ fast forward - chipmunk chatter ]" : "[ rewinding ]";
+            if (Math.abs(rate) >= 4) sub = rate > 0 ? tr("lastbroadcast.ui.recorder.ffwd_sub") : tr("lastbroadcast.ui.recorder.rewinding");
             if (rate == 0 && inFlash(b)) sub = b.flash.caption;
             if (sub != null) wrapped(g, sub, sx + 4, sy + sh + 12, sw - 8, 0xFFF2E6C0, 2);
-            else if (rate == 0) label(g, "[ paused - frame " + (int) Math.round(t * 20) + " ]", sx + 4, sy + sh + 12, 0xFF8A8070);
+            else if (rate == 0) label(g, tr("lastbroadcast.ui.recorder.paused", (int) Math.round(t * 20)), sx + 4, sy + sh + 12, 0xFF8A8070);
         }
         g.pose().popPose();
 
@@ -225,13 +225,13 @@ public class RecorderScreen extends RetroScreen {
         if (deck != null && deck.isRecording()) {
             long left = deck.getRecordEnd() - (Minecraft.getInstance().level == null ? 0 : Minecraft.getInstance().level.getGameTime());
             int pct = (int) Mth.clamp(100 - left * 100 / RecorderBlockEntity.RECORD_TICKS, 0, 100);
-            status = "REC  loop buffer " + pct + "%";
+            status = tr("lastbroadcast.ui.recorder.status_rec", pct);
         } else if (b == null) {
-            status = "STOPPED";
+            status = tr("lastbroadcast.ui.recorder.status_stopped");
         } else if (rate == 0) {
-            status = "PAUSE";
+            status = tr("lastbroadcast.ui.recorder.status_pause");
         } else {
-            status = (rate < 0 ? "REV " : "PLAY ") + (Math.abs(rate) == 0.5f ? "1/2" : Math.abs(rate) >= 4 ? "x4" : "x1");
+            status = (rate < 0 ? tr("lastbroadcast.ui.recorder.status_rev") : tr("lastbroadcast.ui.recorder.status_play")) + (Math.abs(rate) == 0.5f ? "1/2" : Math.abs(rate) >= 4 ? "x4" : "x1");
         }
         label(g, status, fx + 5, fy + 100, deck != null && deck.isRecording() ? 0xFFFF6050 : AMBER);
         if (b != null) {
@@ -239,7 +239,7 @@ public class RecorderScreen extends RetroScreen {
         }
         // label strip
         plate(g, fx, fy + 136, 128, 22);
-        String lab = hasTape ? (b == null ? "Blank reel" : TapeItem.label(deck.getTape())) : "-";
+        String lab = hasTape ? (b == null ? tr("lastbroadcast.ui.recorder.blank_label") : TapeItem.label(deck.getTape())) : "-";
         String shown = font().plainSubstrByWidth(lab, 120);
         label(g, shown, fx + 4, fy + 143, INK);
         lamp(g, fx + 116, fy + 100, 0xFFFF4030, deck != null && deck.isRecording());

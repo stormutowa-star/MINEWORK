@@ -1,0 +1,32 @@
+{
+ "id": "testcard_ktrx",
+ "title": "Carta de ajuste de KTRX (Canal 4)",
+ "duration": 30,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "testcard_ktrx",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.62,
+    "roll": 0.25,
+    "ghost": 0.35,
+    "tear": 0.15
+   }
+  }
+ ],
+ "lines": [],
+ "sounds": [],
+ "evidenceTitle": "Grabación: carta de ajuste de KTRX (Canal 4)",
+ "evidenceNote": "Una emisora lejana de Columbus, apenas por encima de la nieve. Nada fuera de lo normal."
+}

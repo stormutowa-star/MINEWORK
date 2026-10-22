@@ -47,7 +47,7 @@ public final class Hud {
     public static void playFragment(String id, List<Broadcast.Line> lines) {
         if ("dial_tone".equals(id) || lines == null) {
             BroadcastAudio.playUi("dial_tone", 0.6f, 1f);
-            fragment = List.of(line(0, 2.5, null, "[ a steady dial tone - the line is quiet ]"));
+            fragment = List.of(line(0, 2.5, null, net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.dial_tone")));
         } else {
             BroadcastAudio.playUi("static_burst", 0.7f, 0.8f);
             fragment = lines;
@@ -93,18 +93,18 @@ public final class Hud {
         float alpha = Math.min(1f, Math.min(age * 4f, (4.8f - age) * 2f));
         if (alpha <= 0.02f) return;
         String head = switch (current.kind) {
-            case NoticePacket.EVIDENCE -> "EVIDENCE LOGGED";
-            case NoticePacket.DEDUCTION -> "CASE FILE - NEW FINDING";
-            case NoticePacket.NO_MATCH -> "CASE FILE";
-            case NoticePacket.WARNING -> "WARNING";
-            default -> "NOTE";
+            case NoticePacket.EVIDENCE -> net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.notice.evidence");
+            case NoticePacket.DEDUCTION -> net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.notice.finding");
+            case NoticePacket.NO_MATCH -> net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.notice.case");
+            case NoticePacket.WARNING -> net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.notice.warning");
+            default -> net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.notice.note");
         };
         int headColor = switch (current.kind) {
             case NoticePacket.DEDUCTION -> 0xD6452F;
             case NoticePacket.WARNING -> 0xFFB347;
             default -> 0x6A5A3A;
         };
-        List<FormattedCharSequence> lines = font.split(Component.literal(current.text), 220);
+        List<FormattedCharSequence> lines = font.split(Component.literal(com.lastbroadcast.client.ClientText.resolve(current.text)), 220);
         int bw = 236, bh = 18 + Math.min(4, lines.size()) * 10;
         int x = w / 2 - bw / 2, y = 6;
         int a = (int) (alpha * 230) << 24;
@@ -141,7 +141,7 @@ public final class Hud {
                         }
                     }
                 }
-                tag = "TELEPHONE";
+                tag = net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.telephone");
             }
         }
         if (text == null) {
@@ -151,7 +151,7 @@ public final class Hud {
                 if (!tv.isSurging(gt)) {
                     Channels.OnAir onAir = Channels.onAir(CaseState.CLIENT, tv.getChannel(), gt);
                     text = BroadcastRenderer.subtitle(onAir.programme(), onAir.time(), false);
-                    tag = "CH " + Channels.label(tv.getChannel());
+                    tag = net.minecraft.client.resources.language.I18n.get("lastbroadcast.hud.channel", Channels.label(tv.getChannel()));
                 }
             }
         }

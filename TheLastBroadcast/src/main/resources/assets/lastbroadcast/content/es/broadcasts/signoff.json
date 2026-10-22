@@ -1,0 +1,148 @@
+{
+ "id": "signoff",
+ "title": "Cierre de emisión de WKVR",
+ "duration": 40,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "studio_today",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 6,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    16,
+    28,
+    76,
+    57
+   ],
+   "cropEnd": [
+    24,
+    30,
+    68,
+    51
+   ]
+  },
+  {
+   "t": 22,
+   "bg": "signoff_card",
+   "trans": "dissolve",
+   "transDur": 1.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "BUENAS NOCHES DESDE WKVR",
+     "x": 80,
+     "y": 92,
+     "scale": 0.9,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0000000"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 29,
+   "bg": "testcard_wkvr",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Bueno, amigos, es un poco pasada la medianoche, y eso es todo por esta noche desde WKVR."
+  },
+  {
+   "t": 6.0,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Un cambio de última hora en la programación: la demostración del Skyhook del jueves queda aplazada."
+  },
+  {
+   "t": 11.5,
+   "d": 5.0,
+   "who": "dot",
+   "text": "El Sr. Penrose me dice que la vieja dama necesita un buen descanso. No se lo reprocho."
+  },
+  {
+   "t": 17.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Y a quien sea que estuviera ahí fuera esta noche, cuidando de nosotros: gracias."
+  },
+  {
+   "t": 22.6,
+   "d": 5.4,
+   "who": "announcer",
+   "text": "Esta es WKVR, Canal 7, Halloway Falls. Con esto concluye nuestra jornada de emisión."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.5,
+   "id": "music_signoff",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 29.5,
+   "id": "test_tone",
+   "vol": 0.4,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Grabación: cierre de emisión de WKVR (martes por la noche)",
+ "evidenceNote": "La emisora cierra con normalidad. La demostración del jueves queda aplazada indefinidamente."
+}

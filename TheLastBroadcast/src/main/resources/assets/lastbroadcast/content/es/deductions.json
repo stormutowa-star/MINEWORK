@@ -1,0 +1,73 @@
+[
+ {
+  "id": "D1",
+  "title": "Dos días antes",
+  "a": [
+   "tape:p1_today_thursday"
+  ],
+  "b": [
+   "doc:program_log",
+   "doc:program_guide",
+   "tape:today_tuesday"
+  ],
+  "text": "7-B emitió el 'Halloway Hoy' del jueves, con Penrose de invitado - un programa que WKVR aún no ha hecho, y a color, algo que la emisora aún no tiene. El fantasma no es una emisora perdida. Es WKVR, dentro de dos días."
+ },
+ {
+  "id": "D2",
+  "title": "Por encima del límite",
+  "a": [
+   "tape:p3_report_thursday",
+   "tape:p1_today_thursday"
+  ],
+  "b": [
+   "doc:assignment",
+   "doc:skyhook_brochure"
+  ],
+  "requires": [
+   "D1"
+  ],
+  "text": "Las emisiones del jueves describen el Skyhook a 200 kilovatios desde las seis de la mañana - cuatro veces los 50 kW autorizados de WKVR. Alguien aquí piensa violar la licencia, y solo el ingeniero jefe maneja el Skyhook."
+ },
+ {
+  "id": "D3",
+  "title": "Los fantasmas siguen un horario",
+  "a": [
+   "doc:transmitter_log"
+  ],
+  "b": [
+   "doc:complaint_log"
+  ],
+  "requires": [
+   "D2"
+  ],
+  "text": "Cada noche que los espectadores vieron el fantasma, Penrose tenía el Skyhook en sobremarcha - y solo entonces. La sobremarcha es el receptor - y cada pasada capta la última que el Skyhook hará jamás: el jueves."
+ },
+ {
+  "id": "D4",
+  "title": "La válvula equivocada",
+  "a": [
+   "frame:console"
+  ],
+  "b": [
+   "doc:procedure",
+   "doc:transmitter_log"
+  ],
+  "requires": [
+   "D3"
+  ],
+  "text": "En el fotograma de las 9:14 la válvula 3 está abierta y no fluye nada. La tarjeta de la pared dice válvula 3, pero Penrose movió la entrada de refrigerante a la válvula 5 en octubre y nunca lo corrigió. Seguido al pie de la letra, el procedimiento provoca el incendio."
+ },
+ {
+  "id": "DX",
+  "title": "El modelo del año que viene",
+  "a": [
+   "tape:p2_lucky_dial"
+  ],
+  "b": [
+   "tape:futura_ad_62",
+   "doc:futura_letter"
+  ],
+  "optional": true,
+  "text": "El Modelo 63 de Futura es confidencial hasta enero, y el único anuncio archivado es del Modelo 62 - y sin embargo 7-B regala un Modelo 63 en el aire. Lo que muestre 7-B, WKVR lo emitirá."
+ }
+]

@@ -53,7 +53,7 @@ public final class BroadcastRenderer {
         if (b.audioOnly) {
             c.fill(0, 0, W, H, 0xFF000000);
             c.layer();
-            c.text("AUDIO REEL - NO PICTURE", W / 2, H / 2 - 4, 0xFF60FF80, 1f, true, false);
+            c.text(net.minecraft.client.resources.language.I18n.get("lastbroadcast.ui.audio_reel"), W / 2, H / 2 - 4, 0xFF60FF80, 1f, true, false);
             finish(c, sig.scanlines);
             return;
         }

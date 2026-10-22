@@ -118,14 +118,14 @@ public final class StoryDirector {
         if (evidenceId.equals("frame:console")) data.state.flags.add(Flags.FRAME_FOUND);
         if (evidenceId.equals("doc:transmitter_log")) data.state.flags.add(Flags.LOCKER_OPEN);
         sync(server);
-        Net.toAll(server, new NoticePacket(NoticePacket.EVIDENCE, ContentLibrary.evidenceTitle(evidenceId)));
+        Net.toAll(server, new NoticePacket(NoticePacket.EVIDENCE, com.lastbroadcast.Tx.ref('E', evidenceId)));
     }
 
     public static void compare(ServerPlayer player, String a, String b) {
         MinecraftServer server = player.server;
         CaseData data = CaseData.get(server);
         if (a.equals(b) || !data.state.evidence.contains(a) || !data.state.evidence.contains(b)) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, "Select two different pieces of logged evidence."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, com.lastbroadcast.Tx.key("lastbroadcast.msg.select_two")));
             return;
         }
         for (DeductionDef d : ContentLibrary.DEDUCTIONS.values()) {
@@ -134,16 +134,16 @@ public final class StoryDirector {
             for (String r : d.requires) ready &= data.state.has(r);
             if (!ready) continue;
             if (data.state.deductions.contains(d.id)) {
-                Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, "Already in the case file: " + d.title));
+                Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, com.lastbroadcast.Tx.key("lastbroadcast.msg.already_deduction", com.lastbroadcast.Tx.ref('D', d.id))));
                 return;
             }
             data.state.deductions.add(d.id);
-            Net.toAll(server, new NoticePacket(NoticePacket.DEDUCTION, d.title));
+            Net.toAll(server, new NoticePacket(NoticePacket.DEDUCTION, com.lastbroadcast.Tx.ref('D', d.id)));
             setFlag(server, d.id);
             sync(server);
             return;
         }
-        Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, "These two agree with each other. Nothing here contradicts."));
+        Net.toPlayer(player, new NoticePacket(NoticePacket.NO_MATCH, com.lastbroadcast.Tx.key("lastbroadcast.msg.no_contradiction")));
     }
 
     // ------------------------------------------------------------------ items
@@ -157,7 +157,7 @@ public final class StoryDirector {
         } else if (token.equals("tape:blank")) {
             stack = new ItemStack(ModItems.MAGNETIC_TAPE.get(), count);
         } else if (token.equals("reel:memo")) {
-            stack = TapeItem.recorded("memo_penrose", "Unlabeled reel - \"A.P. - DO NOT ERASE\"");
+            stack = TapeItem.recorded("memo_penrose", ContentLibrary.tapeLabel("memo_penrose"));
             logEvidence(player.server, "tape:memo_penrose");
         }
         if (!stack.isEmpty()) {
@@ -199,8 +199,8 @@ public final class StoryDirector {
             if (!player.getInventory().add(new ItemStack(ModItems.CASE_JOURNAL.get()))) player.drop(new ItemStack(ModItems.CASE_JOURNAL.get()), false);
             if (!player.getInventory().add(new ItemStack(ModItems.FIELD_METER.get()))) player.drop(new ItemStack(ModItems.FIELD_METER.get()), false);
             give(player, "tape:blank", 4);
-            player.sendSystemMessage(Component.literal("Halloway Falls, Ohio - Tuesday, October 23, 1962 - 11:40 PM").withStyle(s -> s.withColor(0xE8C77A).withItalic(true)));
-            player.sendSystemMessage(Component.literal("Your assignment letter is in your coat pocket. Report to Master Control.").withStyle(s -> s.withColor(0xBFBFBF)));
+            player.sendSystemMessage(Component.translatable("lastbroadcast.msg.intro1").withStyle(s -> s.withColor(0xE8C77A).withItalic(true)));
+            player.sendSystemMessage(Component.translatable("lastbroadcast.msg.intro2").withStyle(s -> s.withColor(0xBFBFBF)));
         }
         data.publishStation();
         Net.toPlayer(player, new com.lastbroadcast.network.CaseSyncPacket(data.state));

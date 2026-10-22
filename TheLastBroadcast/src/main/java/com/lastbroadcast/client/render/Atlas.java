@@ -19,7 +19,8 @@ import java.util.Optional;
  * Everything a screen draws lives in one texture so all layers render in submission order.
  */
 public final class Atlas {
-    public static final ResourceLocation TEXTURE = LastBroadcast.id("textures/broadcast/atlas.png");
+    private static final ResourceLocation TEXTURE_EN = LastBroadcast.id("textures/broadcast/atlas.png");
+    private static final ResourceLocation TEXTURE_ES = LastBroadcast.id("textures/broadcast/atlas_es.png");
     private static final ResourceLocation INDEX = LastBroadcast.id("textures/broadcast/atlas.json");
     public static final float SIZE = 2048f;
 
@@ -33,6 +34,11 @@ public final class Atlas {
     private static Map<String, Region> regions;
 
     private Atlas() {}
+
+    /** Atlas texture matching the current story language (the painted lettering differs; the layout is identical). */
+    public static ResourceLocation texture() {
+        return "es".equals(com.lastbroadcast.content.ContentLibrary.language()) ? TEXTURE_ES : TEXTURE_EN;
+    }
 
     public static Region get(String name) {
         if (regions == null) load();

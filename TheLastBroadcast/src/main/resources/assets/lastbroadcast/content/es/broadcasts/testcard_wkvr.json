@@ -1,0 +1,42 @@
+{
+ "id": "testcard_wkvr",
+ "title": "Carta de ajuste de WKVR",
+ "duration": 24,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "testcard_wkvr",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.05
+   }
+  }
+ ],
+ "lines": [],
+ "sounds": [
+  {
+   "t": 0.2,
+   "id": "test_tone",
+   "vol": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 12.2,
+   "id": "test_tone",
+   "vol": 0.5,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Grabación: carta de ajuste de WKVR",
+ "evidenceNote": "La carta de ajuste de la emisora y su tono de 1.000 ciclos."
+}

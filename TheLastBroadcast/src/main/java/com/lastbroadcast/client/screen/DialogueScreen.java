@@ -34,7 +34,7 @@ public class DialogueScreen extends RetroScreen {
     private final List<Integer> visibleChoices = new ArrayList<>();
 
     public DialogueScreen(int entityId, String character) {
-        super(Component.literal("Conversation"), 380, 140);
+        super(Component.translatable("lastbroadcast.ui.dialogue.title"), 380, 140);
         this.entityId = entityId;
         this.character = character;
         this.def = ContentLibrary.DIALOGUES.get(character);
@@ -172,9 +172,9 @@ public class DialogueScreen extends RetroScreen {
         // name plate
         plate(g, 8, 8, 86, 30);
         boolean playerLine = s != null && "player".equals(s.who);
-        String name = playerLine ? "You" : def.name;
+        String name = playerLine ? tr("lastbroadcast.ui.dialogue.you") : def.name;
         labelCentered(g, font().plainSubstrByWidth(name, 82), 51, 12, INK);
-        smallLabel(g, playerLine ? "FCC Field Engineer" : def.role, 51, 26, 0xFF5A4E3A);
+        smallLabel(g, playerLine ? tr("lastbroadcast.ui.dialogue.role") : def.role, 51, 26, 0xFF5A4E3A);
         // text
         recess(g, 100, 8, panelW - 108, 124, 0xFFF4ECD4);
         if (s != null) {
@@ -185,7 +185,7 @@ public class DialogueScreen extends RetroScreen {
         visibleChoices.clear();
         if (showingChoices()) {
             if (node.choices.isEmpty()) {
-                smallLabel(g, "[click to leave]", panelW - 40, 124, 0xFF8A7A5A);
+                smallLabel(g, tr("lastbroadcast.ui.dialogue.leave"), panelW - 40, 124, 0xFF8A7A5A);
             } else {
                 for (int i = 0; i < node.choices.size(); i++) {
                     if (DialogueLogic.test(CaseState.CLIENT, node.choices.get(i))) visibleChoices.add(i);
@@ -200,7 +200,7 @@ public class DialogueScreen extends RetroScreen {
                 }
             }
         } else if (s != null && !typing()) {
-            smallLabel(g, "[click / space]", panelW - 36, 124, 0xFF8A7A5A);
+            smallLabel(g, tr("lastbroadcast.ui.dialogue.next"), panelW - 36, 124, 0xFF8A7A5A);
         }
     }
 }

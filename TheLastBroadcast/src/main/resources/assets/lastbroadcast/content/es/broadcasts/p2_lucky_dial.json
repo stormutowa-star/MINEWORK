@@ -1,0 +1,350 @@
+{
+ "id": "p2_lucky_dial",
+ "title": "Premio Mayor del Dial de la Suerte",
+ "duration": 52,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "contest",
+   "trans": "static",
+   "transDur": 0.6,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 46,
+     "y": 102,
+     "h": 58,
+     "talk": "dot"
+    }
+   ],
+   "texts": [
+    {
+     "s": "¡PREMIO MAYOR DEL DIAL DE LA SUERTE!",
+     "x": 80,
+     "y": 6,
+     "scale": 1.1,
+     "color": "#ffe070",
+     "t0": 0,
+     "t1": 6,
+     "blink": true,
+     "center": true,
+     "scene": false,
+     "box": "#c0401018"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 6.5,
+   "bg": "contest",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 46,
+     "y": 102,
+     "h": 58,
+     "talk": "dot"
+    }
+   ],
+   "texts": [
+    {
+     "s": "LLAMADA DE: SRA. ELEANOR VOSS, CALLE DEL PINO",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    64,
+    8,
+    88,
+    66
+   ],
+   "cropEnd": [
+    74,
+    14,
+    72,
+    54
+   ]
+  },
+  {
+   "t": 15.4,
+   "bg": "contest",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 46,
+     "y": 102,
+     "h": 58,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    8,
+    26,
+    80,
+    60
+   ]
+  },
+  {
+   "t": 25.4,
+   "bg": "contest",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 46,
+     "y": 102,
+     "h": 58,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 30,
+   "bg": "futura_card",
+   "trans": "static",
+   "transDur": 0.4,
+   "actors": [],
+   "texts": [
+    {
+     "s": "presenta",
+     "x": 80,
+     "y": 92,
+     "scale": 0.7,
+     "color": "#ffffff",
+     "t0": 0.8,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 33,
+   "bg": "kitchen",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "servo",
+     "x": 112,
+     "y": 104,
+     "h": 66,
+     "talk": "servo"
+    }
+   ],
+   "texts": [
+    {
+     "s": "LA NUEVA COCINA FUTURA - MODELO 63",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 38,
+   "bg": "kitchen",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "servo",
+     "x": 112,
+     "y": 104,
+     "h": 66,
+     "talk": "servo"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    56,
+    24,
+    100,
+    75
+   ],
+   "cropEnd": [
+    66,
+    28,
+    90,
+    67.5
+   ]
+  },
+  {
+   "t": 43.4,
+   "bg": "futura_card",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "MODELO 63  -  EN EXPOSICIÓN ESTA PRIMAVERA",
+     "x": 80,
+     "y": 92,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0000000"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.4,
+   "d": 4.2,
+   "who": "dot",
+   "text": "¡Es la hora del Dial de la Suerte! Los teléfonos suenan por todo el valle..."
+  },
+  {
+   "t": 6.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "...¡y nuestra afortunada llamante es la Sra. Eleanor Voss, de la Calle del Pino!"
+  },
+  {
+   "t": 11.0,
+   "d": 4.0,
+   "who": "voss",
+   "text": "¡Santo cielo! ¿Esto es de verdad la televisión?"
+  },
+  {
+   "t": 15.5,
+   "d": 5.0,
+   "who": "dot",
+   "text": "¡Sí lo es! Sra. Voss, ¡ha ganado una Cocina Futura - el flamante Modelo 63!"
+  },
+  {
+   "t": 21.0,
+   "d": 4.0,
+   "who": "voss",
+   "text": "¿Un Modelo 63? ¡No sabía que habían hecho uno!"
+  },
+  {
+   "t": 25.5,
+   "d": 4.0,
+   "who": "dot",
+   "text": "¡Nadie lo sabía hasta hoy! Quédese con nosotros para un primer vistazo."
+  },
+  {
+   "t": 33.4,
+   "d": 4.2,
+   "who": "servo",
+   "text": "BUENAS NOCHES. SOY EL NUEVO SERVO. AHORA DOBLO LA ROPA."
+  },
+  {
+   "t": 38.0,
+   "d": 5.0,
+   "who": "announcer",
+   "text": "Presentamos la Cocina Futura Modelo 63 - en exposición esta primavera."
+  },
+  {
+   "t": 43.5,
+   "d": 3.8,
+   "who": "announcer",
+   "text": "Modelo 63. Porque el mañana no puede esperar."
+  },
+  {
+   "t": 47.6,
+   "d": 3.8,
+   "who": "servo",
+   "text": "FUTURA. EL MAÑANA, ENTREGADO HOY."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "static_burst",
+   "vol": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 0.5,
+   "id": "music_contest",
+   "vol": 0.75,
+   "pitch": 1.0
+  },
+  {
+   "t": 11.2,
+   "id": "applause",
+   "vol": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 30.1,
+   "id": "jingle_futura",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 43.6,
+   "id": "jingle_futura",
+   "vol": 0.5,
+   "pitch": 1.12
+  }
+ ],
+ "fx": {
+  "ghost": 0.14,
+  "tear": 0.06,
+  "stat": 0.08
+ },
+ "evidenceTitle": "Grabación: 7-B - 'Dial de la Suerte' + anuncio del Modelo 63 de Futura",
+ "evidenceNote": "Recibido en la portadora fantasma, a color. Dot regala una Cocina Futura 'Modelo 63' y un anuncio presenta el Modelo 63 'en exposición esta primavera'."
+}

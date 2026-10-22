@@ -1,0 +1,103 @@
+[
+ {
+  "id": "assignment",
+  "title": "Asignación de campo de la FCC",
+  "kind": "letter",
+  "header": "Comisión Federal de Comunicaciones - Distrito de Detroit",
+  "pages": [
+   "PARA: Ingeniero de Campo, Unidad de Monitoreo 14\nDE: R. Haskell, Ingeniero de Distrito\nFECHA: 22 de octubre de 1962\nASUNTO: Queja 62-1147, WKVR-TV, Halloway Falls, Ohio\n\nUn denunciante anónimo informa de interferencias intermitentes en el Canal 7: una segunda imagen tenue que muestra programas que WKVR asegura no haber emitido nunca.",
+   "Diríjase a WKVR-TV y determine el origen. El operador nocturno ha accedido a ayudarle.\n\nPara su referencia: WKVR-TV tiene licencia para 50 KILOVATIOS de potencia visual radiada efectiva en el Canal 7 (portadora visual de 175.25 Mc). Cualquier operación por encima de esa cifra viola la licencia y las normas de la Comisión.",
+   "Usted porta la autoridad de la Comisión para inspeccionar la planta transmisora, sus registros y sus archivos. Informe de sus hallazgos por escrito.\n\nR. Haskell\nIngeniero de Distrito"
+  ],
+  "note": "Queja 62-1147: una segunda imagen tenue en el Canal 7. WKVR-TV tiene licencia para 50 kilovatios de potencia visual. Todo lo que exceda eso es una infracción.",
+  "stamp": "OFICIAL"
+ },
+ {
+  "id": "complaint_log",
+  "title": "Registro de interferencias del operador nocturno",
+  "kind": "log",
+  "header": "Control Maestro de WKVR - llevado por R. Delgado",
+  "pages": [
+   "LLAMADAS DE ESPECTADORES - 'IMAGEN FANTASMA' EN EL CANAL 7\n\nMar 18 sep - 3 llamadas. Segunda imagen tenue, 'como un negativo'.\nMar 25 sep - 7 llamadas. El fantasma muestra un concurso que no emitimos.\nMar 2 oct - 4 llamadas. La imagen fantasma sube rodando despacio.\nMar 9 oct - 11 llamadas. Dot Kimball en el fantasma - 'a color'.",
+   "Mar 16 oct - 9 llamadas. El Sr. P. se quedó tarde otra vez en la nave.\nMar 23 oct - esta noche. Fantasma en los monitores desde las 10 PM.\n\nNOTAS: Nunca otro día. Está justo debajo de nuestra portadora, con la fase invertida. Nuestra imagen lo ahoga a menos que anules la nuestra. Hay que bajar mucho el H-hold para detener el rodamiento.\n- R.D."
+  ],
+  "note": "Imágenes fantasma reportadas SOLO los martes por la noche: 18 sep, 25 sep, 2 oct, 9 oct, 16 oct y esta noche. Sintonía: justo debajo de la portadora del propio Canal 7, fase invertida, con rodamiento - anula nuestra portadora, baja bastante el H-hold."
+ },
+ {
+  "id": "program_log",
+  "title": "Programación de WKVR",
+  "kind": "log",
+  "header": "Semana del 22 de octubre - copia de Control Maestro",
+  "pages": [
+   "MAR 10/23\n 8:00 AM Halloway Hoy (D. Kimball) - en vivo\n 6:00 PM Informativo del Canal 7 (H. Whitcomb)\n 6:20 PM Spot de la Cocina Futura - Modelo 62\n12:05 AM Cierre de emisión\n\nMIÉ 10/24\n Entrega de cámara a color - Estudio A cerrado de 1 a 5 PM",
+   "JUE 10/25\n 6:00 AM COMIENZA LA DEMOSTRACIÓN DEL SKYHOOK\n 8:00 AM Halloway Hoy - invitado A. Penrose\n   ** SE EMITIRÁ EN VIVO - aún sin producir **\n 6:00 PM Informativo del Canal 7\n 9:00 PM Especial de demostración Futura, Estudio A\n\nTexto publicitario para el 'Modelo 63': NINGUNO ARCHIVADO - preguntar a W.B."
+  ],
+  "note": "Jueves 25 oct: 'Halloway Hoy' con el invitado A. Penrose se emitirá en vivo - AÚN NO se ha producido. No existe texto publicitario para ningún 'Modelo 63'."
+ },
+ {
+  "id": "program_guide",
+  "title": "Recorte de TV Semanal",
+  "kind": "clipping",
+  "header": "Halloway Courier, sábado 20 de octubre",
+  "pages": [
+   "TV SEMANAL - LO DESTACADO DEL CANAL 7\n\nMARTES: Halloway Hoy, 8 AM. Dot Kimball presenta la feria de Delmar Grange.\n\nJUEVES: Halloway Hoy, 8 AM. ¡Invitado especial: Arthur Penrose, de la propia WKVR, sobre la torre Skyhook! Y a las 9 PM, el Espectacular Futura de Costa a Costa, en vivo desde el Estudio A."
+  ],
+  "note": "Cartelera de periódico: Penrose es invitado de Dot en 'Halloway Hoy' del JUEVES - dentro de dos días."
+ },
+ {
+  "id": "staff_roster",
+  "title": "Plantilla de personal de WKVR",
+  "kind": "log",
+  "header": "Octubre de 1962",
+  "pages": [
+   "Walter Brandt - Director de la emisora\nArthur Penrose - Ingeniero Jefe (planta transmisora, Skyhook)\nRosa Delgado - Control Maestro, turno de noche\nDorothy Kimball - Presentadora, Halloway Hoy\nHal Whitcomb - Noticias\n\nLLAVES DEL TRANSMISOR: solo A. Penrose.\nOperación nocturna del Skyhook: solo el Ingeniero Jefe.\n- W.B."
+  ],
+  "note": "Solo Penrose tiene las llaves del transmisor. La operación nocturna del Skyhook corre a cargo del ingeniero jefe únicamente."
+ },
+ {
+  "id": "futura_letter",
+  "title": "Carta de Futura Corporation",
+  "kind": "letter",
+  "header": "Futura Corporation - Dayton, Ohio - 3 de octubre de 1962",
+  "pages": [
+   "Estimado Sr. Brandt:\n\nNuestro patrocinio continuo de WKVR depende de que la demostración del jueves logre una recepción fiable de un solo salto en Los Ángeles. Nuestros ingenieros estiman que para ello harán falta al menos 200 kilovatios.",
+   "Confiamos en que el 'arreglo especial' del Sr. Penrose estará listo.\n\nLa cocina Modelo 63 sigue siendo ESTRICTAMENTE CONFIDENCIAL hasta nuestro lanzamiento de enero. Procure que no se la mencione en el aire.\n\nR. Maddox\nVicepresidente de Publicidad"
+  ],
+  "note": "Futura quiere 200 kilovatios para el jueves. La cocina 'Modelo 63' es confidencial hasta enero - nadie puede mencionarla en el aire.",
+  "stamp": "CONFIDENCIAL"
+ },
+ {
+  "id": "skyhook_brochure",
+  "title": "Programa de inauguración del Skyhook",
+  "kind": "clipping",
+  "header": "WKVR-TV - junio de 1959",
+  "pages": [
+   "WKVR inaugura con orgullo el ARRAY RESONANTE SKYHOOK, diseñado por nuestro ingeniero jefe Arthur Penrose, antiguo miembro de los Laboratorios Bell.\n\nAltura: 480 pies\nPotencia autorizada: 50.000 vatios\n\n'Una torre que alcanza el cielo - y es lo bastante sabia para detenerse ahí.'\n- A. Penrose"
+  ],
+  "note": "El Skyhook se inauguró en 1959. Potencia autorizada: 50.000 vatios (50 kW)."
+ },
+ {
+  "id": "transmitter_log",
+  "title": "Registro del transmisor Skyhook",
+  "kind": "log",
+  "header": "A. Penrose - PRIVADO - NO RETIRAR",
+  "pages": [
+   "PASADAS DE SOBREMARCHA (aprox. 200 kW visuales)\n\n1 - Mar 9/18 - de 11 PM a 2 AM\n2 - Mar 9/25 - de 11 PM a 3 AM\n3 - Mar 10/2 - de 10 PM a 3 AM\n4 - Mar 10/9 - de 10 PM a 4 AM\n5 - Mar 10/16 - de 10 PM a 4 AM\n6 - Mar 10/23 - 10 PM - (esta noche)\n7 - Jue 10/25 - 6 AM - DEMOSTRACIÓN COMPLETA, 24 h",
+   "NOTAS\n\nPasada 3: una imagen en el monitor que NO es nuestra. Misma portadora, invertida.\nPasada 4: moví la entrada de refrigerante a la VÁLVULA 5 para el colector de sobremarcha. La línea de la válvula 3 quedó sin salida. ¡HAY QUE revisar la tarjeta de apagado colgada en la pared!\nPasada 5: el fantasma es el jueves 10/25. Nuestros propios programas, dos días antes.",
+   "Cada pasada recibe la MISMA noche: el jueves. La última pasada que habrá jamás. ¿Por qué la última? ¿Qué pasa después?\n\nW.B. firmó todo lo anterior.\n- A.P."
+  ],
+  "note": "Penrose ha tenido el Skyhook en sobremarcha (unos 200 kW) todos los martes por la noche desde el 18 de septiembre - y esta noche. Pasada 4: entrada de refrigerante movida a la VÁLVULA 5; la válvula 3 quedó sin salida. La tarjeta de apagado colgada nunca se revisó.",
+  "stamp": "PRIVADO"
+ },
+ {
+  "id": "procedure",
+  "title": "Procedimiento de apagado de emergencia",
+  "kind": "notice",
+  "header": "Sobremarcha del Skyhook - Rev. 3 - junio de 1962 - COLGAR EN LA CONSOLA",
+  "pages": [
+   "EN CASO DE EMERGENCIA:\n\n1. Abra la VÁLVULA DE REFRIGERANTE 3. Confirme el caudal en el manómetro.\n2. Reduzca el EXCITADOR FINAL a cero.\n3. Abra el INTERRUPTOR DE PLACA.\n4. Cierre la TOMA DE TIERRA DE LA ANTENA.\n\nNUNCA abra el interruptor de placa con excitación.\nNUNCA conecte a tierra una antena activa.\n\nA. Penrose, Ingeniero Jefe"
+  ],
+  "note": "Colgado en la consola (Rev. 3, junio de 1962): 1) abrir la VÁLVULA 3 de refrigerante, 2) excitador final a cero, 3) abrir el interruptor de placa, 4) cerrar la toma de tierra de la antena.",
+  "stamp": "REV. 3"
+ }
+]

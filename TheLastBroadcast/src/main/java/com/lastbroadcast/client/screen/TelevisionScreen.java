@@ -21,7 +21,7 @@ public class TelevisionScreen extends RetroScreen {
     private final BlockPos pos;
 
     public TelevisionScreen(BlockPos pos) {
-        super(Component.literal("Television"), 320, 222);
+        super(Component.translatable("lastbroadcast.ui.tv.title"), 320, 222);
         this.pos = pos;
     }
 
@@ -48,7 +48,7 @@ public class TelevisionScreen extends RetroScreen {
         dial.onClick = () -> change(1);
         dial.onScroll = this::change;
         dial.clickSound = ModSounds.CHANNEL_CLICK.get();
-        dial.tooltip = "Channel selector - click or scroll";
+        dial.tooltip = tr("lastbroadcast.ui.tv.dial_tip");
         controls.add(dial);
 
         Control power = new Control(262, 150, 36, 18);
@@ -64,7 +64,7 @@ public class TelevisionScreen extends RetroScreen {
             if (tv != null) Net.toServer(new TvControlPacket(pos, !tv.isPowered(), tv.getChannel()));
         };
         power.clickSound = ModSounds.BREAKER.get();
-        power.tooltip = "Power";
+        power.tooltip = tr("lastbroadcast.ui.tv.power");
         controls.add(power);
     }
 
@@ -115,12 +115,12 @@ public class TelevisionScreen extends RetroScreen {
             g.pose().translate(0, 0, 50);
             recess(g, SX, SY + SH + 10, SW, 28, 0xFF14100C);
             if (sub != null) wrapped(g, sub, SX + 5, SY + SH + 14, SW - 10, 0xFFF2E6C0, 2);
-            else if (tv.isPowered() && shown == null) label(g, "[ snow - no carrier on this channel ]", SX + 5, SY + SH + 14, 0xFF8A8070);
+            else if (tv.isPowered() && shown == null) label(g, tr("lastbroadcast.ui.tv.snow"), SX + 5, SY + SH + 14, 0xFF8A8070);
             g.pose().popPose();
         }
         // control column
         plate(g, 248, 14, 64, 20);
-        labelCentered(g, "CHANNEL", 280, 20, INK);
+        labelCentered(g, tr("lastbroadcast.ui.tv.channel"), 280, 20, INK);
         String ch = tv == null ? "-" : Channels.label(tv.getChannel());
         recess(g, 256, 104, 48, 20, 0xFF0C0A08);
         labelCentered(g, ch, 280, 110, AMBER);
@@ -132,7 +132,7 @@ public class TelevisionScreen extends RetroScreen {
             g.fill(px - 1, py - 1, px + 1, py + 1, CREAM_DK);
         }
         plate(g, 248, 130, 64, 14);
-        smallLabel(g, "OFF        ON", 280, 134, INK);
+        smallLabel(g, tr("lastbroadcast.ui.tv.offon"), 280, 134, INK);
         // speaker grille
         for (int i = 0; i < 6; i++) g.fill(254, 178 + i * 5, 306, 180 + i * 5, 0xFF1A120C);
     }

@@ -52,7 +52,7 @@ public final class Canvas {
     }
 
     private VertexConsumer vc() {
-        return buffers.getBuffer(RenderType.text(Atlas.TEXTURE));
+        return buffers.getBuffer(RenderType.text(Atlas.texture()));
     }
 
     public void image(String region, float x0, float y0, float x1, float y1, int argb) {

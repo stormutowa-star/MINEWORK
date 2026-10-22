@@ -1,0 +1,40 @@
+{
+ "id": "surge_frame",
+ "title": "Pico de eco",
+ "duration": 3,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "studio_emergency",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 72,
+     "y": 102,
+     "h": 66
+    }
+   ],
+   "texts": [],
+   "crop": [
+    30,
+    20,
+    96,
+    72
+   ],
+   "fx": {
+    "stat": 0.5,
+    "roll": 0.7,
+    "tear": 0.9,
+    "ghost": 0.4,
+    "flicker": 0.5
+   },
+   "tint": "#ffc8b8"
+  }
+ ],
+ "lines": [],
+ "sounds": [],
+ "unrecordable": true
+}

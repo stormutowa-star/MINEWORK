@@ -28,7 +28,7 @@ public class AnalyzerScreen extends RetroScreen {
     private int lastQuantum = -1;
 
     public AnalyzerScreen(BlockPos pos) {
-        super(Component.literal("Signal Analyzer"), 330, 214);
+        super(Component.translatable("lastbroadcast.ui.analyzer.title"), 330, 214);
         this.pos = pos;
     }
 
@@ -66,8 +66,8 @@ public class AnalyzerScreen extends RetroScreen {
         knobControl(18, 140, "FREQUENCY", v -> freq = Mth.clamp(freq + v * (Screen.hasShiftDown() ? 1 : 5), 17000, 18000));
         knobControl(98, 140, "PHASE", v -> phase = Math.floorMod(phase + v * 5, 360));
         knobControl(178, 140, "H-HOLD", v -> hold = Mth.clamp(hold + v, 0, 100));
-        Control patch = button(250, 184, 50, 20, "PATCH", () -> Net.toServer(new AnalyzerLockPacket(pos, freq, phase, hold)));
-        patch.tooltip = "Patch the isolated carrier to the station's receivers";
+        Control patch = button(250, 184, 50, 20, tr("lastbroadcast.ui.analyzer.patch"), () -> Net.toServer(new AnalyzerLockPacket(pos, freq, phase, hold)));
+        patch.tooltip = tr("lastbroadcast.ui.analyzer.patch_tip");
         patch.clickSound = ModSounds.RELAY.get();
     }
 
@@ -84,7 +84,7 @@ public class AnalyzerScreen extends RetroScreen {
                 default -> hold / 100f * 300f - 150f;
             };
             knob(g, c.x + 30, c.y + 26, 40, angle);
-            smallLabel(g, name, c.x + 30, c.y + 52, CREAM);
+            smallLabel(g, tr(switch (name) { case "FREQUENCY" -> "lastbroadcast.ui.analyzer.freq"; case "PHASE" -> "lastbroadcast.ui.analyzer.phase"; default -> "lastbroadcast.ui.analyzer.hhold"; }), c.x + 30, c.y + 52, CREAM);
             smallLabel(g, "-          +", c.x + 30, c.y + 4, CREAM_DK);
         };
         k.onScroll = adj::by;
@@ -98,7 +98,7 @@ public class AnalyzerScreen extends RetroScreen {
             int mx = lastMouseX;
             adj.by(mx < k.x + 30 ? -1 : 1);
         };
-        k.tooltip = "Click left/right, scroll or drag. Shift = fine";
+        k.tooltip = tr("lastbroadcast.ui.analyzer.knob_tip");
         controls.add(k);
     }
 
@@ -115,7 +115,7 @@ public class AnalyzerScreen extends RetroScreen {
         cabinet(g, 0, 0, panelW, panelH);
         // header plate
         plate(g, 10, 8, 200, 14);
-        labelCentered(g, "HALCYON 1150 SIGNAL ANALYZER", 110, 11, INK);
+        labelCentered(g, tr("lastbroadcast.ui.analyzer.header"), 110, 11, INK);
         double time = (Minecraft.getInstance().level == null ? 0 : Minecraft.getInstance().level.getGameTime()) + partial;
 
         // ---- scope ----
@@ -134,17 +134,17 @@ public class AnalyzerScreen extends RetroScreen {
         c.layer();
         trace(c, sx, sy, sw, sh, ghostAmp, drift + phaseShift, holdError() * 0.4f, true, 0xE0FFB040, time);
         g.flush();
-        smallLabel(g, "REF (WKVR)", sx + 22, sy + 3, 0xFF60FF80);
-        smallLabel(g, "RESIDUAL", sx + sw - 20, sy + 3, AMBER);
+        smallLabel(g, tr("lastbroadcast.ui.analyzer.ref"), sx + 22, sy + 3, 0xFF60FF80);
+        smallLabel(g, tr("lastbroadcast.ui.analyzer.residual"), sx + sw - 20, sy + 3, AMBER);
 
         // ---- readouts ----
         recess(g, 218, 28, 102, 50, 0xFF0C0A08);
         label(g, String.format("%d.%02d Mc", freq / 100, freq % 100), 224, 33, AMBER);
-        label(g, String.format("PHASE %3d°", phase), 224, 47, AMBER);
-        label(g, String.format("H-HOLD %3d", hold), 224, 61, AMBER);
+        label(g, tr("lastbroadcast.ui.analyzer.phase_readout", phase), 224, 47, AMBER);
+        label(g, tr("lastbroadcast.ui.analyzer.hhold_readout", hold), 224, 61, AMBER);
 
         // ---- meter ----
-        meter(g, 218, 84, 102, 46, meterValue, "FIELD  dB");
+        meter(g, 218, 84, 102, 46, meterValue, tr("lastbroadcast.ui.analyzer.field"));
 
         // ---- preview monitor ----
         int px = 248, py = 136;
@@ -163,12 +163,12 @@ public class AnalyzerScreen extends RetroScreen {
         BroadcastRenderer.draw(pc, ContentLibrary.broadcast("p1_today_thursday"), (time / 20.0) % 50.0, sig);
         g.flush();
         g.pose().popPose();
-        smallLabel(g, "PREVIEW", px + 24, py + 39, CREAM_DK);
+        smallLabel(g, tr("lastbroadcast.ui.analyzer.preview"), px + 24, py + 39, CREAM_DK);
 
         // ---- lamps ----
         boolean patched = CaseState.CLIENT.has(Flags.SIGNAL_LOCKED);
         lamp(g, 302, 140, 0xFF40FF60, locked());
-        smallLabel(g, "LOCK", 305, 150, CREAM);
+        smallLabel(g, tr("lastbroadcast.ui.analyzer.lock"), 305, 150, CREAM);
         lamp(g, 302, 158, AMBER, patched);
         smallLabel(g, "7-B", 305, 168, CREAM);
     }

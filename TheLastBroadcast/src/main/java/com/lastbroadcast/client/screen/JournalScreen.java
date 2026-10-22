@@ -26,33 +26,33 @@ public class JournalScreen extends RetroScreen {
     private static final int ROWS = 12;
 
     public JournalScreen() {
-        super(Component.literal("Case File"), 340, 220);
+        super(Component.translatable("lastbroadcast.ui.journal.title"), 340, 220);
     }
 
     @Override
     protected void layout() {
         Control t0 = new Control(14, 6, 70, 16);
-        t0.painter = (g, c, h, d) -> tabLabel(g, c, "EVIDENCE", tab == 0, h);
+        t0.painter = (g, c, h, d) -> tabLabel(g, c, tr("lastbroadcast.ui.journal.tab_evidence"), tab == 0, h);
         t0.onClick = () -> tab = 0;
         t0.clickSound = ModSounds.PAPER.get();
         controls.add(t0);
         Control t1 = new Control(88, 6, 78, 16);
-        t1.painter = (g, c, h, d) -> tabLabel(g, c, "DEDUCTIONS", tab == 1, h);
+        t1.painter = (g, c, h, d) -> tabLabel(g, c, tr("lastbroadcast.ui.journal.tab_deductions"), tab == 1, h);
         t1.onClick = () -> tab = 1;
         t1.clickSound = ModSounds.PAPER.get();
         controls.add(t1);
 
-        Control compare = button(14, 192, 120, 20, "COMPARE SELECTED", () -> {
+        Control compare = button(14, 192, 120, 20, tr("lastbroadcast.ui.journal.compare"), () -> {
             if (selected.size() == 2) Net.toServer(new ComparePacket(selected.get(0), selected.get(1)));
         });
-        compare.tooltip = "Look for a contradiction between the two ticked items";
+        compare.tooltip = tr("lastbroadcast.ui.journal.compare_tip");
         compare.clickSound = ModSounds.PAPER.get();
-        Control read = button(232, 192, 94, 20, "READ / REVIEW", () -> {
+        Control read = button(232, 192, 94, 20, tr("lastbroadcast.ui.journal.read"), () -> {
             if (focused != null && focused.startsWith("doc:")) {
                 Minecraft.getInstance().setScreen(new DocumentScreen(focused.substring(4), this));
             }
         });
-        read.tooltip = "Read the full document";
+        read.tooltip = tr("lastbroadcast.ui.journal.read_tip");
     }
 
     private void tabLabel(GuiGraphics g, Control c, String text, boolean active, boolean hover) {
@@ -103,12 +103,12 @@ public class JournalScreen extends RetroScreen {
         // manila folder
         g.fill(4, 18, panelW - 4, panelH - 2, 0xFF6B5A3A);
         bevel(g, 6, 20, panelW - 12, panelH - 26, 0xFFE9DBB0, 0xFFFFF4D0, 0xFFB09A68);
-        label(g, "FCC COMPLAINT 62-1147 - WKVR-TV", 178, 8, 0xFFE9DBB0);
+        label(g, tr("lastbroadcast.ui.journal.header"), 178, 8, 0xFFE9DBB0);
         CaseState cs = CaseState.CLIENT;
         // lead
         g.fill(12, 24, panelW - 12, 40, 0xFFF6EED5);
-        label(g, "LEAD:", 16, 28, RED);
-        String lead = Leads.current(cs);
+        label(g, tr("lastbroadcast.ui.journal.lead"), 16, 28, RED);
+        String lead = tr(Leads.current(cs));
         String cut = font().plainSubstrByWidth(lead, panelW - 70);
         label(g, cut, 48, 28, INK);
         if (!cut.equals(lead)) tooltipIf(mx, my, 12, 24, panelW - 24, 16, lead);
@@ -128,7 +128,7 @@ public class JournalScreen extends RetroScreen {
         List<String> ev = evidence();
         selected.removeIf(id -> !ev.contains(id));
         recess(g, 12, 42, 160, ROWS * 12 + 4, 0xFFF6EED5);
-        if (ev.isEmpty()) label(g, "No evidence logged yet.", 18, 48, 0xFF8A7A5A);
+        if (ev.isEmpty()) label(g, tr("lastbroadcast.ui.journal.none"), 18, 48, 0xFF8A7A5A);
         for (int i = 0; i < ROWS && i + scroll < ev.size(); i++) {
             String id = ev.get(i + scroll);
             int y = 44 + i * 12;
@@ -150,7 +150,7 @@ public class JournalScreen extends RetroScreen {
             String title = font().plainSubstrByWidth(ContentLibrary.evidenceTitle(id), 136);
             label(g, title, 33, y + 2, INK);
         }
-        if (ev.size() > ROWS) smallLabel(g, "scroll for more (" + ev.size() + ")", 92, 44 + ROWS * 12 + 6, 0xFF6B5A3A);
+        if (ev.size() > ROWS) smallLabel(g, tr("lastbroadcast.ui.journal.scroll", ev.size()), 92, 44 + ROWS * 12 + 6, 0xFF6B5A3A);
         // detail
         recess(g, 178, 42, 150, 146, 0xFFFFFBEA);
         if (focused != null && ev.contains(focused)) {
@@ -159,9 +159,9 @@ public class JournalScreen extends RetroScreen {
             g.fill(182, 48 + h, 324, 49 + h, 0xFFB09A68);
             wrapped(g, info.note, 182, 52 + h, 142, INK, 13 - h / 10);
         } else {
-            wrapped(g, "Click an item to review it. Tick the boxes of two items and press COMPARE to test them against each other.", 182, 46, 142, 0xFF8A7A5A, 8);
+            wrapped(g, tr("lastbroadcast.ui.journal.help"), 182, 46, 142, 0xFF8A7A5A, 8);
         }
-        smallLabel(g, "selected " + selected.size() + "/2", 154, 198, INK);
+        smallLabel(g, tr("lastbroadcast.ui.journal.selected", selected.size()), 154, 198, INK);
     }
 
     private void drawDeductions(GuiGraphics g) {
@@ -179,7 +179,7 @@ public class JournalScreen extends RetroScreen {
                 y += wrapped(g, d.text, 26, y, panelW - 50, INK, 4) + 4;
             }
         }
-        if (cs.deductions.isEmpty()) wrapped(g, "No contradictions established yet. A contradiction needs two pieces of evidence that cannot both be true.", 18, 48, panelW - 40, 0xFF8A7A5A, 4);
-        smallLabel(g, "Established " + found + " of " + total + " key contradictions", panelW / 2, 204, INK);
+        if (cs.deductions.isEmpty()) wrapped(g, tr("lastbroadcast.ui.journal.no_deductions"), 18, 48, panelW - 40, 0xFF8A7A5A, 4);
+        smallLabel(g, tr("lastbroadcast.ui.journal.established", found, total), panelW / 2, 204, INK);
     }
 }

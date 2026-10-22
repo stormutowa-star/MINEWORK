@@ -35,15 +35,15 @@ public record AnalyzerLockPacket(BlockPos pos, int freqCenti, int phase, int hol
         ServerPlayer player = ctx.getSender();
         if (!PacketUtil.canReach(player, pos) || !player.level().getBlockState(pos).is(ModBlocks.SIGNAL_ANALYZER.get())) return;
         if (!locked(freqCenti, phase, hold)) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "No stable picture to patch. Keep tuning."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.no_stable")));
             return;
         }
         player.level().playSound(null, pos, ModSounds.RELAY.get(), SoundSource.BLOCKS, 1f, 1f);
         if (!StoryDirector.has(player.server, Flags.SIGNAL_LOCKED)) {
             StoryDirector.setFlag(player.server, Flags.SIGNAL_LOCKED);
-            Net.toAll(player.server, new NoticePacket(NoticePacket.DEDUCTION, "Ghost carrier isolated - patched to receivers as 7-B"));
+            Net.toAll(player.server, new NoticePacket(NoticePacket.DEDUCTION, com.lastbroadcast.Tx.key("lastbroadcast.msg.ghost_isolated")));
         } else {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "7-B is already patched through to the receivers."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.already_patched")));
         }
     }
 }

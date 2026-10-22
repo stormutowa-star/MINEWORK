@@ -49,13 +49,13 @@ public class DocumentHolderBlock extends MachineBlock<DocumentHolderBlockEntity>
                 gaveAny = true;
             } else if (token.equals("tape:blank")) {
                 StoryDirector.give(sp, token, 2);
-                player.displayClientMessage(Component.literal("You take two reels of blank Valley Magnetics tape from the stock shelf."), true);
+                player.displayClientMessage(Component.translatable("lastbroadcast.msg.take_tape"), true);
                 gaveAny = true;
             }
         }
         if (!gaveAny) {
-            if (already.length() > 0) player.displayClientMessage(Component.literal("You already carry: " + already), true);
-            else player.displayClientMessage(Component.literal(emptyText), true);
+            if (already.length() > 0) player.displayClientMessage(Component.translatable("lastbroadcast.msg.already_carry", already.toString()), true);
+            else player.displayClientMessage(Component.translatable(emptyText), true);
         }
         return InteractionResult.CONSUME;
     }

@@ -32,7 +32,7 @@ public class LockerBlock extends MachineBlock<LockerBlockEntity> {
         if (!level.isClientSide && player instanceof ServerPlayer sp) {
             level.playSound(null, pos, ModSounds.LOCKER.get(), SoundSource.BLOCKS, 0.8f, 1.1f);
             if (StoryDirector.playerHasDocument(player, "transmitter_log")) {
-                player.displayClientMessage(Component.literal("Spare tubes, a slide rule, a thermos. You already took the log."), true);
+                player.displayClientMessage(Component.translatable("lastbroadcast.msg.locker_empty"), true);
             } else {
                 StoryDirector.give(sp, "doc:transmitter_log", 1);
             }
@@ -51,7 +51,7 @@ public class LockerBlock extends MachineBlock<LockerBlockEntity> {
             StoryDirector.give(player, "doc:transmitter_log", 1);
         } else {
             level.playSound(null, pos, ModSounds.DENIED.get(), SoundSource.BLOCKS, 0.8f, 1f);
-            player.displayClientMessage(Component.literal("The handle won't budge."), true);
+            player.displayClientMessage(Component.translatable("lastbroadcast.msg.locker_locked"), true);
         }
     }
 }

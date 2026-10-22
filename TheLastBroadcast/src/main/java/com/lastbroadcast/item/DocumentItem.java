@@ -61,6 +61,6 @@ public class DocumentItem extends Item {
     public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> lines, TooltipFlag flag) {
         DocumentDef d = ContentLibrary.DOCUMENTS.get(docId(stack));
         if (d != null && d.header != null && !d.header.isEmpty()) lines.add(Component.literal(d.header).withStyle(ChatFormatting.GRAY));
-        lines.add(Component.literal("Use to read").withStyle(ChatFormatting.DARK_GRAY));
+        lines.add(Component.translatable("lastbroadcast.item.document.use").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

@@ -1,0 +1,201 @@
+{
+ "name": "Dot Kimball",
+ "role": "Presentadora, Halloway Hoy",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d1",
+   "if": [
+    "D1"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_DOT"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "¡Hola! ¿Usted es del gobierno? Ah, de la FCC. Soy Dot Kimball. Hago Halloway Hoy."
+    },
+    {
+     "who": "dot",
+     "text": "Estoy ensayando el texto del jueves. Arthur es mi invitado. Nos va a explicar todo el cielo."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿El jueves?",
+     "next": "thursday",
+     "actions": [
+      {
+       "set": "MET_DOT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "No quiero interrumpirla.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_DOT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "thursday": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "¡Nuestro primer programa a color! Walter dice que todo el país podría estar viéndonos el jueves por la noche."
+    },
+    {
+     "who": "dot",
+     "text": "Estaré en el Estudio A toda la noche. Alguien tiene que seguir hablando mientras los ingenieros sudan."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Buena suerte.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "¿Me veo bien? Dicen que las cámaras a color son mucho menos indulgentes."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Se ve bien.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "d1": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Rosa dice que hay una imagen mía en los monitores. Del jueves. Es una broma, ¿verdad?"
+    },
+    {
+     "who": "player",
+     "text": "No creo que sea una broma."
+    },
+    {
+     "who": "dot",
+     "text": "Entonces quiero saber cómo sale el jueves, por favor. Todo."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Todavía no.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Ha visto algo. Lo lleva escrito en la cara. ¿Es la torre?"
+    },
+    {
+     "who": "dot",
+     "text": "Si algo pasara el jueves por la noche... yo me quedaría en el aire. Sé que lo haría."
+    }
+   ],
+   "choices": [
+    {
+     "text": "No llegará a eso.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "¡El jueves se aplaza! Walter está de mal humor y Arthur va silbando. Me conformo."
+    },
+    {
+     "who": "dot",
+     "text": "Vuelva para la feria de la Grange. La tarta corre de mi cuenta."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Buenas noches, Dot.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

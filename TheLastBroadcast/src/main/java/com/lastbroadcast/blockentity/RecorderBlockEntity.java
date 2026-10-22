@@ -71,13 +71,13 @@ public class RecorderBlockEntity extends SyncedBlockEntity {
     public void startRecording(ServerPlayer player) {
         if (tape.isEmpty() || recording) return;
         if (!TapeItem.isBlank(tape)) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "This reel is already recorded. Insert a blank reel to record."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.reel_recorded")));
             return;
         }
         ServerLevel level = (ServerLevel) this.level;
         TelevisionBlockEntity source = nearestPoweredSet(level);
         if (source == null) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "Monitor bus is dead. Switch on a receiver near the deck."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.bus_dead")));
             return;
         }
         CaseData data = CaseData.get(level.getServer());
@@ -86,7 +86,7 @@ public class RecorderBlockEntity extends SyncedBlockEntity {
         Channels.OnAir onAir = Channels.onAir(data.state, channel, now);
         Broadcast b = onAir.programme();
         if (b == null || b.unrecordable) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "Nothing but snow on channel " + Channels.label(channel) + ". There is no picture to record."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.no_picture", Channels.label(channel))));
             return;
         }
         recording = true;

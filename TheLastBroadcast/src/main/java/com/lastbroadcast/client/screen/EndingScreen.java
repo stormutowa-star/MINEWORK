@@ -9,29 +9,29 @@ import net.minecraft.network.chat.Component;
 /** The investigator's closing report, typed out line by line. */
 public class EndingScreen extends RetroScreen {
     private static final String[] REPORT = {
-            "FEDERAL COMMUNICATIONS COMMISSION",
-            "Field Engineering & Monitoring Bureau - Detroit District",
+            "lastbroadcast.ui.ending.r1",
+            "lastbroadcast.ui.ending.r2",
             "",
-            "COMPLAINT 62-1147  /  WKVR-TV, HALLOWAY FALLS, OHIO",
-            "DISPOSITION: RESOLVED ON SITE, 24 OCT 1962, 00:40",
+            "lastbroadcast.ui.ending.r3",
+            "lastbroadcast.ui.ending.r4",
             "",
-            "Licensee was operating the Skyhook array at approx. four times authorized visual power on Tuesday nights since 18 September. Interference reports coincide with every unauthorized run.",
+            "lastbroadcast.ui.ending.r5",
             "",
-            "Overdrive equipment was shut down by this engineer and the chief engineer and is now disconnected. The posted emergency shutdown procedure was found to be out of date and has been withdrawn. The demonstration scheduled for 25 October is cancelled.",
+            "lastbroadcast.ui.ending.r6",
             "",
-            "Nature of the received interference: see attached annex, which this engineer does not expect anyone to believe.",
+            "lastbroadcast.ui.ending.r7",
             "",
-            "Channel 7-B: no carrier.",
+            "lastbroadcast.ui.ending.r8"
     };
     private long opened = System.currentTimeMillis();
 
     public EndingScreen() {
-        super(Component.literal("Report"), 300, 226);
+        super(Component.translatable("lastbroadcast.ui.ending.title"), 300, 226);
     }
 
     @Override
     protected void layout() {
-        button(100, 200, 100, 20, "FILE REPORT", this::onClose);
+        button(100, 200, 100, 20, tr("lastbroadcast.ui.ending.file"), this::onClose);
     }
 
     @Override
@@ -40,7 +40,8 @@ public class EndingScreen extends RetroScreen {
         g.fill(0, 0, panelW - 2, panelH - 30, 0xFFFBF7EA);
         int chars = (int) ((System.currentTimeMillis() - opened) / 9);
         int y = 8;
-        for (String line : REPORT) {
+        for (String key : REPORT) {
+            String line = key.isEmpty() ? "" : tr(key);
             if (chars <= 0) break;
             String shown = line.length() > chars ? line.substring(0, chars) : line;
             chars -= line.length();
@@ -62,13 +63,13 @@ public class EndingScreen extends RetroScreen {
                 }
             }
             y += 4;
-            label(g, "Contradictions established: " + found + "/" + total + (optional > 0 ? "  (+" + optional + " additional)" : ""), 10, y, 0xFF7A2020);
-            label(g, "Evidence items logged: " + cs.evidence.size(), 10, y + 10, 0xFF7A2020);
+            label(g, tr("lastbroadcast.ui.ending.contradictions", found, total) + (optional > 0 ? tr("lastbroadcast.ui.ending.additional", optional) : ""), 10, y, 0xFF7A2020);
+            label(g, tr("lastbroadcast.ui.ending.evidence", cs.evidence.size()), 10, y + 10, 0xFF7A2020);
             g.pose().pushPose();
             g.pose().translate(214, 150, 0);
             g.pose().mulPose(com.mojang.math.Axis.ZP.rotationDegrees(-10));
-            g.fill(-4, -4, 66, 16, 0x50B02020);
-            g.drawString(font(), "CASE CLOSED", 2, 2, 0xD0B02020, false);
+            g.fill(-4, -4, 78, 16, 0x50B02020);
+            g.drawString(font(), tr("lastbroadcast.ui.ending.closed"), 2, 2, 0xD0B02020, false);
             g.pose().popPose();
         }
     }

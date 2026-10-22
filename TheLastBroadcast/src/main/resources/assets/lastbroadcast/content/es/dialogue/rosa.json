@@ -1,0 +1,474 @@
+{
+ "name": "Rosa Delgado",
+ "role": "Control Maestro, turno de noche",
+ "roots": [
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": [
+    "MET_ROSA"
+   ]
+  },
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2b",
+   "if": [
+    "D2",
+    "GOT_REEL"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d1",
+   "if": [
+    "D1"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "locked",
+   "if": [
+    "SIGNAL_LOCKED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "tuning",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Usted debe de ser el ingeniero de la FCC. Rosa Delgado, Control Maestro. Pase, cuidado con los cables."
+    },
+    {
+     "who": "rosa",
+     "text": "Le ahorraré trabajo: yo fui quien le escribió. Por favor, no lo diga delante del Sr. Brandt."
+    },
+    {
+     "who": "player",
+     "text": "Su carta mencionaba una segunda imagen en el Canal 7. Programas que nunca emitieron."
+    },
+    {
+     "who": "rosa",
+     "text": "Todos los martes por la noche desde septiembre. Los espectadores me llaman y llevo un registro. Está todo aquí."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Hábleme de la imagen fantasma.",
+     "next": "intro2",
+     "actions": [
+      {
+       "set": "MET_ROSA"
+      },
+      {
+       "give": "doc:complaint_log"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "intro2": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Se esconde justo debajo de nuestra portadora. La misma frecuencia, pero con la fase invertida, como un negativo fotográfico."
+    },
+    {
+     "who": "rosa",
+     "text": "Nuestra imagen la ahoga. Anule la nuestra en el analizador y ahí está. Y rueda: baje mucho el H-hold."
+    },
+    {
+     "who": "rosa",
+     "text": "El analizador está en el banco junto a la pared del fondo. Consiga un enganche limpio y envíelo a los monitores de la casa."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Puedo grabar lo que sale?",
+     "next": "tape_info",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Me pongo a trabajar.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "tape_info": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "La grabadora del banco graba desde el bus de monitores. Enhebre un carrete, encienda un televisor cerca y pulse REC."
+    },
+    {
+     "who": "rosa",
+     "text": "Las cintas vírgenes están en las estanterías de la biblioteca de cintas, al otro lado del pasillo. Nadie las cuenta salvo yo."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Gracias.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "tape_given": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Tome, dos carretes. No le diga a Brandt cuánto gastamos."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Gracias.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "tuning": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "¿Algún avance con el analizador? Misma frecuencia que la nuestra. Anule la fase. Frene el rodamiento."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Recuérdeme cómo grabarlo.",
+     "next": "tape_info",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "¿Podría darme más cinta virgen?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "A trabajar.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "locked": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Ahí está. ¿Canal 7-B, lo llama usted? Mírelo. Esa es Dot. Ese es nuestro decorado."
+    },
+    {
+     "who": "rosa",
+     "text": "Y es a color. No tenemos ninguna cámara a color. Las entregan mañana."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Qué hay en la programación de esta semana?",
+     "next": "schedule",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "¿Podría darme más cinta virgen?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Seguiré mirando.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "schedule": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "El registro de programación está en el archivador junto al tablero de pruebas - copia de Control Maestro. El jueves es el gran día de Futura."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Gracias.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "d1": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "El programa del jueves, un martes por la noche. ¿Sabe lo que me está diciendo?"
+    },
+    {
+     "who": "rosa",
+     "text": "Entonces diré la otra parte. Si el fantasma somos nosotros - nosotros el jueves - entonces lo que muestre está por venir."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Podría darme más cinta virgen?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Mantenga los monitores en 7-B.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "d2": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Doscientos kilovatios. Tiene que ser el Sr. Penrose. Nadie más toca el Skyhook."
+    },
+    {
+     "who": "rosa",
+     "text": "Los martes me manda a casa temprano y se queda en la nave. Luego empiezan las llamadas."
+    },
+    {
+     "who": "rosa",
+     "text": "Hay algo más. Encontré este carrete en la papelera de borrado la semana pasada. Sus iniciales. Suena a disparate."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Déjeme oírlo.",
+     "next": "reel_hint",
+     "actions": [
+      {
+       "set": "GOT_REEL"
+      },
+      {
+       "give": "reel:memo"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "reel_hint": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Hacia delante es ininteligible. Pero es un viejo radioaficionado - hacen trucos con la cinta. Pruebe todos los botones de la grabadora."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Lo haré.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "d2b": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "¿Tuvo sentido el carrete? A veces los ingenieros piensan al revés."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Podría darme más cinta virgen?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "A trabajar.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "La noche del jueves. Un boletín. Dot, luego un incendio, y luego nada de nada."
+    },
+    {
+     "who": "rosa",
+     "text": "Hable con el Sr. Penrose. Haga que pare. Hará caso a la ley si no me hace caso a mí."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Podría darme más cinta virgen?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Voy.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "7-B se fue. Solo zumbido de portadora. Aun así sigo mirándolo."
+    },
+    {
+     "who": "rosa",
+     "text": "Hablaré bien de usted ante la Comisión. Extraoficialmente, por supuesto."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Buenas noches, Rosa.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

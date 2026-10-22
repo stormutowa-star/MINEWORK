@@ -14,7 +14,7 @@ public class KeypadScreen extends RetroScreen {
     private final int[] digits = {0, 0, 0, 0};
 
     public KeypadScreen(BlockPos pos) {
-        super(Component.literal("Locker"), 200, 150);
+        super(Component.translatable("lastbroadcast.ui.keypad.title"), 200, 150);
         this.pos = pos;
     }
 
@@ -50,7 +50,7 @@ public class KeypadScreen extends RetroScreen {
             Control down = button(x, 88, 28, 16, "-", () -> digits[idx] = Math.floorMod(digits[idx] - 1, 10));
             down.clickSound = ModSounds.KNOB.get();
         }
-        Control tryBtn = button(50, 116, 100, 22, "TRY HANDLE", () -> {
+        Control tryBtn = button(50, 116, 100, 22, tr("lastbroadcast.ui.keypad.try"), () -> {
             StringBuilder sb = new StringBuilder();
             for (int d : digits) sb.append(d);
             Net.toServer(new KeypadPacket(pos, sb.toString()));
@@ -64,6 +64,6 @@ public class KeypadScreen extends RetroScreen {
         bevel(g, 0, 0, panelW, panelH, 0xFF8E969E, CHROME_HI, CHROME_LO);
         for (int y = 4; y < panelH - 4; y += 4) g.fill(4, y, panelW - 4, y + 1, 0x10000000);
         plate(g, 40, 8, 120, 18);
-        labelCentered(g, "A. PENROSE - ENGINEERING", 100, 13, INK);
+        labelCentered(g, tr("lastbroadcast.ui.keypad.plate"), 100, 13, INK);
     }
 }

@@ -1,0 +1,29 @@
+{
+ "id": "static_gap",
+ "title": "Sin portadora",
+ "duration": 4,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "black",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 1.0,
+    "tear": 0.4
+   }
+  }
+ ],
+ "lines": [],
+ "sounds": [],
+ "unrecordable": true
+}

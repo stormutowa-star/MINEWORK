@@ -1,0 +1,243 @@
+{
+ "id": "report_tuesday",
+ "title": "Informativo del Canal 7 (martes)",
+ "duration": 52,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "newsdesk",
+   "trans": "static",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [
+    {
+     "s": "INFORMATIVO DEL CANAL 7",
+     "x": 80,
+     "y": 8,
+     "scale": 1.2,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 5,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0101010"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 13,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    36,
+    16,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 18,
+   "bg": "weather_map",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "TIEMPO - VALLE DE OHIO",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 23.4,
+   "bg": "tower_night",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "EL SKYHOOK - JUEVES 9 PM",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    30,
+    50,
+    100,
+    75
+   ],
+   "cropEnd": [
+    30,
+    10,
+    100,
+    75
+   ]
+  },
+  {
+   "t": 34.4,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    36,
+    16,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 45,
+   "bg": "ident_wkvr",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [],
+   "texts": [
+    {
+     "s": "INFORMATIVO DEL CANAL 7",
+     "x": 80,
+     "y": 96,
+     "scale": 0.8,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 2.5,
+   "d": 4.6,
+   "who": "hal",
+   "text": "Buenas noches. Este es el Informativo del Canal 7 del martes, veintitrés de octubre."
+  },
+  {
+   "t": 7.5,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Desde Washington esta noche: la cuarentena naval en el Caribe sigue en vigor."
+  },
+  {
+   "t": 13.0,
+   "d": 4.6,
+   "who": "hal",
+   "text": "Las autoridades piden a las familias que mantengan la calma y sigan con sus rutinas."
+  },
+  {
+   "t": 18.0,
+   "d": 5.0,
+   "who": "hal",
+   "text": "A nivel local, un frente frío llega durante la noche. Probables heladas el jueves por la mañana."
+  },
+  {
+   "t": 23.5,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Cielos despejados el jueves por la tarde - buenas noticias para la demostración del Skyhook de WKVR."
+  },
+  {
+   "t": 29.0,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Los invitados de Futura Corporation verán una emisión de un solo salto, de costa a costa."
+  },
+  {
+   "t": 34.5,
+   "d": 5.2,
+   "who": "hal",
+   "text": "El director de la emisora, Walter Brandt, asegura que la torre funcionará dentro de su potencia autorizada."
+  },
+  {
+   "t": 40.0,
+   "d": 4.8,
+   "who": "hal",
+   "text": "Ese fue el Informativo. Buenas noches, y mantengan sus aparatos sintonizados en el Canal 7."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "music_news",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 45.2,
+   "id": "jingle_wkvr",
+   "vol": 0.6,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Grabación: Informativo del Canal 7 (martes)",
+ "evidenceNote": "Hal Whitcomb, martes por la noche. La demostración del Skyhook del jueves funcionará 'dentro de su potencia autorizada', según Walter Brandt."
+}

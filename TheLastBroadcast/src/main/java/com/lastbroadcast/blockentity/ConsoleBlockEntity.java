@@ -59,7 +59,7 @@ public class ConsoleBlockEntity extends SyncedBlockEntity {
         ServerLevel level = (ServerLevel) this.level;
         if (level == null) return;
         if (!StoryDirector.has(level.getServer(), Flags.PENROSE_CONFESSED)) {
-            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, "The console key switch is locked. Only the chief engineer has the key."));
+            Net.toPlayer(player, new NoticePacket(NoticePacket.INFO, com.lastbroadcast.Tx.key("lastbroadcast.msg.key_locked")));
             return;
         }
         long now = level.getGameTime();
@@ -73,7 +73,7 @@ public class ConsoleBlockEntity extends SyncedBlockEntity {
             case A_DRIVE_DOWN -> {
                 if (drive <= 0) return;
                 if (!coolantFlowing()) {
-                    fault(level, player, "The final amplifier screams as the drive drops with no coolant behind it.");
+                    fault(level, player, "lastbroadcast.msg.fault_drive");
                     return;
                 }
                 drive--;
@@ -87,7 +87,7 @@ public class ConsoleBlockEntity extends SyncedBlockEntity {
             case A_PLATE -> {
                 if (plateClosed) {
                     if (drive > 0) {
-                        fault(level, player, "The plate breaker opens under load. A blue-white arc jumps the contacts.");
+                        fault(level, player, "lastbroadcast.msg.fault_breaker");
                         return;
                     }
                     plateClosed = false;
@@ -100,7 +100,7 @@ public class ConsoleBlockEntity extends SyncedBlockEntity {
             case A_GROUND -> {
                 if (!grounded) {
                     if (plateClosed) {
-                        fault(level, player, "Grounding a live antenna feed. The relay rack lights up like a flashbulb.");
+                        fault(level, player, "lastbroadcast.msg.fault_ground");
                         return;
                     }
                     grounded = true;
@@ -129,7 +129,7 @@ public class ConsoleBlockEntity extends SyncedBlockEntity {
         level.sendParticles(ParticleTypes.LARGE_SMOKE, worldPosition.getX() + 0.5, worldPosition.getY() + 1.2, worldPosition.getZ() + 0.5, 10, 0.3, 0.2, 0.3, 0.01);
         StoryDirector.flickerLights(level, player);
         StoryDirector.setFlag(level.getServer(), Flags.ARC_FAULT_SEEN);
-        Net.toPlayer(player, new NoticePacket(NoticePacket.WARNING, message + " The overload relay trips and slams everything back to overdrive."));
+        Net.toPlayer(player, new NoticePacket(NoticePacket.WARNING, com.lastbroadcast.Tx.key(message)));
         sync();
     }
 

@@ -29,7 +29,7 @@ public class RecorderBlock extends MachineBlock<RecorderBlockEntity> {
         RecorderBlockEntity deck = be(level, pos);
         if (deck == null) return ItemInteractionResult.FAIL;
         if (!deck.getTape().isEmpty()) {
-            if (level.isClientSide) player.displayClientMessage(Component.literal("A reel is already threaded. Sneak-use the deck to eject it."), true);
+            if (level.isClientSide) player.displayClientMessage(Component.translatable("lastbroadcast.msg.reel_threaded"), true);
             return ItemInteractionResult.sidedSuccess(level.isClientSide);
         }
         if (!level.isClientSide) {
@@ -53,7 +53,7 @@ public class RecorderBlock extends MachineBlock<RecorderBlockEntity> {
             return InteractionResult.sidedSuccess(level.isClientSide);
         }
         if (level.isClientSide) {
-            if (deck.getTape().isEmpty()) player.displayClientMessage(Component.literal("No reel threaded. Use a reel of magnetic tape on the deck."), true);
+            if (deck.getTape().isEmpty()) player.displayClientMessage(Component.translatable("lastbroadcast.msg.no_reel"), true);
             else ClientBridge.openRecorder(pos);
         }
         return InteractionResult.sidedSuccess(level.isClientSide);

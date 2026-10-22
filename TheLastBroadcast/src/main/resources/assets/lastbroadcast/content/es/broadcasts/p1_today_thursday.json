@@ -1,0 +1,424 @@
+{
+ "id": "p1_today_thursday",
+ "title": "Halloway Hoy (jueves)",
+ "duration": 58,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "studio_today",
+   "trans": "static",
+   "transDur": 0.8,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [
+    {
+     "s": "HALLOWAY HOY",
+     "x": 80,
+     "y": 8,
+     "scale": 1.4,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 6,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0302018"
+    },
+    {
+     "s": "¡a TODO COLOR!",
+     "x": 80,
+     "y": 24,
+     "scale": 0.8,
+     "color": "#ffd060",
+     "t0": 1,
+     "t1": 6,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 10.5,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    10,
+    28,
+    76,
+    57
+   ]
+  },
+  {
+   "t": 15.5,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [
+    {
+     "s": "ARTHUR PENROSE - INGENIERO JEFE, WKVR",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 5,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    78,
+    26,
+    76,
+    57
+   ]
+  },
+  {
+   "t": 20,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 25.4,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    78,
+    26,
+    76,
+    57
+   ],
+   "cropEnd": [
+    84,
+    30,
+    66,
+    49.5
+   ]
+  },
+  {
+   "t": 36,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    10,
+    28,
+    76,
+    57
+   ]
+  },
+  {
+   "t": 40.4,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    80,
+    28,
+    72,
+    54
+   ],
+   "cropEnd": [
+    88,
+    32,
+    60,
+    45
+   ]
+  },
+  {
+   "t": 46,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 50,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    },
+    {
+     "sprite": "penrose",
+     "x": 114,
+     "y": 98,
+     "h": 64,
+     "talk": "penrose"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 52.5,
+   "bg": "tower_night",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "HALLOWAY HOY",
+     "x": 80,
+     "y": 100,
+     "scale": 1.0,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0302018"
+    }
+   ],
+   "crop": [
+    20,
+    0,
+    120,
+    90
+   ],
+   "cropEnd": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "flicker": 0.2
+   }
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.5,
+   "d": 4.5,
+   "who": "dot",
+   "text": "¡Buenos días, Halloway Falls! Es jueves, veinticinco de octubre..."
+  },
+  {
+   "t": 6.2,
+   "d": 4.0,
+   "who": "dot",
+   "text": "...¡y nos ven a todo color por primera vez!"
+  },
+  {
+   "t": 10.6,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Mi invitado es el hombre que mantiene en el aire el Canal 7: Arthur Penrose."
+  },
+  {
+   "t": 15.6,
+   "d": 4.0,
+   "who": "penrose",
+   "text": "Buenos días, Dot. Buenos días, Halloway Falls."
+  },
+  {
+   "t": 20.1,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Arthur, esta noche todo el país observa tu Skyhook. ¿Qué ocurre a las nueve?"
+  },
+  {
+   "t": 25.5,
+   "d": 5.2,
+   "who": "penrose",
+   "text": "A las seis de esta mañana la llevamos a plena potencia. Esta noche la mantendremos para nuestros invitados de Futura."
+  },
+  {
+   "t": 31.0,
+   "d": 4.8,
+   "who": "penrose",
+   "text": "Doscientos kilovatios, Dot. De costa a costa en un solo salto - rebotando en el propio cielo."
+  },
+  {
+   "t": 36.1,
+   "d": 4.0,
+   "who": "dot",
+   "text": "¡Doscientos! ¿Eso... está permitido?"
+  },
+  {
+   "t": 40.5,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "¡Ja! Walter tiene los papeles en regla. Esta noche haremos historia."
+  },
+  {
+   "t": 46.1,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Bueno, yo estaré aquí mismo, en el Estudio A, toda la noche. ¡Salúdennos, América!"
+  },
+  {
+   "t": 51.4,
+   "d": 4.8,
+   "who": "dot",
+   "text": "Halloway Hoy vuelve enseguida, después de este mensaje de Futura."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "static_burst",
+   "vol": 0.6,
+   "pitch": 1.0
+  },
+  {
+   "t": 0.8,
+   "id": "music_morning",
+   "vol": 0.7,
+   "pitch": 1.0
+  },
+  {
+   "t": 52.6,
+   "id": "jingle_wkvr",
+   "vol": 0.5,
+   "pitch": 0.94
+  }
+ ],
+ "fx": {
+  "ghost": 0.14,
+  "tear": 0.06,
+  "stat": 0.08
+ },
+ "evidenceTitle": "Grabación: 7-B - 'Halloway Hoy' (jueves 25 oct)",
+ "evidenceNote": "Recibido en la portadora fantasma, a COLOR. Dot dice que es jueves 25 de octubre. Su invitado Penrose dice que el Skyhook pasó a 'plena potencia' a las 6 AM - 'doscientos kilovatios'."
+}

@@ -52,8 +52,25 @@ def finish(img):
     return small
 
 
+LANG = os.environ.get("LB_LANG", "en")
+# Spanish lettering for the painted artwork (LB_LANG=es writes atlas_es.png; layout is identical to atlas.png)
+ES = [("HALLOWAY TODAY", "HALLOWAY HOY"), ("WKVR NEWS", "NOTICIAS WKVR"), ("FUTURA PUSH-BUTTON", "FUTURA DE BOTONES"),
+      ("HOMES OF TOMORROW", "HOGARES DEL MAÑANA"), ("LUCKY DIAL", "DIAL DE LA SUERTE"), ("COOLANT FLOW", "REFRIGERANTE"),
+      ("PLATE TEMP", "TEMP. PLACA"), ("VALVE ", "VÁLV. "), ("PLEASE", "POR FAVOR"), ("STAND BY", "ESPERE"),
+      ("OHIO R.", "R. OHIO"), ("CHANNEL", "CANAL"), ("REPORT", "INFORME")]
+
+
+def tr(s):
+    if LANG != "es":
+        return s
+    for a, b in ES:
+        s = s.replace(a, b)
+    return s
+
+
 def text_center(d, xy, s, f, fill, outline=None, ow=0):
     x, y = xy
+    s = tr(s)
     bbox = d.textbbox((0, 0), s, font=f)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
     if outline:
@@ -816,13 +833,15 @@ def main():
     put("missing", Image.new("RGBA", (4, 4), (255, 0, 255, 255)), 350, y_small)
     assert y_small + 70 < 2048 and y_misc + 244 + 240 < 2048, (y_small, y_misc)
 
-    atlas.save(OUT_DIR + "/atlas.png", optimize=True)
-    with open(OUT_DIR + "/atlas.json", "w") as f:
-        json.dump(regions, f, indent=0)
+    sfx = "_es" if LANG == "es" else ""
+    atlas.save(OUT_DIR + "/atlas" + sfx + ".png", optimize=True)
+    if LANG != "es":
+        with open(OUT_DIR + "/atlas.json", "w") as f:
+            json.dump(regions, f, indent=0)
     # previews for review (not shipped)
     prev = "build/art_preview"
     os.makedirs(prev, exist_ok=True)
-    atlas.save(prev + "/atlas_preview.png")
+    atlas.save(prev + "/atlas_preview" + sfx + ".png")
     print("atlas regions:", len(regions), "misc row at", y_misc)
 
 

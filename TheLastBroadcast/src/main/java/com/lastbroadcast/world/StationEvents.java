@@ -40,7 +40,7 @@ public final class StationEvents {
     private static void onBreak(BlockEvent.BreakEvent event) {
         if (event.getLevel() instanceof ServerLevel level && protectedFor(event.getPlayer(), level, event.getPos())) {
             event.setCanceled(true);
-            event.getPlayer().displayClientMessage(Component.literal("This is an active FCC investigation site. Leave the equipment as you found it."), true);
+            event.getPlayer().displayClientMessage(Component.translatable("lastbroadcast.msg.protected"), true);
         }
     }
 

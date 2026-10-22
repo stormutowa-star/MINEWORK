@@ -43,18 +43,18 @@ public class FieldMeterItem extends Item {
             boolean overdrive = data.stationBuilt && !data.state.has(Flags.CASE_SOLVED);
             float s = strength(player.position(), data.consolePos, overdrive);
             int dbuv = Math.round(40 + s * 80);
-            String bearing = "none";
+            int bearing = 0;
             if (overdrive) {
                 Vec3 dir = Vec3.atCenterOf(data.consolePos).subtract(player.position());
                 double ang = Math.toDegrees(Math.atan2(dir.x, -dir.z));
-                String[] names = {"north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"};
-                bearing = names[(int) Math.floorMod(Math.round(ang / 45.0), 8)];
+                bearing = (int) Math.floorMod(Math.round(ang / 45.0), 8);
             }
             level.playSound(null, player.blockPosition(), ModSounds.METER_CLICK.get(), SoundSource.PLAYERS, 0.7f, 0.8f + s * 0.6f);
-            String text = overdrive
-                    ? String.format("Field strength %d dBuV at 175.25 Mc - strongest bearing: %s%s", dbuv, bearing, s > 0.9f ? " (pinned - you are on top of it)" : "")
-                    : "Field strength 44 dBuV - normal background. The carrier is quiet.";
-            player.displayClientMessage(Component.literal(text).withStyle(ChatFormatting.GREEN), true);
+            Component text = overdrive
+                    ? Component.translatable("lastbroadcast.msg.meter_on", dbuv, Component.translatable("lastbroadcast.dir." + bearing),
+                            s > 0.9f ? Component.translatable("lastbroadcast.msg.meter_pinned") : Component.empty())
+                    : Component.translatable("lastbroadcast.msg.meter_quiet");
+            player.displayClientMessage(text.copy().withStyle(ChatFormatting.GREEN), true);
             player.getCooldowns().addCooldown(this, 20);
         }
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
@@ -62,7 +62,7 @@ public class FieldMeterItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> lines, TooltipFlag flag) {
-        lines.add(Component.literal("Halcyon Instruments Model 498 field-strength meter").withStyle(ChatFormatting.GRAY));
-        lines.add(Component.literal("Hold to watch the needle; use to log a reading").withStyle(ChatFormatting.DARK_GRAY));
+        lines.add(Component.translatable("lastbroadcast.item.meter.1").withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("lastbroadcast.item.meter.2").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

@@ -61,6 +61,9 @@ public final class ClientInit {
 
     private static void reloadListeners(RegisterClientReloadListenersEvent event) {
         event.registerReloadListener((ResourceManagerReloadListener) rm -> Atlas.invalidate());
+        // story text follows the game language (runs at start-up and whenever the language changes)
+        event.registerReloadListener((ResourceManagerReloadListener) rm ->
+                com.lastbroadcast.content.ContentLibrary.reloadFor(net.minecraft.client.Minecraft.getInstance().getLanguageManager().getSelected()));
     }
 
 }

@@ -1,0 +1,245 @@
+{
+ "name": "Walter Brandt",
+ "role": "Director de la emisora",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_BRANDT"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Walter Brandt, director de la emisora. ¡La Comisión, a estas horas! Aquí llevamos un negocio limpio, se lo aseguro."
+    },
+    {
+     "who": "brandt",
+     "text": "Para lo que necesite, Rosa le ayudará. Solo le pido que no haga ruido cerca del Estudio A, ¿de acuerdo?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "Hábleme del jueves.",
+     "next": "thursday",
+     "actions": [
+      {
+       "set": "MET_BRANDT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Por supuesto.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_BRANDT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "thursday": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "¡La demostración de Futura! ¡De costa a costa desde la pequeña Halloway Falls! Ese contrato mantiene empleadas a sesenta personas."
+    },
+    {
+     "who": "brandt",
+     "text": "Dentro de nuestra licencia, naturalmente."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Naturalmente.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "¿Sigue aquí? El café está en el vestíbulo. Es horrible."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Hábleme del jueves.",
+     "next": "thursday",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "El 'Modelo 63' de Futura se anunció en 7-B.",
+     "next": "dx",
+     "actions": [],
+     "if": [
+      "DX"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Olvídelo.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "d2": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Doscientos kilovatios. Mire, Futura quería una imagen en Los Ángeles, y Arthur dijo que podía conseguirla."
+    },
+    {
+     "who": "brandt",
+     "text": "Firmé lo que me pusieron delante. Si eso es un delito, es el delito de mantener las luces encendidas."
+    }
+   ],
+   "choices": [
+    {
+     "text": "¿Y el Modelo 63?",
+     "next": "dx",
+     "actions": [],
+     "if": [
+      "DX"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Hablaremos luego.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "dx": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "¿El sesenta y tres? Eso es confidencial hasta enero. Su carta está en mi archivador. ¿Cómo diablos...?"
+    },
+    {
+     "who": "brandt",
+     "text": "Si eso sale en mi emisión, Futura se larga. Y entonces no hay WKVR."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Entonces no lo emita.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Arthur vino a verme blanco como el papel. Dice que usted sabe lo que pasa el jueves. ¿Quiero saberlo?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "No. No quiere.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Sin demostración. Probablemente sin Futura. Una multa - y una emisora que sigue en pie."
+    },
+    {
+     "who": "brandt",
+     "text": "...Gracias. No le diga a nadie que dije eso."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Buenas noches, Sr. Brandt.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

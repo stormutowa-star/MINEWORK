@@ -27,7 +27,7 @@ public class CaseJournalItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> lines, TooltipFlag flag) {
-        lines.add(Component.literal("Complaint #62-1147 - WKVR-TV, Halloway Falls").withStyle(ChatFormatting.GRAY));
-        lines.add(Component.literal("Use to review evidence and compare records").withStyle(ChatFormatting.DARK_GRAY));
+        lines.add(Component.translatable("lastbroadcast.item.journal.1").withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("lastbroadcast.item.journal.2").withStyle(ChatFormatting.DARK_GRAY));
     }
 }

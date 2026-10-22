@@ -1,0 +1,63 @@
+{
+ "id": "memo_penrose",
+ "title": "Carrete sin etiquetar",
+ "duration": 32,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "black",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.0,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "Memorando de ingeniería, Arthur Penrose. Dieciséis de octubre. Pasada de sobremarcha cinco, completada.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 6.6,
+   "d": 5.4,
+   "who": "penrose",
+   "text": "El fantasma volvió a estar en el monitor. Los programas del jueves, claros como el día.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 12.6,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "He dejado de contarle a Walter lo que veo. Solo pregunta si Futura estará contenta.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 18.2,
+   "d": 5.6,
+   "who": "penrose",
+   "text": "El registro se queda en mi taquilla. La misma combinación que la fecha de la demostración - primero el mes, luego el día.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 24.4,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "Que Dios me ayude, quiero ver qué pasa después. Fin del memorando.",
+   "reversedSpeech": true
+  }
+ ],
+ "sounds": [],
+ "evidenceTitle": "Carrete sin etiquetar - 'A.P. - NO BORRAR'",
+ "evidenceNote": "Rosa lo encontró en la papelera de borrado. Es la voz de Penrose, pero al reproducirlo hacia delante es ininteligible - como si el carrete se hubiera enhebrado al revés cuando se grabó.",
+ "audioOnly": true
+}

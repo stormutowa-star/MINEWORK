@@ -36,6 +36,8 @@ public class TapeItem extends Item {
     }
 
     public static String label(ItemStack stack) {
+        String live = com.lastbroadcast.content.ContentLibrary.tapeLabel(broadcastId(stack));
+        if (live != null && !live.isEmpty()) return live;
         CustomData data = stack.get(DataComponents.CUSTOM_DATA);
         return data == null ? "" : data.copyTag().getString("label");
     }
@@ -52,11 +54,11 @@ public class TapeItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext ctx, List<Component> lines, TooltipFlag flag) {
         if (isBlank(stack)) {
-            lines.add(Component.literal("Blank - 1200 ft, 7-1/2 ips").withStyle(ChatFormatting.GRAY));
-            lines.add(Component.literal("Use on a tape deck, then press REC").withStyle(ChatFormatting.DARK_GRAY));
+            lines.add(Component.translatable("lastbroadcast.item.tape.blank_1").withStyle(ChatFormatting.GRAY));
+            lines.add(Component.translatable("lastbroadcast.item.tape.blank_2").withStyle(ChatFormatting.DARK_GRAY));
         } else {
-            lines.add(Component.literal("Label: " + label(stack)).withStyle(ChatFormatting.GOLD));
-            lines.add(Component.literal("Play it back on a tape deck").withStyle(ChatFormatting.DARK_GRAY));
+            lines.add(Component.translatable("lastbroadcast.item.tape.label", label(stack)).withStyle(ChatFormatting.GOLD));
+            lines.add(Component.translatable("lastbroadcast.item.tape.play").withStyle(ChatFormatting.DARK_GRAY));
         }
     }
 }

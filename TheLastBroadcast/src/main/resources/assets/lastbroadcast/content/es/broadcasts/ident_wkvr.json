@@ -1,0 +1,71 @@
+{
+ "id": "ident_wkvr",
+ "title": "Identificación de la emisora WKVR",
+ "duration": 8,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "ident_wkvr",
+   "trans": "static",
+   "transDur": 0.6,
+   "actors": [],
+   "texts": [
+    {
+     "s": "CANAL 7  -  HALLOWAY FALLS",
+     "x": 80,
+     "y": 96,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 1.2,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    },
+    {
+     "s": "LA VENTANA DEL VALLE AL MAÑANA",
+     "x": 80,
+     "y": 106,
+     "scale": 0.5,
+     "color": "#e0e0e0",
+     "t0": 3.0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    24,
+    18,
+    112,
+    84
+   ],
+   "cropEnd": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 3.5,
+   "d": 3.6,
+   "who": "announcer",
+   "text": "Esta es WKVR, Canal 7, Halloway Falls."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.2,
+   "id": "jingle_wkvr",
+   "vol": 0.9,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Grabación: identificación de la emisora WKVR",
+ "evidenceNote": "Identificación rutinaria de la emisora. En blanco y negro."
+}

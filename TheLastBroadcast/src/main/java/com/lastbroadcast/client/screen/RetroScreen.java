@@ -28,6 +28,11 @@ public abstract class RetroScreen extends Screen {
     public static final int CHROME_HI = 0xFFE9EDF1, CHROME = 0xFFB8BEC6, CHROME_LO = 0xFF6E747C;
     public static final int AMBER = 0xFFFFB347, PHOSPHOR = 0xFF7DFF9A, RED = 0xFFD6452F, CYAN = 0xFF54C6C6;
 
+    /** Translates a language key (with optional format arguments) into the player's language. */
+    protected static String tr(String key, Object... args) {
+        return net.minecraft.client.resources.language.I18n.get(key, args);
+    }
+
     protected final int panelW, panelH;
     protected float scale = 1f;
     protected int left, top;

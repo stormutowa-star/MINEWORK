@@ -54,45 +54,89 @@ public final class ContentLibrary {
 
     private ContentLibrary() {}
 
+    /** Language the story content is currently loaded in: "en" or "es". */
+    private static String language = "en";
+
+    /** Loads the English story content once (server and common setup). */
     public static synchronized void load() {
         if (loaded) return;
+        loadFor("en");
+    }
+
+    /**
+     * Reloads the story content for a Minecraft language code (any Spanish variant uses the Spanish
+     * files under content/es/). Called on the client at start-up and whenever the language changes.
+     */
+    public static synchronized void reloadFor(String languageCode) {
+        String lang = languageCode != null && languageCode.toLowerCase(Locale.ROOT).startsWith("es") ? "es" : "en";
+        if (loaded && lang.equals(language)) return;
         try {
-            Index index = read("index.json", Index.class);
-            SPEAKERS.putAll(index.speakers);
-            EXTRA_EVIDENCE.putAll(index.evidence);
-            FRAGMENTS.putAll(index.fragments);
+            loadFor(lang);
+        } catch (RuntimeException e) {
+            LastBroadcast.LOG.error("Could not load '{}' story content, falling back to English", lang, e);
+            loadFor("en");
+        }
+    }
+
+    private static void loadFor(String lang) {
+        try {
+            Map<String, Broadcast> broadcasts = new LinkedHashMap<>();
+            Map<String, DocumentDef> documents = new LinkedHashMap<>();
+            Map<String, DeductionDef> deductions = new LinkedHashMap<>();
+            Map<String, DialogueDef> dialogues = new LinkedHashMap<>();
+            Index index = read("index.json", Index.class, lang);
             for (String b : index.broadcasts) {
-                Broadcast bc = read("broadcasts/" + b + ".json", Broadcast.class);
+                Broadcast bc = read("broadcasts/" + b + ".json", Broadcast.class, lang);
                 if (bc.id == null) bc.id = b;
                 bc.shots.sort(Comparator.comparingDouble(s -> s.t));
                 bc.lines.sort(Comparator.comparingDouble(l -> l.t));
                 bc.sounds.sort(Comparator.comparingDouble(s -> s.t));
-                BROADCASTS.put(bc.id, bc);
+                broadcasts.put(bc.id, bc);
             }
-            List<DocumentDef> docs = read("documents.json", new TypeToken<List<DocumentDef>>() {}.getType());
-            for (DocumentDef d : docs) DOCUMENTS.put(d.id, d);
-            List<DeductionDef> deds = read("deductions.json", new TypeToken<List<DeductionDef>>() {}.getType());
-            for (DeductionDef d : deds) DEDUCTIONS.put(d.id, d);
-            for (String c : index.dialogues) DIALOGUES.put(c, read("dialogue/" + c + ".json", DialogueDef.class));
+            List<DocumentDef> docs = read("documents.json", new TypeToken<List<DocumentDef>>() {}.getType(), lang);
+            for (DocumentDef d : docs) documents.put(d.id, d);
+            List<DeductionDef> deds = read("deductions.json", new TypeToken<List<DeductionDef>>() {}.getType(), lang);
+            for (DeductionDef d : deds) deductions.put(d.id, d);
+            for (String c : index.dialogues) dialogues.put(c, read("dialogue/" + c + ".json", DialogueDef.class, lang));
+            replace(SPEAKERS, index.speakers);
+            replace(EXTRA_EVIDENCE, index.evidence);
+            replace(FRAGMENTS, index.fragments);
+            replace(BROADCASTS, broadcasts);
+            replace(DOCUMENTS, documents);
+            replace(DEDUCTIONS, deductions);
+            replace(DIALOGUES, dialogues);
+            language = lang;
             loaded = true;
-            LastBroadcast.LOG.info("Loaded {} broadcasts, {} documents, {} deductions, {} dialogue trees",
-                    BROADCASTS.size(), DOCUMENTS.size(), DEDUCTIONS.size(), DIALOGUES.size());
+            LastBroadcast.LOG.info("Loaded {} broadcasts, {} documents, {} deductions, {} dialogue trees ({})",
+                    BROADCASTS.size(), DOCUMENTS.size(), DEDUCTIONS.size(), DIALOGUES.size(), lang);
         } catch (Exception e) {
             LastBroadcast.LOG.error("Failed to load The Last Broadcast story content", e);
             throw new IllegalStateException("The Last Broadcast: story content failed to load", e);
         }
     }
 
-    private static <T> T read(String file, java.lang.reflect.Type type) throws IOException {
-        try (Reader r = open(file)) {
+    private static <T> void replace(Map<String, T> target, Map<String, T> source) {
+        target.clear();
+        target.putAll(source);
+    }
+
+    private static <T> T read(String file, java.lang.reflect.Type type, String lang) throws IOException {
+        try (Reader r = open(file, lang)) {
             T t = GSON.fromJson(r, type);
             if (t == null) throw new IOException("Empty content file " + file);
             return t;
         }
     }
 
-    private static Reader open(String file) throws IOException {
-        String path = ROOT + file;
+    private static Reader open(String file, String lang) throws IOException {
+        InputStream in = null;
+        if (!"en".equals(lang)) in = openStream(ROOT + lang + "/" + file);
+        if (in == null) in = openStream(ROOT + file);
+        if (in == null) throw new IOException("Missing content file " + ROOT + file);
+        return new InputStreamReader(in, StandardCharsets.UTF_8);
+    }
+
+    private static InputStream openStream(String path) {
         InputStream in = null;
         try {
             var mod = ModList.get() == null ? null : ModList.get().getModFileById(LastBroadcast.MODID);
@@ -104,8 +148,7 @@ public final class ContentLibrary {
             LastBroadcast.LOG.debug("Mod file lookup failed for {}, falling back to classpath", path, e);
         }
         if (in == null) in = LastBroadcast.class.getResourceAsStream("/" + path);
-        if (in == null) throw new IOException("Missing content file " + path);
-        return new InputStreamReader(in, StandardCharsets.UTF_8);
+        return in;
     }
 
     // ---------------------------------------------------------------- lookups
@@ -121,6 +164,19 @@ public final class ContentLibrary {
             s.name = id == null ? "" : id;
         }
         return s;
+    }
+
+    /** Current story language: "en" or "es". */
+    public static String language() {
+        return language;
+    }
+
+    /** Label printed on a recorded reel, in the current language. */
+    public static String tapeLabel(String broadcastId) {
+        Broadcast b = broadcast(broadcastId);
+        if (b == null) return null;
+        if ("memo_penrose".equals(broadcastId) && b.evidenceTitle != null) return b.evidenceTitle;
+        return b.title;
     }
 
     /** Human readable title of an evidence id (doc:x, tape:x, frame:x ...). */

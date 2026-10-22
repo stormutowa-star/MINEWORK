@@ -18,7 +18,7 @@ public class DocumentScreen extends RetroScreen {
     private int page = 0;
 
     public DocumentScreen(String docId, Screen parent) {
-        super(Component.literal("Document"), 240, 226);
+        super(Component.translatable("lastbroadcast.ui.document.title"), 240, 226);
         this.doc = ContentLibrary.DOCUMENTS.get(docId);
         this.parent = parent;
     }
@@ -94,7 +94,7 @@ public class DocumentScreen extends RetroScreen {
             g.drawString(font(), doc.stamp, 4, 2, 0xC0B02020, false);
             g.pose().popPose();
         }
-        labelCentered(g, "page " + (page + 1) + " of " + Math.max(1, doc.pages.size()), panelW / 2, panelH - 18, 0xFFE9DBB0);
+        labelCentered(g, tr("lastbroadcast.ui.document.page", page + 1, Math.max(1, doc.pages.size())), panelW / 2, panelH - 18, 0xFFE9DBB0);
         controls.get(0).visible = page > 0;
         controls.get(1).visible = page < doc.pages.size() - 1;
     }

@@ -48,11 +48,11 @@ public final class ModBlocks {
     public static final RegistryObject<Block> TAPE_RECORDER = reg("tape_recorder", () -> new RecorderBlock(machine(MapColor.COLOR_GRAY, SoundType.METAL), S_RECORDER));
     public static final RegistryObject<Block> CASE_BOARD = reg("case_board", () -> new CaseBoardBlock(machine(MapColor.COLOR_BROWN, SoundType.WOOD), S_WALL_BOARD));
     public static final RegistryObject<Block> FILE_CABINET = reg("file_cabinet", () -> new DocumentHolderBlock(machine(MapColor.COLOR_GREEN, SoundType.METAL), S_CABINET,
-            "Carbon copies, coffee rings and old rate cards. Nothing useful.", ModSounds.LOCKER));
+            "lastbroadcast.msg.cabinet_empty", ModSounds.LOCKER));
     public static final RegistryObject<Block> TAPE_SHELF = reg("tape_shelf", () -> new DocumentHolderBlock(machine(MapColor.COLOR_BROWN, SoundType.WOOD), S_SHELF,
-            "Boxes of recorded programmes, all labelled and dated. Nothing out of place.", ModSounds.TAPE_INSERT));
+            "lastbroadcast.msg.shelf_empty", ModSounds.TAPE_INSERT));
     public static final RegistryObject<Block> NOTICE_BOARD = reg("notice_board", () -> new DocumentHolderBlock(machine(MapColor.COLOR_BROWN, SoundType.WOOD), S_NOTICE,
-            "Shift rosters and a bowling league flyer.", ModSounds.PAPER));
+            "lastbroadcast.msg.notice_empty", ModSounds.PAPER));
     public static final RegistryObject<Block> ENGINEERING_LOCKER = reg("engineering_locker", () -> new LockerBlock(machine(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL), S_CABINET));
     public static final RegistryObject<Block> SKYHOOK_CONSOLE = reg("skyhook_console", () -> new ConsoleBlock(machine(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL).lightLevel(s -> 5), S_CONSOLE));
     public static final RegistryObject<Block> TELEPHONE = reg("telephone", () -> new TelephoneBlock(machine(MapColor.COLOR_BLACK, SoundType.STONE), S_PHONE));
