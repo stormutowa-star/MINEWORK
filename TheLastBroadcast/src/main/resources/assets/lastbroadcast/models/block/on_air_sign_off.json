@@ -1,0 +1,42 @@
+{
+ "parent": "block/block",
+ "textures": {
+  "particle": "lastbroadcast:block/chrome",
+  "sign": "lastbroadcast:block/on_air_off",
+  "chrome": "lastbroadcast:block/chrome"
+ },
+ "elements": [
+  {
+   "from": [
+    1,
+    5,
+    14
+   ],
+   "to": [
+    15,
+    11,
+    16
+   ],
+   "faces": {
+    "north": {
+     "texture": "#sign"
+    },
+    "south": {
+     "texture": "#chrome"
+    },
+    "east": {
+     "texture": "#chrome"
+    },
+    "west": {
+     "texture": "#chrome"
+    },
+    "up": {
+     "texture": "#chrome"
+    },
+    "down": {
+     "texture": "#chrome"
+    }
+   }
+  }
+ ]
+}

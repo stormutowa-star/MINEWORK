@@ -1,0 +1,10 @@
+{
+ "variants": {
+  "lit=true": {
+   "model": "lastbroadcast:block/ceiling_light_on"
+  },
+  "lit=false": {
+   "model": "lastbroadcast:block/ceiling_light_off"
+  }
+ }
+}

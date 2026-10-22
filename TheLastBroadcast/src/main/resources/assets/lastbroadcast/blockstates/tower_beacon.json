@@ -1,0 +1,10 @@
+{
+ "variants": {
+  "lit=true": {
+   "model": "lastbroadcast:block/tower_beacon_on"
+  },
+  "lit=false": {
+   "model": "lastbroadcast:block/tower_beacon_off"
+  }
+ }
+}

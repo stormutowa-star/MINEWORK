@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/skyhook_console"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/skyhook_console",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/skyhook_console",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/skyhook_console",
+   "y": 270
+  }
+ }
+}

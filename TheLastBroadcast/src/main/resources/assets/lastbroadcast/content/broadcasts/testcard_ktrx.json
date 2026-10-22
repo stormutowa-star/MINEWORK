@@ -1,0 +1,32 @@
+{
+ "id": "testcard_ktrx",
+ "title": "KTRX test pattern (Channel 4)",
+ "duration": 30,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "testcard_ktrx",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.62,
+    "roll": 0.25,
+    "ghost": 0.35,
+    "tear": 0.15
+   }
+  }
+ ],
+ "lines": [],
+ "sounds": [],
+ "evidenceTitle": "Recording: KTRX test pattern (Channel 4)",
+ "evidenceNote": "A distant station out of Columbus, barely above the snow. Nothing unusual."
+}

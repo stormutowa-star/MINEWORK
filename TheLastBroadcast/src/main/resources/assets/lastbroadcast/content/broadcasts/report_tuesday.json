@@ -1,0 +1,243 @@
+{
+ "id": "report_tuesday",
+ "title": "Channel 7 Report (Tuesday)",
+ "duration": 52,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "newsdesk",
+   "trans": "static",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [
+    {
+     "s": "CHANNEL 7 REPORT",
+     "x": 80,
+     "y": 8,
+     "scale": 1.2,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 5,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0101010"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 13,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    36,
+    16,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 18,
+   "bg": "weather_map",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "WEATHER - OHIO VALLEY",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 23.4,
+   "bg": "tower_night",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "THE SKYHOOK - THURSDAY 9 PM",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    30,
+    50,
+    100,
+    75
+   ],
+   "cropEnd": [
+    30,
+    10,
+    100,
+    75
+   ]
+  },
+  {
+   "t": 34.4,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    36,
+    16,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 45,
+   "bg": "ident_wkvr",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [],
+   "texts": [
+    {
+     "s": "CHANNEL 7 REPORT",
+     "x": 80,
+     "y": 96,
+     "scale": 0.8,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 2.5,
+   "d": 4.6,
+   "who": "hal",
+   "text": "Good evening. This is the Channel 7 Report for Tuesday, October twenty-third."
+  },
+  {
+   "t": 7.5,
+   "d": 5.0,
+   "who": "hal",
+   "text": "From Washington tonight: the Navy quarantine in the Caribbean remains in force."
+  },
+  {
+   "t": 13.0,
+   "d": 4.6,
+   "who": "hal",
+   "text": "Officials ask families to stay calm and keep to their routines."
+  },
+  {
+   "t": 18.0,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Locally, a cold front moves in overnight. Frost likely by Thursday morning."
+  },
+  {
+   "t": 23.5,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Clear skies Thursday evening - good news for WKVR's Skyhook demonstration."
+  },
+  {
+   "t": 29.0,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Guests from Futura Corporation will watch a single-hop telecast, coast to coast."
+  },
+  {
+   "t": 34.5,
+   "d": 5.2,
+   "who": "hal",
+   "text": "Station manager Walter Brandt says the tower will operate within its licensed power."
+  },
+  {
+   "t": 40.0,
+   "d": 4.8,
+   "who": "hal",
+   "text": "That's the Report. Goodnight, and keep your sets tuned to Channel 7."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "music_news",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 45.2,
+   "id": "jingle_wkvr",
+   "vol": 0.6,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Recording: Channel 7 Report (Tuesday)",
+ "evidenceNote": "Hal Whitcomb, Tuesday evening. Thursday's Skyhook demonstration will run 'within its licensed power', according to Walter Brandt."
+}

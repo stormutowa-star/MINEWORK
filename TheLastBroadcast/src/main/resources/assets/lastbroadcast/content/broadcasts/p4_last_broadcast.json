@@ -1,0 +1,298 @@
+{
+ "id": "p4_last_broadcast",
+ "title": "Special Bulletin",
+ "duration": 46,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "standby",
+   "trans": "static",
+   "transDur": 0.8,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.3,
+    "roll": 0.2
+   }
+  },
+  {
+   "t": 4,
+   "bg": "studio_emergency",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 72,
+     "y": 104,
+     "h": 66,
+     "talk": "dot"
+    }
+   ],
+   "texts": [
+    {
+     "s": "SPECIAL BULLETIN - WKVR STUDIO A",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 6,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    20,
+    10,
+    120,
+    90
+   ],
+   "fx": {
+    "shake": 1.0,
+    "flicker": 0.3,
+    "tear": 0.15,
+    "stat": 0.15
+   },
+   "tint": "#ffb8a8"
+  },
+  {
+   "t": 14,
+   "bg": "studio_emergency",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 72,
+     "y": 104,
+     "h": 66,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    38,
+    26,
+    68,
+    51
+   ],
+   "fx": {
+    "shake": 1.4,
+    "flicker": 0.35,
+    "tear": 0.2,
+    "stat": 0.18
+   },
+   "tint": "#ffb0a0"
+  },
+  {
+   "t": 25,
+   "bg": "studio_emergency",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 72,
+     "y": 104,
+     "h": 66,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "shake": 1.2,
+    "roll": 0.5,
+    "tear": 0.5,
+    "stat": 0.3,
+    "flicker": 0.4
+   },
+   "tint": "#ffa898"
+  },
+  {
+   "t": 30,
+   "bg": "studio_emergency",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 72,
+     "y": 104,
+     "h": 66,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    42,
+    28,
+    64,
+    48
+   ],
+   "fx": {
+    "shake": 1.6,
+    "flicker": 0.6,
+    "tear": 0.6,
+    "stat": 0.35
+   },
+   "tint": "#ff9888"
+  },
+  {
+   "t": 38.5,
+   "bg": "black",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.7,
+    "roll": 2.0,
+    "tear": 1.0
+   }
+  },
+  {
+   "t": 41,
+   "bg": "black",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "stat": 0.0,
+    "bars": 0.3,
+    "vignette": 1.0
+   }
+  }
+ ],
+ "lines": [
+  {
+   "t": 4.5,
+   "d": 4.2,
+   "who": "dot",
+   "text": "We - we interrupt our program. This is Dot Kimball in Studio A."
+  },
+  {
+   "t": 9.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "There's a fire in our transmitter hall. Please - please don't telephone the station."
+  },
+  {
+   "t": 14.0,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Arthur - Mr. Penrose - went in to shut the tower down. He's following the procedure."
+  },
+  {
+   "t": 19.4,
+   "d": 4.6,
+   "who": "dot",
+   "text": "He opened the coolant - valve three, it's on the card - but nothing's cooling."
+  },
+  {
+   "t": 24.5,
+   "d": 5.0,
+   "who": "dot",
+   "text": "We're staying on the air. Somebody has to tell you what's happening."
+  },
+  {
+   "t": 30.0,
+   "d": 4.0,
+   "who": "dot",
+   "text": "It's nine fourteen. The lights are going -"
+  },
+  {
+   "t": 34.4,
+   "d": 4.0,
+   "who": "dot",
+   "text": "This is WKVR, Channel 7, Halloway Falls. We -"
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.0,
+   "id": "static_burst",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 4.2,
+   "id": "music_bulletin",
+   "vol": 0.6,
+   "pitch": 1.0
+  },
+  {
+   "t": 4.6,
+   "id": "alarm",
+   "vol": 0.35,
+   "pitch": 0.8
+  },
+  {
+   "t": 6.0,
+   "id": "fire_crackle",
+   "vol": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 16.0,
+   "id": "fire_crackle",
+   "vol": 0.6,
+   "pitch": 1.0
+  },
+  {
+   "t": 26.0,
+   "id": "fire_crackle",
+   "vol": 0.7,
+   "pitch": 1.0
+  },
+  {
+   "t": 38.5,
+   "id": "static_burst",
+   "vol": 1.0,
+   "pitch": 1.0
+  },
+  {
+   "t": 41.0,
+   "id": "anomaly_tone",
+   "vol": 0.7,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Recording: 7-B - special bulletin, Thursday 9:14 PM",
+ "evidenceNote": "Received on the ghost carrier. Dot Kimball, live, during a FIRE in the transmitter hall. Penrose was following the shutdown procedure: 'valve three, it's on the card'. The picture dies at 9:14 PM. Something flickers in the middle of the tape.",
+ "flash": {
+  "t": 22.3,
+  "d": 0.1,
+  "bg": "insert_console",
+  "evidence": "frame:console",
+  "caption": "FRAME 446 - one frame of the transmitter console: VALVE 3 lever OPEN, coolant flow ZERO, plate temperature pinned. Wall clock: 9:14."
+ }
+}

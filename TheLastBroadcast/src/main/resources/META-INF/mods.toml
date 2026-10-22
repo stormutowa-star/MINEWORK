@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[0,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="lastbroadcast"
+version="1.0.0"
+displayName="The Last Broadcast"
+authors="The Last Broadcast team"
+description='''
+Halloway Falls, Ohio. October 1962.
+Channel 7 is picking up a picture that no one is transmitting.
+You are the FCC field engineer sent to find out why.
+'''
+
+[[dependencies.lastbroadcast]]
+    modId="forge"
+    mandatory=true
+    versionRange="[52,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.lastbroadcast]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.21.1,1.22)"
+    ordering="NONE"
+    side="BOTH"

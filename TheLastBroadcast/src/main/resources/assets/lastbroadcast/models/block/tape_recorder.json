@@ -1,0 +1,43 @@
+{
+ "parent": "block/block",
+ "textures": {
+  "particle": "lastbroadcast:block/cream_metal",
+  "front": "lastbroadcast:block/recorder_front",
+  "body": "lastbroadcast:block/cream_metal",
+  "dark": "lastbroadcast:block/steel_dark"
+ },
+ "elements": [
+  {
+   "from": [
+    1,
+    0,
+    4
+   ],
+   "to": [
+    15,
+    15,
+    12
+   ],
+   "faces": {
+    "north": {
+     "texture": "#front"
+    },
+    "south": {
+     "texture": "#dark"
+    },
+    "east": {
+     "texture": "#body"
+    },
+    "west": {
+     "texture": "#body"
+    },
+    "up": {
+     "texture": "#body"
+    },
+    "down": {
+     "texture": "#dark"
+    }
+   }
+  }
+ ]
+}

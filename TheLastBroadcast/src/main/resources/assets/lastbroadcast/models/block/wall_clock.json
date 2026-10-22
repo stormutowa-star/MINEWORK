@@ -1,0 +1,66 @@
+{
+ "parent": "block/block",
+ "textures": {
+  "particle": "lastbroadcast:block/chrome",
+  "face": "lastbroadcast:block/wall_clock_face",
+  "chrome": "lastbroadcast:block/chrome"
+ },
+ "elements": [
+  {
+   "from": [
+    0,
+    0,
+    15
+   ],
+   "to": [
+    16,
+    16,
+    16
+   ],
+   "faces": {
+    "north": {
+     "texture": "#face"
+    },
+    "south": {
+     "texture": "#face",
+     "uv": [
+      16,
+      0,
+      0,
+      16
+     ]
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    3,
+    15.5
+   ],
+   "to": [
+    13,
+    13,
+    16
+   ],
+   "faces": {
+    "south": {
+     "texture": "#chrome"
+    },
+    "east": {
+     "texture": "#chrome"
+    },
+    "west": {
+     "texture": "#chrome"
+    },
+    "up": {
+     "texture": "#chrome"
+    },
+    "down": {
+     "texture": "#chrome"
+    }
+   }
+  }
+ ],
+ "render_type": "minecraft:cutout"
+}

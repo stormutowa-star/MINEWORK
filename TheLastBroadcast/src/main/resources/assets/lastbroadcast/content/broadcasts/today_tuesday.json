@@ -1,0 +1,250 @@
+{
+ "id": "today_tuesday",
+ "title": "Halloway Today (Tuesday)",
+ "duration": 48,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "studio_today",
+   "trans": "dissolve",
+   "transDur": 0.8,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [
+    {
+     "s": "HALLOWAY TODAY",
+     "x": 80,
+     "y": 8,
+     "scale": 1.4,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 4.5,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0202020"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 5,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    16,
+    28,
+    76,
+    57
+   ],
+   "cropEnd": [
+    22,
+    30,
+    70,
+    52.5
+   ]
+  },
+  {
+   "t": 19.5,
+   "bg": "tower_night",
+   "trans": "dissolve",
+   "transDur": 0.8,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    40,
+    60,
+    80,
+    60
+   ],
+   "cropEnd": [
+    40,
+    0,
+    80,
+    60
+   ]
+  },
+  {
+   "t": 24.5,
+   "bg": "studio_today",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 29.5,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    16,
+    28,
+    76,
+    57
+   ],
+   "cropEnd": [
+    26,
+    32,
+    64,
+    48
+   ]
+  },
+  {
+   "t": 40,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [
+    {
+     "s": "HALLOWAY TODAY",
+     "x": 80,
+     "y": 8,
+     "scale": 1.4,
+     "color": "#ffffff",
+     "t0": 4,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0202020"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.0,
+   "d": 4.0,
+   "who": "dot",
+   "text": "Good morning, Halloway Falls! It's Tuesday, the twenty-third of October."
+  },
+  {
+   "t": 5.2,
+   "d": 4.0,
+   "who": "dot",
+   "text": "A chilly one, so bundle up the little ones before the school bus."
+  },
+  {
+   "t": 9.6,
+   "d": 4.6,
+   "who": "dot",
+   "text": "The Grange fair opens in Delmar on Saturday. Pie entries close Friday noon."
+  },
+  {
+   "t": 14.6,
+   "d": 4.8,
+   "who": "dot",
+   "text": "And Thursday morning, our own chief engineer Arthur Penrose joins me right here..."
+  },
+  {
+   "t": 19.8,
+   "d": 4.4,
+   "who": "dot",
+   "text": "...to tell us what his Skyhook tower is cooking up for our big Futura demonstration."
+  },
+  {
+   "t": 24.6,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Mr. Brandt promises it'll all be done right by the book."
+  },
+  {
+   "t": 29.6,
+   "d": 5.0,
+   "who": "dot",
+   "text": "And one more thing - tomorrow our new color cameras arrive. Can you imagine?"
+  },
+  {
+   "t": 35.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Halloway Today, in living color. Thursday morning, eight o'clock sharp."
+  },
+  {
+   "t": 40.2,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Until then, this is Dot Kimball saying: keep your antenna pointed at tomorrow!"
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "music_morning",
+   "vol": 0.7,
+   "pitch": 1.0
+  },
+  {
+   "t": 44.5,
+   "id": "applause",
+   "vol": 0.6,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Recording: Halloway Today (Tuesday 23 Oct)",
+ "evidenceNote": "Dot Kimball, live, Tuesday 23 October, in black and white. Says Penrose will be her guest on THURSDAY morning, and that the colour cameras arrive tomorrow (Wednesday)."
+}

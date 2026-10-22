@@ -1,0 +1,358 @@
+{
+ "name": "Arthur Penrose",
+ "role": "Chief Engineer",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "after",
+   "if": [
+    "PENROSE_CONFESSED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "confront",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "defensive",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_PENROSE"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Ah - the Commission's engineer. Arthur Penrose. Forgive the noise; the Skyhook is warming her feet tonight."
+    },
+    {
+     "who": "penrose",
+     "text": "Routine maintenance. Tuesdays are quiet. Is there anything I can show you?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "What is the Skyhook, exactly?",
+     "next": "skyhook",
+     "actions": [
+      {
+       "set": "MET_PENROSE"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Not yet.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_PENROSE"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "skyhook": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "A resonant array. Tune them properly and the tower and the sky behave like a single instrument."
+    },
+    {
+     "who": "penrose",
+     "text": "Fifty kilowatts, all perfectly proper. The licence is framed in Walter's office."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Thank you.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Still poking about? The tube banks don't bite. Mostly."
+    }
+   ],
+   "choices": [
+    {
+     "text": "What is the Skyhook?",
+     "next": "skyhook",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Never mind.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "defensive": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Two hundred kilowatts? From a ghost on a monitor? You can't put a ghost in a report."
+    },
+    {
+     "who": "penrose",
+     "text": "My logs are in order. And my locker is my own business."
+    }
+   ],
+   "choices": [
+    {
+     "text": "We'll see.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "confront": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "You've read my log."
+    },
+    {
+     "who": "player",
+     "text": "Every night the ghost appeared, you had the Skyhook in overdrive. Tonight too."
+    },
+    {
+     "who": "penrose",
+     "text": "...Yes. Since September. I saw the first picture on run three and I could not stop looking."
+    },
+    {
+     "who": "penrose",
+     "text": "It's us, you see. Thursday. Every run shows the last one. Walter needs Thursday. Futura needs Thursday."
+    }
+   ],
+   "choices": [
+    {
+     "text": "There's a new programme on 7-B. A bulletin from Thursday night.",
+     "next": "confess2",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "confess2": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "A bulletin? I only ever watched the mornings. What does it show?"
+    },
+    {
+     "who": "player",
+     "text": "Dot, on the air, during a fire in your transmitter hall. At 9:14."
+    },
+    {
+     "who": "penrose",
+     "text": "So that's why it's always Thursday. It's the last run because afterwards there's nothing left to run."
+    },
+    {
+     "who": "penrose",
+     "text": "Here. The console key. Shut her down tonight, properly, and I'll cancel Thursday myself."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Take the key.",
+     "next": "key",
+     "actions": [
+      {
+       "set": "PENROSE_CONFESSED"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "key": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Follow the card on the wall beside the console. It's all there. I wrote it myself."
+    }
+   ],
+   "choices": [
+    {
+     "text": "All right.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "after": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "The console is live. Coolant first, then the drive. Never rush the breaker."
+    }
+   ],
+   "choices": [
+    {
+     "text": "It arced. I followed your card exactly.",
+     "next": "arc",
+     "actions": [],
+     "if": [
+      "ARC_FAULT_SEEN"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "What if it goes wrong?",
+     "next": "risk",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Ready.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "arc": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "Valve three... the card says valve three. But in October I moved the feed. For the overdrive manifold."
+    },
+    {
+     "who": "penrose",
+     "text": "Valve five. Dear God, it's valve five. I never changed the card."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Then that's what happens on Thursday.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "risk": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "The relay trips and resets. Tonight, at least. On Thursday, I suppose, it didn't."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Understood.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "penrose",
+     "text": "She's cold. First time since September."
+    },
+    {
+     "who": "penrose",
+     "text": "I'll write to the Commission myself in the morning. And I'll repaint that card."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Goodnight, Mr. Penrose.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

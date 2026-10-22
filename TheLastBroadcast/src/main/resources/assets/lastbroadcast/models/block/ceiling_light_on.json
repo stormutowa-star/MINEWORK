@@ -1,0 +1,42 @@
+{
+ "parent": "block/block",
+ "textures": {
+  "particle": "lastbroadcast:block/chrome",
+  "panel": "lastbroadcast:block/ceiling_light_on",
+  "chrome": "lastbroadcast:block/chrome"
+ },
+ "elements": [
+  {
+   "from": [
+    2,
+    14,
+    2
+   ],
+   "to": [
+    14,
+    16,
+    14
+   ],
+   "faces": {
+    "north": {
+     "texture": "#chrome"
+    },
+    "south": {
+     "texture": "#chrome"
+    },
+    "east": {
+     "texture": "#chrome"
+    },
+    "west": {
+     "texture": "#chrome"
+    },
+    "up": {
+     "texture": "#chrome"
+    },
+    "down": {
+     "texture": "#panel"
+    }
+   }
+  }
+ ]
+}

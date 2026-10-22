@@ -1,0 +1,73 @@
+[
+ {
+  "id": "D1",
+  "title": "Two Days Early",
+  "a": [
+   "tape:p1_today_thursday"
+  ],
+  "b": [
+   "doc:program_log",
+   "doc:program_guide",
+   "tape:today_tuesday"
+  ],
+  "text": "7-B carried Thursday's 'Halloway Today', with Penrose as guest - a programme WKVR hasn't made yet, and in colour the station doesn't have yet. The ghost is no stray station. It is WKVR, two days from now."
+ },
+ {
+  "id": "D2",
+  "title": "Over the Limit",
+  "a": [
+   "tape:p3_report_thursday",
+   "tape:p1_today_thursday"
+  ],
+  "b": [
+   "doc:assignment",
+   "doc:skyhook_brochure"
+  ],
+  "requires": [
+   "D1"
+  ],
+  "text": "Thursday's broadcasts describe the Skyhook at 200 kilowatts since six in the morning - four times WKVR's licensed 50 kW. Someone here means to break the licence, and only the chief engineer runs the Skyhook."
+ },
+ {
+  "id": "D3",
+  "title": "Ghosts Keep a Schedule",
+  "a": [
+   "doc:transmitter_log"
+  ],
+  "b": [
+   "doc:complaint_log"
+  ],
+  "requires": [
+   "D2"
+  ],
+  "text": "Every night viewers saw the ghost, Penrose had the Skyhook in overdrive - and only then. The overdrive is the receiver - and every run picks up the last one the Skyhook will ever make: Thursday."
+ },
+ {
+  "id": "D4",
+  "title": "The Wrong Valve",
+  "a": [
+   "frame:console"
+  ],
+  "b": [
+   "doc:procedure",
+   "doc:transmitter_log"
+  ],
+  "requires": [
+   "D3"
+  ],
+  "text": "In the 9:14 frame valve 3 is open and nothing flows. The card on the wall says valve 3, but Penrose moved the coolant feed to valve 5 in October and never fixed it. Followed to the letter, the procedure starts the fire."
+ },
+ {
+  "id": "DX",
+  "title": "Next Year's Model",
+  "a": [
+   "tape:p2_lucky_dial"
+  ],
+  "b": [
+   "tape:futura_ad_62",
+   "doc:futura_letter"
+  ],
+  "optional": true,
+  "text": "Futura's Model 63 is confidential until January, and the only ad on file is for the Model 62 - yet 7-B gives a Model 63 away on air. Whatever 7-B shows, WKVR will broadcast."
+ }
+]

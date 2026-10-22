@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/control_panel"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/control_panel",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/control_panel",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/control_panel",
+   "y": 270
+  }
+ }
+}

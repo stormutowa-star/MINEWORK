@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/signal_analyzer"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/signal_analyzer",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/signal_analyzer",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/signal_analyzer",
+   "y": 270
+  }
+ }
+}

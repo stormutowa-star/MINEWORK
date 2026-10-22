@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/control_desk"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/control_desk",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/control_desk",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/control_desk",
+   "y": 270
+  }
+ }
+}

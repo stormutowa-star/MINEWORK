@@ -1,0 +1,14 @@
+{
+ "parent": "item/generated",
+ "textures": {
+  "layer0": "lastbroadcast:item/magnetic_tape"
+ },
+ "overrides": [
+  {
+   "predicate": {
+    "lastbroadcast:recorded": 1
+   },
+   "model": "lastbroadcast:item/magnetic_tape_recorded"
+  }
+ ]
+}

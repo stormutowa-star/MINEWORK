@@ -1,0 +1,10 @@
+{
+ "variants": {
+  "lit=true": {
+   "model": "lastbroadcast:block/googie_lamp_on"
+  },
+  "lit=false": {
+   "model": "lastbroadcast:block/googie_lamp_off"
+  }
+ }
+}

@@ -1,0 +1,245 @@
+{
+ "name": "Walter Brandt",
+ "role": "Station Manager",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_BRANDT"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Walter Brandt, station manager. The Commission, at this hour! We run a clean shop, I promise you."
+    },
+    {
+     "who": "brandt",
+     "text": "Anything you need, Rosa will help. Just keep the noise down near Studio A, would you?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "Tell me about Thursday.",
+     "next": "thursday",
+     "actions": [
+      {
+       "set": "MET_BRANDT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Of course.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_BRANDT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "thursday": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "The Futura demonstration. Coast to coast from little Halloway Falls! That contract keeps sixty people working."
+    },
+    {
+     "who": "brandt",
+     "text": "Within our licence, naturally."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Naturally.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Still here? Coffee's in the lobby. It's terrible."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Tell me about Thursday.",
+     "next": "thursday",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Futura's 'Model 63' was advertised on 7-B.",
+     "next": "dx",
+     "actions": [],
+     "if": [
+      "DX"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Never mind.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "d2": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Two hundred kilowatts. Look - Futura wanted a picture in Los Angeles, and Arthur said he could do it."
+    },
+    {
+     "who": "brandt",
+     "text": "I signed what he put in front of me. If that's a crime, it's the crime of keeping the lights on."
+    }
+   ],
+   "choices": [
+    {
+     "text": "And the Model 63?",
+     "next": "dx",
+     "actions": [],
+     "if": [
+      "DX"
+     ],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "We'll talk later.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "dx": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "The sixty-three? That's confidential until January. Their letter is in my cabinet. How in God's name -"
+    },
+    {
+     "who": "brandt",
+     "text": "If that goes out on my air, Futura walks. And then there is no WKVR."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Then don't air it.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "Arthur came to me white as a sheet. Says you know what happens on Thursday. Do I want to know?"
+    }
+   ],
+   "choices": [
+    {
+     "text": "No. You don't.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "brandt",
+     "text": "No demonstration. Probably no Futura. A fine - and a station still standing."
+    },
+    {
+     "who": "brandt",
+     "text": "...Thank you. Don't tell anybody I said that."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Goodnight, Mr. Brandt.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

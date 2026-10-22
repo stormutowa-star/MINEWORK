@@ -1,0 +1,135 @@
+{
+ "broadcasts": [
+  "ident_wkvr",
+  "today_tuesday",
+  "futura_ad_62",
+  "report_tuesday",
+  "testcard_wkvr",
+  "testcard_ktrx",
+  "static_gap",
+  "dead_carrier",
+  "surge_frame",
+  "p1_today_thursday",
+  "p2_lucky_dial",
+  "p3_report_thursday",
+  "p4_last_broadcast",
+  "signoff",
+  "memo_penrose"
+ ],
+ "dialogues": [
+  "rosa",
+  "penrose",
+  "dot",
+  "brandt"
+ ],
+ "speakers": {
+  "announcer": {
+   "name": "Announcer",
+   "voice": "voice_hal",
+   "pitch": 0.88
+  },
+  "dot": {
+   "name": "Dot Kimball",
+   "voice": "voice_dot",
+   "pitch": 1.0
+  },
+  "hal": {
+   "name": "Hal Whitcomb",
+   "voice": "voice_hal",
+   "pitch": 1.0
+  },
+  "penrose": {
+   "name": "Arthur Penrose",
+   "voice": "voice_penrose",
+   "pitch": 1.0
+  },
+  "servo": {
+   "name": "SERVO",
+   "voice": "voice_servo",
+   "pitch": 1.0
+  },
+  "voss": {
+   "name": "Mrs. Voss",
+   "voice": "voice_dot",
+   "pitch": 1.28
+  },
+  "rosa": {
+   "name": "Rosa Delgado",
+   "voice": "voice_rosa",
+   "pitch": 1.0
+  },
+  "brandt": {
+   "name": "Walter Brandt",
+   "voice": "voice_brandt",
+   "pitch": 1.0
+  },
+  "player": {
+   "name": "You",
+   "voice": "voice_hal",
+   "pitch": 1.1
+  }
+ },
+ "evidence": {
+  "frame:console": {
+   "title": "Frame 446 of the 9:14 bulletin",
+   "kind": "frame",
+   "note": "A single frame spliced into the bulletin: the Skyhook console mid-fire. Valve 3 lever is OPEN, coolant flow reads ZERO, plate temperature pinned. Clock 9:14."
+  }
+ },
+ "fragments": {
+  "call_1": [
+   {
+    "t": 0.4,
+    "d": 3.0,
+    "who": null,
+    "text": "[ static. Far away, a room full of people. ]"
+   },
+   {
+    "t": 3.6,
+    "d": 4.0,
+    "who": "dot",
+    "text": "...please - please don't telephone the station..."
+   },
+   {
+    "t": 8.0,
+    "d": 3.0,
+    "who": null,
+    "text": "[ the line goes dead ]"
+   }
+  ],
+  "call_2": [
+   {
+    "t": 0.4,
+    "d": 3.8,
+    "who": "penrose",
+    "text": "...valve three is open - why isn't it cooling -"
+   },
+   {
+    "t": 4.6,
+    "d": 3.0,
+    "who": null,
+    "text": "[ an alarm bell, muffled, as if through a wall ]"
+   },
+   {
+    "t": 8.0,
+    "d": 3.0,
+    "who": "dot",
+    "text": "Arthur? Arthur!"
+   }
+  ],
+  "call_3": [
+   {
+    "t": 0.4,
+    "d": 4.2,
+    "who": "dot",
+    "text": "...it's nine fourteen. We're staying on the air..."
+   },
+   {
+    "t": 5.0,
+    "d": 3.6,
+    "who": null,
+    "text": "[ silence. Then, very faintly, a test tone. ]"
+   }
+  ]
+ }
+}

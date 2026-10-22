@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/case_board"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/case_board",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/case_board",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/case_board",
+   "y": 270
+  }
+ }
+}

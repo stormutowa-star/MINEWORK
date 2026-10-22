@@ -1,0 +1,254 @@
+{
+ "id": "p3_report_thursday",
+ "title": "Channel 7 Report (Thursday)",
+ "duration": 50,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "newsdesk",
+   "trans": "static",
+   "transDur": 0.6,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [
+    {
+     "s": "CHANNEL 7 REPORT",
+     "x": 80,
+     "y": 8,
+     "scale": 1.2,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 5,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0101828"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 12,
+   "bg": "tower_night",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "LIVE TONIGHT - 9:00 PM",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    30,
+    60,
+    100,
+    75
+   ],
+   "cropEnd": [
+    30,
+    0,
+    100,
+    75
+   ]
+  },
+  {
+   "t": 23,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    36,
+    16,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 33.4,
+   "bg": "weather_map",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "THURSDAY NIGHT - CLEAR, COLD",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 39,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 45,
+   "bg": "newsdesk",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "hal",
+     "x": 80,
+     "y": 92,
+     "h": 72,
+     "talk": "hal"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ],
+   "fx": {
+    "tear": 0.5,
+    "stat": 0.35,
+    "flicker": 0.3
+   }
+  }
+ ],
+ "lines": [
+  {
+   "t": 2.0,
+   "d": 4.8,
+   "who": "hal",
+   "text": "Good evening. The Channel 7 Report for Thursday, October twenty-fifth."
+  },
+  {
+   "t": 7.4,
+   "d": 4.6,
+   "who": "hal",
+   "text": "Tonight at nine, WKVR's Skyhook tower makes broadcasting history."
+  },
+  {
+   "t": 12.5,
+   "d": 5.2,
+   "who": "hal",
+   "text": "Since six this morning the Skyhook has carried our programs at two hundred kilowatts..."
+  },
+  {
+   "t": 18.0,
+   "d": 4.6,
+   "who": "hal",
+   "text": "...four times the station's ordinary output, for our guests from Futura Corporation."
+  },
+  {
+   "t": 23.1,
+   "d": 5.0,
+   "who": "hal",
+   "text": "Chief engineer Arthur Penrose calls it 'the first true single-hop telecast'."
+  },
+  {
+   "t": 28.5,
+   "d": 4.6,
+   "who": "hal",
+   "text": "In Delmar, the Grange fair committee reports record entries for Saturday."
+  },
+  {
+   "t": 33.5,
+   "d": 5.0,
+   "who": "hal",
+   "text": "And it's a clear, cold night - perfect, they tell me, for reaching the sky."
+  },
+  {
+   "t": 39.1,
+   "d": 5.2,
+   "who": "hal",
+   "text": "Stay with Channel 7 for the demonstration, live from Studio A, at nine."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "static_burst",
+   "vol": 0.5,
+   "pitch": 1.0
+  },
+  {
+   "t": 0.4,
+   "id": "music_news",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 45.2,
+   "id": "static_burst",
+   "vol": 0.6,
+   "pitch": 1.0
+  }
+ ],
+ "fx": {
+  "ghost": 0.14,
+  "tear": 0.06,
+  "stat": 0.08
+ },
+ "evidenceTitle": "Recording: 7-B - 'Channel 7 Report' (Thursday)",
+ "evidenceNote": "Received on the ghost carrier. Hal Whitcomb, Thursday 25 October: the Skyhook has run 'since six this morning' at TWO HUNDRED KILOWATTS - four times the station's ordinary output."
+}

@@ -1,0 +1,170 @@
+{
+ "parent": "block/block",
+ "textures": {
+  "particle": "lastbroadcast:block/coil",
+  "coil": "lastbroadcast:block/coil",
+  "porcelain": "lastbroadcast:block/porcelain"
+ },
+ "elements": [
+  {
+   "from": [
+    5,
+    2,
+    5
+   ],
+   "to": [
+    11,
+    14,
+    11
+   ],
+   "faces": {
+    "north": {
+     "texture": "#coil"
+    },
+    "south": {
+     "texture": "#coil"
+    },
+    "east": {
+     "texture": "#coil"
+    },
+    "west": {
+     "texture": "#coil"
+    },
+    "up": {
+     "texture": "#coil"
+    },
+    "down": {
+     "texture": "#coil"
+    }
+   }
+  },
+  {
+   "from": [
+    4,
+    2,
+    6
+   ],
+   "to": [
+    12,
+    14,
+    10
+   ],
+   "faces": {
+    "north": {
+     "texture": "#coil"
+    },
+    "south": {
+     "texture": "#coil"
+    },
+    "east": {
+     "texture": "#coil"
+    },
+    "west": {
+     "texture": "#coil"
+    },
+    "up": {
+     "texture": "#coil"
+    },
+    "down": {
+     "texture": "#coil"
+    }
+   }
+  },
+  {
+   "from": [
+    6,
+    2,
+    4
+   ],
+   "to": [
+    10,
+    14,
+    12
+   ],
+   "faces": {
+    "north": {
+     "texture": "#coil"
+    },
+    "south": {
+     "texture": "#coil"
+    },
+    "east": {
+     "texture": "#coil"
+    },
+    "west": {
+     "texture": "#coil"
+    },
+    "up": {
+     "texture": "#coil"
+    },
+    "down": {
+     "texture": "#coil"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    0,
+    3
+   ],
+   "to": [
+    13,
+    2,
+    13
+   ],
+   "faces": {
+    "north": {
+     "texture": "#porcelain"
+    },
+    "south": {
+     "texture": "#porcelain"
+    },
+    "east": {
+     "texture": "#porcelain"
+    },
+    "west": {
+     "texture": "#porcelain"
+    },
+    "up": {
+     "texture": "#porcelain"
+    },
+    "down": {
+     "texture": "#porcelain"
+    }
+   }
+  },
+  {
+   "from": [
+    3,
+    14,
+    3
+   ],
+   "to": [
+    13,
+    16,
+    13
+   ],
+   "faces": {
+    "north": {
+     "texture": "#porcelain"
+    },
+    "south": {
+     "texture": "#porcelain"
+    },
+    "east": {
+     "texture": "#porcelain"
+    },
+    "west": {
+     "texture": "#porcelain"
+    },
+    "up": {
+     "texture": "#porcelain"
+    },
+    "down": {
+     "texture": "#porcelain"
+    }
+   }
+  }
+ ]
+}

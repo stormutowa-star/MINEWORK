@@ -1,0 +1,175 @@
+{
+ "id": "futura_ad_62",
+ "title": "Futura Kitchen advertisement",
+ "duration": 26,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "futura_card",
+   "trans": "static",
+   "transDur": 0.4,
+   "actors": [],
+   "texts": [
+    {
+     "s": "presents",
+     "x": 80,
+     "y": 92,
+     "scale": 0.7,
+     "color": "#ffffff",
+     "t0": 1,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 3,
+   "bg": "kitchen",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "servo",
+     "x": 112,
+     "y": 104,
+     "h": 66,
+     "talk": "servo"
+    }
+   ],
+   "texts": [
+    {
+     "s": "THE FUTURA KITCHEN - MODEL 62",
+     "x": 6,
+     "y": 104,
+     "scale": 0.6,
+     "color": "#ffffff",
+     "t0": 1,
+     "t1": 9999,
+     "blink": false,
+     "center": false,
+     "scene": false,
+     "box": "#c0182c48"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 12.5,
+   "bg": "kitchen",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "servo",
+     "x": 112,
+     "y": 104,
+     "h": 66,
+     "talk": "servo"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    56,
+    24,
+    100,
+    75
+   ],
+   "cropEnd": [
+    70,
+    30,
+    88,
+    66
+   ]
+  },
+  {
+   "t": 21,
+   "bg": "futura_card",
+   "trans": "dissolve",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "MODEL 62 - IN STORES NOW",
+     "x": 80,
+     "y": 92,
+     "scale": 0.75,
+     "color": "#ffffff",
+     "t0": 0,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0000000"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 3.5,
+   "d": 4.0,
+   "who": "announcer",
+   "text": "Mother deserves the future. Futura delivers it - today."
+  },
+  {
+   "t": 8.0,
+   "d": 4.2,
+   "who": "servo",
+   "text": "GOOD MORNING. I HAVE STARTED THE COFFEE AND WASHED THE DISHES."
+  },
+  {
+   "t": 12.6,
+   "d": 4.6,
+   "who": "announcer",
+   "text": "The Futura Kitchen Model 62: push-button range, self-rinsing sink, and Servo."
+  },
+  {
+   "t": 17.5,
+   "d": 3.8,
+   "who": "announcer",
+   "text": "On display now at Halverson's Appliance, Main Street."
+  },
+  {
+   "t": 21.6,
+   "d": 3.6,
+   "who": "servo",
+   "text": "FUTURA. TOMORROW, DELIVERED TODAY."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.1,
+   "id": "jingle_futura",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 21.2,
+   "id": "jingle_futura",
+   "vol": 0.5,
+   "pitch": 1.12
+  }
+ ],
+ "evidenceTitle": "Recording: Futura Kitchen ad (Model 62)",
+ "evidenceNote": "Regular sponsor spot on Channel 7. Advertises the Futura Kitchen Model 62, 'on display now'. No other model is mentioned."
+}

@@ -1,0 +1,63 @@
+{
+ "id": "memo_penrose",
+ "title": "Unlabeled reel",
+ "duration": 32,
+ "mono": false,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "black",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.0,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "Engineering memo, Arthur Penrose. October sixteenth. Overdrive run five, complete.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 6.6,
+   "d": 5.4,
+   "who": "penrose",
+   "text": "The ghost was on the monitor again. Thursday's programs, plain as day.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 12.6,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "I've stopped telling Walter what I see. He only asks whether Futura will be pleased.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 18.2,
+   "d": 5.6,
+   "who": "penrose",
+   "text": "The log stays in my locker. Same combination as the demonstration date - month, then day.",
+   "reversedSpeech": true
+  },
+  {
+   "t": 24.4,
+   "d": 5.0,
+   "who": "penrose",
+   "text": "God help me, I want to see what happens next. End of memo.",
+   "reversedSpeech": true
+  }
+ ],
+ "sounds": [],
+ "evidenceTitle": "Unlabeled reel - 'A.P. - DO NOT ERASE'",
+ "evidenceNote": "Rosa found it in the erase bin. Penrose's voice, but played forwards it is gibberish - as if the reel had been threaded backwards when it was recorded.",
+ "audioOnly": true
+}

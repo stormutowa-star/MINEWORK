@@ -1,0 +1,148 @@
+{
+ "id": "signoff",
+ "title": "WKVR sign-off",
+ "duration": 40,
+ "mono": true,
+ "shots": [
+  {
+   "t": 0,
+   "bg": "studio_today",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 6,
+   "bg": "studio_today",
+   "trans": "cut",
+   "transDur": 0.5,
+   "actors": [
+    {
+     "sprite": "dot",
+     "x": 56,
+     "y": 98,
+     "h": 62,
+     "talk": "dot"
+    }
+   ],
+   "texts": [],
+   "crop": [
+    16,
+    28,
+    76,
+    57
+   ],
+   "cropEnd": [
+    24,
+    30,
+    68,
+    51
+   ]
+  },
+  {
+   "t": 22,
+   "bg": "signoff_card",
+   "trans": "dissolve",
+   "transDur": 1.5,
+   "actors": [],
+   "texts": [
+    {
+     "s": "GOOD NIGHT FROM WKVR",
+     "x": 80,
+     "y": 92,
+     "scale": 0.9,
+     "color": "#ffffff",
+     "t0": 0.5,
+     "t1": 9999,
+     "blink": false,
+     "center": true,
+     "scene": false,
+     "box": "#a0000000"
+    }
+   ],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  },
+  {
+   "t": 29,
+   "bg": "testcard_wkvr",
+   "trans": "dissolve",
+   "transDur": 1.0,
+   "actors": [],
+   "texts": [],
+   "crop": [
+    0,
+    0,
+    160,
+    120
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "t": 1.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "Well, folks, it's a little past midnight, and that's all from WKVR tonight."
+  },
+  {
+   "t": 6.0,
+   "d": 5.0,
+   "who": "dot",
+   "text": "A late change to the schedule: Thursday's Skyhook demonstration is postponed."
+  },
+  {
+   "t": 11.5,
+   "d": 5.0,
+   "who": "dot",
+   "text": "Mr. Penrose tells me the old girl needs a long rest. I can't say I blame her."
+  },
+  {
+   "t": 17.0,
+   "d": 4.6,
+   "who": "dot",
+   "text": "And to whoever was out there tonight, looking out for us - thank you."
+  },
+  {
+   "t": 22.6,
+   "d": 5.4,
+   "who": "announcer",
+   "text": "This is WKVR, Channel 7, Halloway Falls. This concludes our broadcast day."
+  }
+ ],
+ "sounds": [
+  {
+   "t": 0.5,
+   "id": "music_signoff",
+   "vol": 0.8,
+   "pitch": 1.0
+  },
+  {
+   "t": 29.5,
+   "id": "test_tone",
+   "vol": 0.4,
+   "pitch": 1.0
+  }
+ ],
+ "evidenceTitle": "Recording: WKVR sign-off (Tuesday night)",
+ "evidenceNote": "The station signs off normally. Thursday's demonstration is postponed indefinitely."
+}

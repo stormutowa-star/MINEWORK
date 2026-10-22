@@ -1,0 +1,474 @@
+{
+ "name": "Rosa Delgado",
+ "role": "Master Control, nights",
+ "roots": [
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": [
+    "MET_ROSA"
+   ]
+  },
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2b",
+   "if": [
+    "D2",
+    "GOT_REEL"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d2",
+   "if": [
+    "D2"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d1",
+   "if": [
+    "D1"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "locked",
+   "if": [
+    "SIGNAL_LOCKED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "tuning",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "You must be the engineer from the FCC. Rosa Delgado, master control. Come in, mind the cables."
+    },
+    {
+     "who": "rosa",
+     "text": "I'll save you some trouble: I'm the one who wrote to you. Please don't say so in front of Mr. Brandt."
+    },
+    {
+     "who": "player",
+     "text": "Your letter mentioned a second picture on Channel 7. Programs you never aired."
+    },
+    {
+     "who": "rosa",
+     "text": "Every Tuesday night since September. The viewers call me, and I keep a log. It's all in here."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Tell me about the ghost picture.",
+     "next": "intro2",
+     "actions": [
+      {
+       "set": "MET_ROSA"
+      },
+      {
+       "give": "doc:complaint_log"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "intro2": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "It hides right under our own carrier. Same frequency, but phase-inverted - like a photographic negative."
+    },
+    {
+     "who": "rosa",
+     "text": "Our picture swamps it. Null ours out on the analyzer and it's there. And it rolls - bring the H-hold way down."
+    },
+    {
+     "who": "rosa",
+     "text": "The analyzer is on the bench by the far wall. Get a clean lock and patch it through to the house monitors."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Can I record what's on it?",
+     "next": "tape_info",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "I'll get to work.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "tape_info": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "The deck on the bench records off the monitor bus. Thread a reel, switch on a set nearby, press REC."
+    },
+    {
+     "who": "rosa",
+     "text": "Blank stock is on the shelves in the tape library, across the corridor. Nobody counts it but me."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Thanks.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "tape_given": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Here - two reels. Don't tell Brandt how much we go through."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Thank you.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "tuning": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Any luck on the analyzer? Same frequency as ours. Null the phase. Slow the roll."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Remind me how to record it.",
+     "next": "tape_info",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Could I have more blank tape?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Back to work.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "locked": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "There it is. Channel 7-B, you're calling it? Look at it. That's Dot. That's our set."
+    },
+    {
+     "who": "rosa",
+     "text": "And it's in color. We don't own a color camera. They're delivered tomorrow."
+    }
+   ],
+   "choices": [
+    {
+     "text": "What's on the schedule this week?",
+     "next": "schedule",
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Could I have more blank tape?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "I'll keep watching.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "point",
+   "enter": []
+  },
+  "schedule": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "The program log is in the cabinet by the case board - master control copy. Thursday is the big Futura day."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Thanks.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "d1": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Thursday's show, on a Tuesday night. You know what you're telling me?"
+    },
+    {
+     "who": "rosa",
+     "text": "Then I'll say the other part. If the ghost is us - Thursday us - then whatever it shows is coming."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Could I have more blank tape?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Keep the monitors on 7-B.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "d2": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Two hundred kilowatts. It has to be Mr. Penrose. Nobody else touches the Skyhook."
+    },
+    {
+     "who": "rosa",
+     "text": "Tuesdays he sends me home early and stays in the hall. Then the calls start."
+    },
+    {
+     "who": "rosa",
+     "text": "There's something else. I found this reel in the erase bin last week. His initials. It sounds like nonsense."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Let me hear it.",
+     "next": "reel_hint",
+     "actions": [
+      {
+       "set": "GOT_REEL"
+      },
+      {
+       "give": "reel:memo"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "reel_hint": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Forwards it's gibberish. But he's an old radio ham - they do tricks with tape. Try every button on the deck."
+    }
+   ],
+   "choices": [
+    {
+     "text": "I will.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "d2b": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Did the reel make sense? Engineers think backwards sometimes."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Could I have more blank tape?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Back to work.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "Thursday night. A bulletin. Dot, and then a fire, and then nothing at all."
+    },
+    {
+     "who": "rosa",
+     "text": "Talk to Mr. Penrose. Make him stop. He'll listen to the law if he won't listen to me."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Could I have more blank tape?",
+     "next": "tape_given",
+     "actions": [
+      {
+       "give": "tape:blank",
+       "count": 2
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "I'm going.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "rosa",
+     "text": "7-B's gone. Nothing but carrier hum. I keep looking at it anyway."
+    },
+    {
+     "who": "rosa",
+     "text": "I'll put in a good word for you with the Commission. Off the record, of course."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Goodnight, Rosa.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}

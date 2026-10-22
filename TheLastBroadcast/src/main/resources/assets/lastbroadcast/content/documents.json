@@ -1,0 +1,103 @@
+[
+ {
+  "id": "assignment",
+  "title": "FCC Field Assignment",
+  "kind": "letter",
+  "header": "Federal Communications Commission - Detroit District",
+  "pages": [
+   "TO: Field Engineer, Monitoring Unit 14\nFROM: R. Haskell, District Engineer\nDATE: October 22, 1962\nRE: Complaint 62-1147, WKVR-TV, Halloway Falls, Ohio\n\nAn anonymous complainant reports intermittent interference on Channel 7: a second, faint picture showing programs WKVR says it never aired.",
+   "Proceed to WKVR-TV and determine the source. The night operator has agreed to assist.\n\nFor reference: WKVR-TV is licensed for 50 KILOWATTS effective radiated visual power on Channel 7 (visual carrier 175.25 Mc). Any operation above that figure violates the license and Commission rules.",
+   "You carry the Commission's authority to inspect the transmitter plant, its logs and its records. Report your findings in writing.\n\nR. Haskell\nDistrict Engineer"
+  ],
+  "note": "Complaint 62-1147: a second faint picture on Channel 7. WKVR-TV is licensed for 50 kilowatts visual power. Anything above that is a violation.",
+  "stamp": "OFFICIAL"
+ },
+ {
+  "id": "complaint_log",
+  "title": "Night Operator's Interference Log",
+  "kind": "log",
+  "header": "WKVR Master Control - kept by R. Delgado",
+  "pages": [
+   "VIEWER CALLS - 'GHOST PICTURE' ON CH. 7\n\nTue Sep 18 - 3 calls. Faint second picture, 'like a negative'.\nTue Sep 25 - 7 calls. Ghost shows a game show we don't carry.\nTue Oct 2 - 4 calls. Ghost picture rolls slowly upward.\nTue Oct 9 - 11 calls. Dot Kimball on the ghost - 'in color'.",
+   "Tue Oct 16 - 9 calls. Mr. P. stayed late in the hall again.\nTue Oct 23 - tonight. Ghost on the monitors since 10 PM.\n\nNOTES: Never on any other night. Sits right under our own carrier, phase-inverted. Our picture swamps it unless you null ours out. H-hold has to come way down to stop the roll.\n- R.D."
+  ],
+  "note": "Ghost pictures reported ONLY on Tuesday nights: Sep 18, Sep 25, Oct 2, Oct 9, Oct 16 and tonight. Tuning: right under Channel 7's own carrier, phase-inverted, rolling - null our carrier, bring the H-hold well down."
+ },
+ {
+  "id": "program_log",
+  "title": "WKVR Program Log",
+  "kind": "log",
+  "header": "Week of October 22 - master control copy",
+  "pages": [
+   "TUE 10/23\n 8:00 AM Halloway Today (D. Kimball) - live\n 6:00 PM Channel 7 Report (H. Whitcomb)\n 6:20 PM Futura Kitchen spot - Model 62\n12:05 AM Sign-off\n\nWED 10/24\n Color camera delivery - Studio A dark 1-5 PM",
+   "THU 10/25\n 6:00 AM SKYHOOK DEMONSTRATION BEGINS\n 8:00 AM Halloway Today - guest A. Penrose\n   ** TO BE TELECAST LIVE - not yet produced **\n 6:00 PM Channel 7 Report\n 9:00 PM Futura demonstration special, Studio A\n\nSponsor copy for 'Model 63': NONE ON FILE - ask W.B."
+  ],
+  "note": "Thursday 25 Oct: 'Halloway Today' with guest A. Penrose will be telecast live - it has NOT been produced yet. No sponsor copy exists for any 'Model 63'."
+ },
+ {
+  "id": "program_guide",
+  "title": "TV Week clipping",
+  "kind": "clipping",
+  "header": "Halloway Courier, Saturday October 20",
+  "pages": [
+   "TV WEEK - CHANNEL 7 HIGHLIGHTS\n\nTUESDAY: Halloway Today, 8 AM. Dot Kimball previews the Delmar Grange fair.\n\nTHURSDAY: Halloway Today, 8 AM. Special guest - WKVR's own Arthur Penrose on the Skyhook tower! Then at 9 PM, the Futura Coast-to-Coast Spectacular, live from Studio A."
+  ],
+  "note": "Newspaper TV listings: Penrose is Dot's guest on THURSDAY's 'Halloway Today' - two days from now."
+ },
+ {
+  "id": "staff_roster",
+  "title": "WKVR Staff Roster",
+  "kind": "log",
+  "header": "October 1962",
+  "pages": [
+   "Walter Brandt - Station Manager\nArthur Penrose - Chief Engineer (transmitter plant, Skyhook)\nRosa Delgado - Master Control, nights\nDorothy Kimball - Host, Halloway Today\nHal Whitcomb - News\n\nTRANSMITTER KEYS: A. Penrose only.\nNight operation of the Skyhook: Chief Engineer only.\n- W.B."
+  ],
+  "note": "Only Penrose holds the transmitter keys. Night operation of the Skyhook is by the chief engineer only."
+ },
+ {
+  "id": "futura_letter",
+  "title": "Letter from Futura Corporation",
+  "kind": "letter",
+  "header": "Futura Corporation - Dayton, Ohio - October 3, 1962",
+  "pages": [
+   "Dear Mr. Brandt,\n\nOur continued sponsorship of WKVR is contingent upon Thursday's demonstration achieving reliable single-hop reception in Los Angeles. Our engineers estimate that this will require at least 200 kilowatts.",
+   "We trust Mr. Penrose's 'special arrangement' will be in place.\n\nThe Model 63 kitchen remains STRICTLY CONFIDENTIAL until our January launch. Please ensure no mention of it is made on the air.\n\nR. Maddox\nVice President, Advertising"
+  ],
+  "note": "Futura wants 200 kilowatts for Thursday. The 'Model 63' kitchen is confidential until January - nobody may mention it on air.",
+  "stamp": "CONFIDENTIAL"
+ },
+ {
+  "id": "skyhook_brochure",
+  "title": "Skyhook Dedication Program",
+  "kind": "clipping",
+  "header": "WKVR-TV - June 1959",
+  "pages": [
+   "WKVR proudly dedicates the SKYHOOK RESONANT ARRAY, designed by our chief engineer Arthur Penrose, formerly of Bell Laboratories.\n\nHeight: 480 feet\nLicensed power: 50,000 watts\n\n'A tower that reaches the sky - and is wise enough to stop there.'\n- A. Penrose"
+  ],
+  "note": "The Skyhook was dedicated in 1959. Licensed power: 50,000 watts (50 kW)."
+ },
+ {
+  "id": "transmitter_log",
+  "title": "Skyhook Transmitter Log",
+  "kind": "log",
+  "header": "A. Penrose - PRIVATE - DO NOT REMOVE",
+  "pages": [
+   "OVERDRIVE RUNS (approx. 200 kW visual)\n\n1 - Tue 9/18 - 11 PM to 2 AM\n2 - Tue 9/25 - 11 PM to 3 AM\n3 - Tue 10/2 - 10 PM to 3 AM\n4 - Tue 10/9 - 10 PM to 4 AM\n5 - Tue 10/16 - 10 PM to 4 AM\n6 - Tue 10/23 - 10 PM - (tonight)\n7 - Thu 10/25 - 6 AM - FULL DEMONSTRATION, 24 hr",
+   "NOTES\n\nRun 3: a picture on the monitor that is NOT ours. Same carrier, inverted.\nRun 4: moved the coolant feed to VALVE 5 for the overdrive manifold. Valve 3 line now dead-ended. MUST revise the posted shutdown card!\nRun 5: the ghost is Thursday 10/25. Our own programs, two days early.",
+   "Every run receives the SAME night: Thursday. The last run there will ever be. Why the last? What happens after it?\n\nW.B. signed for all of the above.\n- A.P."
+  ],
+  "note": "Penrose has run the Skyhook in overdrive (about 200 kW) every Tuesday night since 18 September - and tonight. Run 4: coolant feed moved to VALVE 5; valve 3 is dead-ended. The posted shutdown card was never revised.",
+  "stamp": "PRIVATE"
+ },
+ {
+  "id": "procedure",
+  "title": "Emergency Shutdown Procedure",
+  "kind": "notice",
+  "header": "Skyhook Overdrive - Rev. 3 - June 1962 - POST AT CONSOLE",
+  "pages": [
+   "IN AN EMERGENCY:\n\n1. Open COOLANT VALVE 3. Confirm flow on the gauge.\n2. Reduce FINAL DRIVE to zero.\n3. Open the PLATE BREAKER.\n4. Close the ANTENNA GROUND.\n\nNEVER open the plate breaker under drive.\nNEVER ground a live antenna.\n\nA. Penrose, Chief Engineer"
+  ],
+  "note": "Posted at the console (Rev. 3, June 1962): 1) open coolant VALVE 3, 2) final drive to zero, 3) open plate breaker, 4) close antenna ground.",
+  "stamp": "REV. 3"
+ }
+]

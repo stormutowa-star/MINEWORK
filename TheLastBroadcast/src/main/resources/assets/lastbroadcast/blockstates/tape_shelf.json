@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/tape_shelf"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/tape_shelf",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/tape_shelf",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/tape_shelf",
+   "y": 270
+  }
+ }
+}

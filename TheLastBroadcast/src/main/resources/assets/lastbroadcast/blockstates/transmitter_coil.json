@@ -1,0 +1,19 @@
+{
+ "variants": {
+  "facing=north": {
+   "model": "lastbroadcast:block/transmitter_coil"
+  },
+  "facing=east": {
+   "model": "lastbroadcast:block/transmitter_coil",
+   "y": 90
+  },
+  "facing=south": {
+   "model": "lastbroadcast:block/transmitter_coil",
+   "y": 180
+  },
+  "facing=west": {
+   "model": "lastbroadcast:block/transmitter_coil",
+   "y": 270
+  }
+ }
+}

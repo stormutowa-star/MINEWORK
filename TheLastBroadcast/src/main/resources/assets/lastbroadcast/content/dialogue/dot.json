@@ -1,0 +1,201 @@
+{
+ "name": "Dot Kimball",
+ "role": "Host, Halloway Today",
+ "roots": [
+  {
+   "node": "end",
+   "if": [
+    "CASE_SOLVED"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "late",
+   "if": [
+    "D3"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "d1",
+   "if": [
+    "D1"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "small",
+   "if": [
+    "MET_DOT"
+   ],
+   "ifNot": []
+  },
+  {
+   "node": "intro",
+   "if": [],
+   "ifNot": []
+  }
+ ],
+ "nodes": {
+  "intro": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Hi! You're from the government? Oh - the FCC. Dot Kimball. I do Halloway Today."
+    },
+    {
+     "who": "dot",
+     "text": "I'm running lines for Thursday. Arthur's my guest. He's going to explain the whole sky to us."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Thursday?",
+     "next": "thursday",
+     "actions": [
+      {
+       "set": "MET_DOT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    },
+    {
+     "text": "Don't let me interrupt.",
+     "next": null,
+     "actions": [
+      {
+       "set": "MET_DOT"
+      }
+     ],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "thursday": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Our first show in color! Walter says the whole country might be watching on Thursday night."
+    },
+    {
+     "who": "dot",
+     "text": "I'll be in Studio A all evening. Somebody has to keep talking while the engineers sweat."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Good luck.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  },
+  "small": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Do I look all right? They say color cameras are much less forgiving."
+    }
+   ],
+   "choices": [
+    {
+     "text": "You look fine.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "idle",
+   "enter": []
+  },
+  "d1": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Rosa says there's a picture of me on the monitors. From Thursday. That's a joke, right?"
+    },
+    {
+     "who": "player",
+     "text": "I don't think it's a joke."
+    },
+    {
+     "who": "dot",
+     "text": "Then I'd like to know how Thursday goes, please. All of it."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Not yet.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "late": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "You've seen something. It's all over your face. Is it the tower?"
+    },
+    {
+     "who": "dot",
+     "text": "If something happened on Thursday night... I'd stay on the air. I know I would."
+    }
+   ],
+   "choices": [
+    {
+     "text": "It won't come to that.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "nervous",
+   "enter": []
+  },
+  "end": {
+   "lines": [
+    {
+     "who": "dot",
+     "text": "Thursday's postponed! Walter's in a mood and Arthur's whistling. I'll take it."
+    },
+    {
+     "who": "dot",
+     "text": "Come back for the Grange fair. The pie's on me."
+    }
+   ],
+   "choices": [
+    {
+     "text": "Goodnight, Dot.",
+     "next": null,
+     "actions": [],
+     "if": [],
+     "ifNot": [],
+     "ifEvidence": []
+    }
+   ],
+   "pose": "gesture",
+   "enter": []
+  }
+ }
+}
